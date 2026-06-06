@@ -1,0 +1,371 @@
+export type Lang = "en" | "ar";
+
+export const translations: Record<Lang, Record<string, string>> = {
+  en: {
+    // ─── NAV ───────────────────────────────────────────────────────────────
+    "nav.home": "Home",
+    "nav.courses": "Courses",
+    "nav.courses.english_companies": "English for Companies",
+    "nav.courses.esp": "ESP Courses",
+    "nav.courses.arabic": "Learn Arabic with IH Saudi Arabia",
+    "nav.courses.young_learners": "Young Learners",
+    "nav.courses.online": "Online / Virtual Classes",
+    "nav.courses.placement": "Corporate Placement Test",
+    "nav.teacher_training": "Teacher Training",
+    "nav.teacher_training.celta": "CELTA Training",
+    "nav.study_abroad": "Study Abroad",
+    "nav.faqs": "FAQ's",
+    "nav.contact": "Contact Us",
+    "nav.language": "عربي",
+
+    // ─── HOME ──────────────────────────────────────────────────────────────
+    "home.hero.tag": "Global Excellence · Local Presence",
+    "home.hero.title": "International House\nSaudi Arabia",
+    "home.hero.subtitle":
+      "One of the largest and most prestigious global networks of language teaching schools operating in the Kingdom — delivering world-class English education since 2001.",
+    "home.hero.cta": "Explore Our Courses",
+    "home.hero.cta2": "Take Placement Test",
+
+    "home.about.title": "About International House",
+    "home.about.body":
+      "International House Saudi Arabia (IH) represents one of the largest and most prestigious global networks of language teaching schools operating in the Kingdom. Founded in 1953, IH is a worldwide network of over 130+ affiliated private language schools in 45+ countries, spanning every continent.",
+    "home.about.stat1": "130+",
+    "home.about.stat1_label": "Schools Worldwide",
+    "home.about.stat2": "45+",
+    "home.about.stat2_label": "Countries",
+    "home.about.stat3": "30+",
+    "home.about.stat3_label": "Years in KSA",
+    "home.about.stat4": "1953",
+    "home.about.stat4_label": "Year Founded",
+
+    "home.ops.title": "Operations & Reach",
+    "home.ops.body":
+      "IH Saudi Arabia teaches English to companies, private students, and Saudi government-funded projects. Our native teachers come from the USA, UK, Canada, Ireland, and South Africa, operating across Riyadh, Jeddah, Dammam, Jubail, Yanbu, Khafji, and Abha.",
+
+    "home.values.title": "Why Choose IH Saudi Arabia?",
+    "home.values.1.title": "Affiliated Since 2001",
+    "home.values.1.body":
+      "Officially affiliated with the IH World Organization in 2001 with 30 years of local excellence in Saudi Arabia.",
+    "home.values.2.title": "Ministry Accredited",
+    "home.values.2.body":
+      "Quality standards match the International House World Organization (IHWO) and the Saudi Ministry of Education.",
+    "home.values.3.title": "TVTC Partner",
+    "home.values.3.body":
+      "Formally partnered with the Technical and Vocational Training Corporation (TVTC) — recognized across all Saudi industrial and government bodies.",
+    "home.values.4.title": "First CELTA Provider",
+    "home.values.4.body":
+      "First private training organization in KSA to deliver CELTA validation, ensuring the highest international standards.",
+
+    "home.cta.tag": "Free Assessment",
+    "home.cta.title": "Ready to know your\nENGLISH LANGUAGE LEVEL?",
+    "home.cta.body":
+      "Take our test and we'll glad to provide recommendations for the course that fits perfectly with your current standing and desired results.",
+    "home.cta.button": "Start the Test",
+
+    "home.locations.title": "Our Locations Across Saudi Arabia",
+
+    // ─── TEACHER TRAINING ─────────────────────────────────────────────────
+    "celta.hero.tag": "Cambridge Certified · Vision 2030 Ready",
+    "celta.hero.title": "CELTA Teacher Training",
+    "celta.hero.subtitle":
+      "The world's most recognized initial EFL qualification, available in Saudi Arabia through IH.",
+    "celta.overview.title": "Programme Overview",
+    "celta.overview.body":
+      "CELTA is the industry's primary initial qualification and the most recognized EFL qualification in Saudi Arabia. Under Vision 2030, as native speaker positions switch to localized manpower, CELTA provides critical accreditation for aspiring English teachers in language schools and local vocational colleges.",
+    "celta.tracks.title": "Programme Tracks",
+    "celta.track1.name": "CELTA Full Time",
+    "celta.track1.duration": "4 Weeks",
+    "celta.track1.hours": "120 Hours Total",
+    "celta.track1.weekly": "30 Hours / Week",
+    "celta.track1.class": "Max 15 Trainees",
+    "celta.track2.name": "CELTA Part Time",
+    "celta.track2.duration": "12 Weeks",
+    "celta.track2.hours": "Flexible Schedule",
+    "celta.track2.weekly": "Evenings & Weekends",
+    "celta.track2.class": "Max 15 Trainees",
+    "celta.track3.name": "CELTA Blended",
+    "celta.track3.duration": "13 Weeks",
+    "celta.track3.hours": "Online + Face-to-Face",
+    "celta.track3.weekly": "Hybrid Format",
+    "celta.track3.class": "Max 15 Trainees",
+    "celta.notes.title": "Operational Notes",
+    "celta.notes.1": "Minimum language competence level requirement: C1+",
+    "celta.notes.2": "Course framework includes 4 written assignments alongside interactive teaching practices.",
+    "celta.notes.3": "Face-to-face setups are regularly offered across Dhahran and Jubail branches.",
+    "celta.cta": "Register for CELTA",
+
+    // ─── STUDY ABROAD ─────────────────────────────────────────────────────
+    "abroad.hero.tag": "50+ Global Destinations",
+    "abroad.hero.title": "Study Abroad",
+    "abroad.hero.subtitle":
+      "Expand your horizons with IH's international study programmes — tailored for Saudi students.",
+    "abroad.core.title": "Discover the World Through Language",
+    "abroad.core.body":
+      "Gain access to General English programmes, intensive exam preparation, and summer camps across over 50 global locations including London and the scenic countryside of IH Aberdeen. Language choices available include English, Spanish, Italian, French, German, and Arabic.",
+    "abroad.services.title": "Our Concierge Services",
+    "abroad.services.1.title": "Visa Processing",
+    "abroad.services.1.body": "Professional student visa management handled entirely by IH Saudi Arabia's Dhahran office.",
+    "abroad.services.2.title": "Accommodation",
+    "abroad.services.2.body": "Curated cultural accommodation arrangements ensuring comfort and immersion.",
+    "abroad.services.3.title": "Travel Configurations",
+    "abroad.services.3.body": "End-to-end travel logistics so your focus remains entirely on learning.",
+    "abroad.locations.title": "Popular Destinations",
+    "abroad.cta": "Plan Your Study Abroad Journey",
+
+    // ─── FAQS ─────────────────────────────────────────────────────────────
+    "faqs.hero.title": "Frequently Asked Questions",
+    "faqs.hero.subtitle": "Everything you need to know about studying with IH Saudi Arabia.",
+    "faqs.q1": "How do IH Saudi Arabia's course prices compare to competitors?",
+    "faqs.a1":
+      "We offer significant pricing adjustments making our rates far lower than standard competitors, while maintaining world-class quality and Cambridge-accredited teaching standards. Contact our offices for a personalized quote based on your chosen programme.",
+    "faqs.q2": "Are there separate training environments for female learners?",
+    "faqs.a2":
+      "Absolutely. IH Saudi Arabia provides complete choice availability for female learners, with dedicated ladies-only training environments available across all our branches. We ensure a comfortable, safe, and highly productive learning experience for all students.",
+    "faqs.q3": "How does the online learning platform work?",
+    "faqs.a3":
+      "Our completely streamlined virtual interface is designed to ensure lower-level learners, parents registering children, and corporate staff can effectively optimize their learning and tracking journeys. The platform is mobile-friendly, accessible 24/7, and supported by our dedicated academic team.",
+    "faqs.q4": "Is my IH Saudi Arabia certification recognized across Saudi Arabia?",
+    "faqs.a4":
+      "Yes. Our certifications carry comprehensive recognition valid across all Saudi industrial and government bodies, including the Technical and Vocational Training Corporation (TVTC) and the Saudi Ministry of Education. This ensures your qualification opens doors professionally across the Kingdom.",
+    "faqs.q5": "What English level do I need to enroll?",
+    "faqs.a5":
+      "We welcome learners of all levels — from absolute beginners to advanced professionals. Our free online placement test accurately identifies your current level and helps us recommend the ideal programme for you.",
+    "faqs.q6": "Do you offer courses for children and young learners?",
+    "faqs.a6":
+      "Yes! Our Young Learners programme is specially designed for children and teenagers, with age-appropriate content, engaging teaching methods, and dedicated instructors experienced in youth education.",
+
+    // ─── CONTACT ──────────────────────────────────────────────────────────
+    "contact.hero.title": "Contact Us",
+    "contact.hero.subtitle": "We are here to help. Reach out to any of our branch offices.",
+    "contact.dammam.title": "International House Dhahran",
+    "contact.dammam.address": "Al Muntazah District, Bldg No. 7057, 8th Floor, Al Amir Muhammed Bin Fahd Branch Road Street, Dammam 34242",
+    "contact.jeddah.title": "Jeddah Branch",
+    "contact.jeddah.address": "4th Floor Al Badriah Towers, Al Rawdah Street, Al Khalidiyah District, Jeddah City, Kingdom of Saudi Arabia",
+    "contact.phone": "Phone",
+    "contact.email": "Email",
+    "contact.form.title": "Send Us a Message",
+    "contact.form.name": "Full Name",
+    "contact.form.email": "Email Address",
+    "contact.form.subject": "Subject",
+    "contact.form.message": "Message",
+    "contact.form.submit": "Send Message",
+    "contact.map.open": "Open in Google Maps",
+
+    // ─── FOOTER ───────────────────────────────────────────────────────────
+    "footer.branches": "Our Branches",
+    "footer.hotline": "Unified Hotline",
+    "footer.quick_links": "Quick Links",
+    "footer.follow": "Follow Us",
+    "footer.copyright": "International House Saudi Arabia © Copyright 2025",
+    "footer.arabic_info": "Arabic Info",
+    "footer.young_learners": "Young Learners",
+    "footer.placement": "Online Placement Test",
+    "footer.careers": "Careers",
+    "footer.teacher_training": "Teacher Training",
+    "footer.privacy": "Privacy Policy",
+
+    // ─── COURSES ──────────────────────────────────────────────────────────
+    "courses.english_companies.title": "English for Companies",
+    "courses.english_companies.body":
+      "Tailored corporate English training programmes for businesses across Saudi Arabia. We work directly with HR departments and management teams to design bespoke learning pathways that improve communication, presentation, and professional writing skills.",
+    "courses.esp.title": "ESP Courses",
+    "courses.esp.body":
+      "English for Specific Purposes (ESP) covers specialized language training for sectors including oil & gas, healthcare, engineering, finance, and legal professionals — aligned with Saudi Vision 2030 workforce development goals.",
+    "courses.arabic.title": "Learn Arabic with IH Saudi Arabia",
+    "courses.arabic.body":
+      "Professional Modern Standard Arabic and dialect training for expatriates and international professionals living and working in the Kingdom. Courses available at all levels from beginner to advanced.",
+    "courses.young_learners.title": "Young Learners",
+    "courses.young_learners.body":
+      "Engaging, age-appropriate English programmes for children and teenagers (ages 5–17). Our certified young learner instructors use interactive, game-based methodologies to build confident young communicators.",
+    "courses.online.title": "Online / Virtual Classes",
+    "courses.online.body":
+      "Flexible, high-quality virtual English classes delivered live by our qualified native-speaker teachers. Perfect for busy professionals, students with schedule constraints, and learners outside major cities.",
+    "courses.placement.title": "Corporate Placement Test",
+    "courses.placement.body":
+      "Accurately assess the English proficiency level of your workforce with IH Saudi Arabia's validated corporate placement testing — providing actionable data to inform your training investment decisions.",
+  },
+
+  ar: {
+    // ─── NAV ───────────────────────────────────────────────────────────────
+    "nav.home": "الرئيسية",
+    "nav.courses": "الدورات",
+    "nav.courses.english_companies": "الإنجليزية للشركات",
+    "nav.courses.esp": "دورات ESP",
+    "nav.courses.arabic": "تعلم العربية مع IH السعودية",
+    "nav.courses.young_learners": "المتعلمون الصغار",
+    "nav.courses.online": "الدراسة عبر الإنترنت",
+    "nav.courses.placement": "اختبار التحديد للشركات",
+    "nav.teacher_training": "تدريب المعلمين",
+    "nav.teacher_training.celta": "دورة CELTA",
+    "nav.study_abroad": "الدراسة في الخارج",
+    "nav.faqs": "الأسئلة الشائعة",
+    "nav.contact": "اتصل بنا",
+    "nav.language": "English",
+
+    // ─── HOME ──────────────────────────────────────────────────────────────
+    "home.hero.tag": "التميز العالمي · الحضور المحلي",
+    "home.hero.title": "الهاوس الدولي\nالمملكة العربية السعودية",
+    "home.hero.subtitle":
+      "واحدة من أكبر وأرقى الشبكات العالمية لمدارس تعليم اللغات العاملة في المملكة — تقديم تعليم الإنجليزية على مستوى عالمي منذ عام 2001.",
+    "home.hero.cta": "استعرض دوراتنا",
+    "home.hero.cta2": "اجرِ اختبار التحديد",
+
+    "home.about.title": "عن الهاوس الدولي",
+    "home.about.body":
+      "يمثل الهاوس الدولي في المملكة العربية السعودية (IH) واحدة من أكبر وأرقى الشبكات العالمية لمدارس تعليم اللغات العاملة في المملكة. تأسست عام 1953، وتضم IH شبكة عالمية تضم أكثر من 130 مدرسة خاصة تابعة في 45+ دولة تمتد عبر كل القارات.",
+    "home.about.stat1": "+130",
+    "home.about.stat1_label": "مدرسة حول العالم",
+    "home.about.stat2": "+45",
+    "home.about.stat2_label": "دولة",
+    "home.about.stat3": "+30",
+    "home.about.stat3_label": "سنة في المملكة",
+    "home.about.stat4": "1953",
+    "home.about.stat4_label": "سنة التأسيس",
+
+    "home.ops.title": "العمليات والنطاق",
+    "home.ops.body":
+      "يقدم الهاوس الدولي السعودية تعليم اللغة الإنجليزية للشركات، والطلاب الخاصين، والمشاريع الحكومية الممولة سعودياً. معلمونا المتحدثون بالإنجليزية كلغة أم قادمون من الولايات المتحدة وبريطانيا وكندا وإيرلندا وجنوب أفريقيا، يعملون في الرياض وجدة والدمام والجبيل وينبع والخفجي وأبها.",
+
+    "home.values.title": "لماذا تختار الهاوس الدولي السعودية؟",
+    "home.values.1.title": "انتساب منذ 2001",
+    "home.values.1.body":
+      "انتسبت رسمياً لمنظمة IH العالمية عام 2001 مع 30 عاماً من التميز المحلي في المملكة العربية السعودية.",
+    "home.values.2.title": "اعتماد وزارة التعليم",
+    "home.values.2.body":
+      "معايير الجودة تتوافق مع منظمة الهاوس الدولي العالمية (IHWO) ووزارة التعليم السعودية.",
+    "home.values.3.title": "شريك هيئة التدريب المهني",
+    "home.values.3.body":
+      "شريك رسمي للهيئة التقنية للتدريب المهني (TVTC) — معتمد لدى جميع الجهات الصناعية والحكومية السعودية.",
+    "home.values.4.title": "أول مزود لـ CELTA",
+    "home.values.4.body":
+      "أول منظمة تدريب خاصة في المملكة تقدم اعتماد CELTA، مما يضمن أعلى المعايير الدولية.",
+
+    "home.cta.tag": "تقييم مجاني",
+    "home.cta.title": "هل أنت مستعد لمعرفة مستواك في اللغة الإنجليزية؟",
+    "home.cta.body":
+      "أجرِ اختبارنا وسنسعد بتقديم التوصيات للدورة التي تتناسب تماماً مع مستواك الحالي والنتائج المرجوة.",
+    "home.cta.button": "ابدأ الاختبار",
+
+    "home.locations.title": "مواقعنا في جميع أنحاء المملكة العربية السعودية",
+
+    // ─── TEACHER TRAINING ─────────────────────────────────────────────────
+    "celta.hero.tag": "اعتماد كامبريدج · جاهزية رؤية 2030",
+    "celta.hero.title": "تدريب معلمي CELTA",
+    "celta.hero.subtitle":
+      "أكثر مؤهلات تعليم الإنجليزية كلغة أجنبية اعترافاً على مستوى العالم، متاحة في المملكة العربية السعودية من خلال IH.",
+    "celta.overview.title": "نظرة عامة على البرنامج",
+    "celta.overview.body":
+      "CELTA هي المؤهل الأولي الأساسي في المجال وأكثر مؤهلات EFL اعترافاً في المملكة العربية السعودية. في إطار رؤية 2030، مع انتقال وظائف المتحدثين الأصليين إلى القوى العاملة المحلية، توفر CELTA الاعتماد الحاسم للمعلمين الطموحين في مدارس اللغات والكليات المهنية المحلية.",
+    "celta.tracks.title": "مسارات البرنامج",
+    "celta.track1.name": "CELTA بدوام كامل",
+    "celta.track1.duration": "4 أسابيع",
+    "celta.track1.hours": "120 ساعة إجمالاً",
+    "celta.track1.weekly": "30 ساعة / أسبوع",
+    "celta.track1.class": "بحد أقصى 15 متدرباً",
+    "celta.track2.name": "CELTA بدوام جزئي",
+    "celta.track2.duration": "12 أسبوع",
+    "celta.track2.hours": "جدول مرن",
+    "celta.track2.weekly": "أمسيات وعطل نهاية الأسبوع",
+    "celta.track2.class": "بحد أقصى 15 متدرباً",
+    "celta.track3.name": "CELTA المدمج",
+    "celta.track3.duration": "13 أسبوع",
+    "celta.track3.hours": "أونلاين + وجهاً لوجه",
+    "celta.track3.weekly": "هجين",
+    "celta.track3.class": "بحد أقصى 15 متدرباً",
+    "celta.notes.title": "ملاحظات تشغيلية",
+    "celta.notes.1": "الحد الأدنى لمتطلب إتقان اللغة: C1+",
+    "celta.notes.2": "يتضمن إطار الدورة 4 واجبات مكتوبة إلى جانب ممارسات تدريسية تفاعلية.",
+    "celta.notes.3": "تُقدَّم الإعدادات وجهاً لوجه بانتظام عبر فروع الظهران والجبيل.",
+    "celta.cta": "سجّل في دورة CELTA",
+
+    // ─── STUDY ABROAD ─────────────────────────────────────────────────────
+    "abroad.hero.tag": "+50 وجهة عالمية",
+    "abroad.hero.title": "الدراسة في الخارج",
+    "abroad.hero.subtitle":
+      "وسّع آفاقك مع برامج الدراسة الدولية لـ IH — مصممة خصيصاً للطلاب السعوديين.",
+    "abroad.core.title": "اكتشف العالم من خلال اللغة",
+    "abroad.core.body":
+      "احصل على برامج الإنجليزية العامة، والتحضير المكثف للامتحانات، والمخيمات الصيفية عبر أكثر من 50 موقعاً عالمياً بما في ذلك لندن وريف IH أبردين. تشمل خيارات اللغة الإنجليزية والإسبانية والإيطالية والفرنسية والألمانية والعربية.",
+    "abroad.services.title": "خدمات الكونسيرج لدينا",
+    "abroad.services.1.title": "معالجة التأشيرة",
+    "abroad.services.1.body": "إدارة احترافية لتأشيرة الطالب تتولاها بالكامل مكاتب IH السعودية في الظهران.",
+    "abroad.services.2.title": "الإقامة",
+    "abroad.services.2.body": "ترتيبات إقامة ثقافية مختارة تضمن الراحة والانغماس في الثقافة المحلية.",
+    "abroad.services.3.title": "ترتيبات السفر",
+    "abroad.services.3.body": "لوجستيات سفر متكاملة حتى يبقى تركيزك على التعلم.",
+    "abroad.locations.title": "الوجهات الشهيرة",
+    "abroad.cta": "خطّط لرحلة دراستك في الخارج",
+
+    // ─── FAQS ─────────────────────────────────────────────────────────────
+    "faqs.hero.title": "الأسئلة الشائعة",
+    "faqs.hero.subtitle": "كل ما تحتاج معرفته عن الدراسة مع الهاوس الدولي السعودية.",
+    "faqs.q1": "كيف تقارن أسعار دورات IH السعودية بالمنافسين؟",
+    "faqs.a1":
+      "نقدم تعديلات سعرية كبيرة تجعل أسعارنا أقل بكثير من المنافسين التقليديين، مع الحفاظ على جودة عالمية ومعايير تدريس معتمدة من كامبريدج. تواصل مع مكاتبنا للحصول على عرض سعر مخصص بناءً على برنامجك المختار.",
+    "faqs.q2": "هل توجد بيئات تدريب منفصلة للمتعلمات؟",
+    "faqs.a2":
+      "بالتأكيد. توفر IH السعودية خيارات كاملة للمتعلمات، مع بيئات تدريب مخصصة للسيدات فقط متاحة في جميع فروعنا. نحرص على ضمان تجربة تعليمية مريحة وآمنة وفعّالة لجميع الطلاب.",
+    "faqs.q3": "كيف يعمل منصة التعلم الإلكترونية؟",
+    "faqs.a3":
+      "واجهتنا الافتراضية المبسطة مصممة لضمان تمكّن المتعلمين من المستويات الأدنى، والآباء الذين يسجّلون أطفالهم، والموظفين في الشركات من تتبع مسيرتهم التعليمية بفاعلية. المنصة متوافقة مع الأجهزة المحمولة ومتاحة على مدار الساعة، وتدعمها فرقنا الأكاديمية المتخصصة.",
+    "faqs.q4": "هل شهادة IH السعودية معترف بها في جميع أنحاء المملكة؟",
+    "faqs.a4":
+      "نعم. تحمل شهاداتنا اعترافاً شاملاً صالحاً لدى جميع الجهات الصناعية والحكومية السعودية، بما فيها الهيئة التقنية للتدريب المهني (TVTC) ووزارة التعليم السعودية. هذا يضمن أن مؤهلك يفتح أبواباً مهنية في جميع أنحاء المملكة.",
+    "faqs.q5": "ما هو المستوى الإنجليزي المطلوب للتسجيل؟",
+    "faqs.a5":
+      "نرحب بالمتعلمين من جميع المستويات — من المبتدئين الكاملين إلى المحترفين المتقدمين. اختبار التحديد المجاني عبر الإنترنت يحدد مستواك الحالي بدقة ويساعدنا في توصية البرنامج المثالي لك.",
+    "faqs.q6": "هل تقدمون دورات للأطفال والمتعلمين الصغار؟",
+    "faqs.a6":
+      "نعم! برنامج المتعلمين الصغار لدينا مصمم خصيصاً للأطفال والمراهقين (من سن 5 إلى 17 سنة)، بمحتوى مناسب للعمر وأساليب تدريس تفاعلية ومعلمين متخصصين في تعليم الشباب.",
+
+    // ─── CONTACT ──────────────────────────────────────────────────────────
+    "contact.hero.title": "اتصل بنا",
+    "contact.hero.subtitle": "نحن هنا للمساعدة. تواصل مع أي من فروعنا.",
+    "contact.dammam.title": "انترناشونال هاوس الظهران",
+    "contact.dammam.address": "حي المنتزه، مبنى رقم 7057، الطابق الثامن، طريق الأمير محمد بن فهد الفرعي، الدمام 34242",
+    "contact.jeddah.title": "فرع جدة",
+    "contact.jeddah.address": "الطابق الرابع أبراج البدرية، شارع الروضة، حي الخالدية، مدينة جدة، المملكة العربية السعودية",
+    "contact.phone": "الهاتف",
+    "contact.email": "البريد الإلكتروني",
+    "contact.form.title": "أرسل لنا رسالة",
+    "contact.form.name": "الاسم الكامل",
+    "contact.form.email": "البريد الإلكتروني",
+    "contact.form.subject": "الموضوع",
+    "contact.form.message": "الرسالة",
+    "contact.form.submit": "إرسال الرسالة",
+    "contact.map.open": "فتح في خرائط جوجل",
+
+    // ─── FOOTER ───────────────────────────────────────────────────────────
+    "footer.branches": "فروعنا",
+    "footer.hotline": "الخط الساخن الموحد",
+    "footer.quick_links": "روابط سريعة",
+    "footer.follow": "تابعنا",
+    "footer.copyright": "الهاوس الدولي المملكة العربية السعودية © حقوق النشر 2025",
+    "footer.arabic_info": "معلومات بالعربية",
+    "footer.young_learners": "المتعلمون الصغار",
+    "footer.placement": "اختبار التحديد الإلكتروني",
+    "footer.careers": "الوظائف",
+    "footer.teacher_training": "تدريب المعلمين",
+    "footer.privacy": "سياسة الخصوصية",
+
+    // ─── COURSES ──────────────────────────────────────────────────────────
+    "courses.english_companies.title": "الإنجليزية للشركات",
+    "courses.english_companies.body":
+      "برامج تدريب اللغة الإنجليزية للشركات مصممة خصيصاً للأعمال التجارية في جميع أنحاء المملكة العربية السعودية. نتعاون مباشرة مع إدارات الموارد البشرية وفرق الإدارة لتصميم مسارات تعليمية مخصصة تحسّن مهارات التواصل والعرض والكتابة المهنية.",
+    "courses.esp.title": "دورات ESP",
+    "courses.esp.body":
+      "الإنجليزية لأغراض خاصة (ESP) تغطي التدريب اللغوي المتخصص لقطاعات النفط والغاز والرعاية الصحية والهندسة والمالية والمتخصصين القانونيين — بما يتوافق مع أهداف تطوير القوى العاملة في رؤية السعودية 2030.",
+    "courses.arabic.title": "تعلم العربية مع IH السعودية",
+    "courses.arabic.body":
+      "تدريب احترافي على العربية الفصحى الحديثة واللهجات للمغتربين والمتخصصين الدوليين الذين يعيشون ويعملون في المملكة. الدورات متاحة على جميع المستويات من المبتدئ إلى المتقدم.",
+    "courses.young_learners.title": "المتعلمون الصغار",
+    "courses.young_learners.body":
+      "برامج إنجليزية جذابة ومناسبة للعمر للأطفال والمراهقين (من 5 إلى 17 سنة). يستخدم معلمونا المعتمدون للمتعلمين الصغار مناهج تفاعلية قائمة على الألعاب لبناء متواصلين شباب واثقين.",
+    "courses.online.title": "الدراسة عبر الإنترنت",
+    "courses.online.body":
+      "دروس إنجليزية افتراضية مرنة وعالية الجودة تُقدَّم مباشرة من معلمينا المؤهلين المتحدثين بالإنجليزية كلغة أم. مثالية للمحترفين المشغولين والطلاب ذوي القيود الجدولية والمتعلمين خارج المدن الكبرى.",
+    "courses.placement.title": "اختبار التحديد للشركات",
+    "courses.placement.body":
+      "قيّم بدقة مستوى إتقان اللغة الإنجليزية لموظفيك باستخدام اختبار التحديد المؤسسي المعتمد من IH السعودية — يوفر بيانات قابلة للتنفيذ لتوجيه قرارات الاستثمار في التدريب.",
+  },
+};
