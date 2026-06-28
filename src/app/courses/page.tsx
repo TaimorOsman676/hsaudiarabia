@@ -1,0 +1,1207 @@
+"use client";
+
+import React, { useState, useEffect } from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { useLanguage } from "@/context/LanguageContext";
+import ThemeAccent from "@/components/ThemeAccent";
+import {
+  BookOpen,
+  Briefcase,
+  Wrench,
+  GraduationCap,
+  Sparkles,
+  Laptop,
+  UserCheck,
+  ClipboardCheck,
+  Check,
+  ArrowRight,
+  ChevronRight
+} from "lucide-react";
+
+// Bilingual content definitions
+const content = {
+  en: {
+    hero: {
+      tag: "English Language Learning for Every Stage",
+      title: "Our English Courses",
+      subtitle: "At International House Saudi Arabia, we offer a comprehensive range of English language programs designed to support learners of different ages, abilities, and goals.",
+      desc: "Whether you are learning English for education, career advancement, professional development, international examinations, or personal growth, our programs provide practical communication skills, structured progression, and internationally aligned learning outcomes.",
+      placementNotice: "All learners begin with a placement assessment to ensure they are enrolled in the most suitable program for their level and objectives."
+    },
+    sections: {
+      general: {
+        id: "general-english",
+        title: "General English",
+        subtitle: "Build Confidence in Everyday Communication",
+        desc: "Our General English programs are designed to develop the four essential language skills: speaking, listening, reading, and writing. Through interactive lessons and practical communication activities, learners gain the confidence and fluency needed for real-life situations, academic study, and professional environments.",
+        suitableTitle: "Suitable For",
+        suitableItems: ["Adults", "University students", "Professionals", "Individual learners"],
+        levelsTitle: "Available Levels",
+        levelsItems: ["Beginner (A1)", "Elementary (A2)", "Pre-Intermediate (B1)", "Intermediate (B1-B2)", "Upper Intermediate (B2)", "Advanced (C1)"],
+        cta: "Enquire Now"
+      },
+      business: {
+        id: "business-english",
+        title: "Business English",
+        subtitle: "Communicate Effectively in the Workplace",
+        desc: "Business English programs focus on the language skills required for professional success in today's global workplace. Learners develop practical communication skills for meetings, presentations, negotiations, emails, reports, and workplace interactions.",
+        focusTitle: "Areas of Focus",
+        focusItems: ["Business Communication", "Email Writing", "Presentations", "Meetings", "Negotiations", "Professional Writing"],
+        cta: "Enquire Now"
+      },
+      technical: {
+        id: "technical-english",
+        title: "Technical & Professional English",
+        subtitle: "Language Solutions for Industry and Specialized Sectors",
+        desc: "IH Saudi Arabia offers industry-focused English programs designed to support employees working in technical and professional environments. Programs may be customized to suit specific sectors and workplace requirements.",
+        focusTitle: "Specialized Training Areas",
+        focusItems: [
+          "Technical English",
+          "English for Engineers",
+          "English for Oil & Gas",
+          "English for Logistics",
+          "English for Hospitality & Tourism",
+          "English for Healthcare Professionals",
+          "English for Customer Service"
+        ],
+        cta: "Request Custom Proposal"
+      },
+      exams: {
+        id: "exam-prep",
+        title: "International Examination Preparation",
+        subtitle: "Prepare for Globally Recognized Qualifications",
+        desc: "Our examination preparation programs help learners achieve the language proficiency required for academic, professional, and international opportunities. Our experienced instructors provide structured preparation, practice assessments, and examination strategies to help learners perform confidently.",
+        focusTitle: "Preparation Courses Include",
+        focusItems: ["IELTS Academic & General", "LanguageCert Qualifications", "Cambridge English Qualifications", "Pearson English Qualifications (PTE)"],
+        cta: "Book Prep Course"
+      },
+      young: {
+        id: "young-learners",
+        title: "Young Learners Programs",
+        subtitle: "Building Strong Foundations for Future Success",
+        desc: "Our Young Learners programs are designed to help children and teenagers develop confidence, communication skills, and a positive attitude toward learning English. Programs combine engaging activities, practical communication, and structured language development within a supportive learning environment.",
+        suitableTitle: "Suitable For",
+        suitableItems: ["School Students", "Teenagers", "Academic Support Programs"],
+        levelsTitle: "Focus Areas",
+        levelsItems: ["Early Literacy", "Confidence Building", "Interactive Speaking", "School Curriculum Support"],
+        cta: "Enquire for Kids"
+      },
+      online: {
+        id: "online-hybrid",
+        title: "Online & Hybrid Learning",
+        subtitle: "Flexible Learning Without Boundaries",
+        desc: "IH Saudi Arabia offers flexible learning solutions that allow learners to access quality education wherever they are. Our online and hybrid programs provide the same commitment to quality, support, and learning outcomes as our classroom-based courses.",
+        focusTitle: "Flexible Options",
+        focusItems: ["Face-to-Face Classes", "Live Online Classes", "Hybrid Learning Programs", "Private Tuition", "Group Courses"],
+        cta: "Learn More Online"
+      },
+      private: {
+        id: "private-tuition",
+        title: "Private Tuition & Executive Coaching",
+        subtitle: "Personalized Learning for Individual Goals",
+        desc: "For learners seeking customized support, IH Saudi Arabia offers one-to-one and small-group training designed around individual needs and objectives. These programs provide maximum flexibility and personalized attention for faster progress.",
+        focusTitle: "Available Focus Areas",
+        focusItems: ["General English Custom", "Business English Custom", "Targeted Exam Preparation", "Executive Coaching", "Professional Communication Skills"],
+        cta: "Book Executive Consultation"
+      },
+      guidance: {
+        id: "guidance",
+        title: "Placement Testing & Academic Guidance",
+        subtitle: "Every successful learning journey begins with the right placement.",
+        desc: "Our academic team provides placement testing and professional guidance to help learners select the most appropriate course and learning pathway based on their current level and future goals. We evaluate speaking, listening, reading, and grammar to build a tailored plan for you."
+      }
+    },
+    cta: {
+      title: "Start Learning with IH Saudi Arabia",
+      subtitle: "Whether you are taking your first steps in English, preparing for an international examination, developing workplace communication skills, or supporting your child's educational success, IH Saudi Arabia offers a learning pathway designed for you.",
+      placement: "Book a Placement Test",
+      explore: "Explore Learning Options",
+      contact: "Contact an Academic Advisor",
+      register: "Register for a Course"
+    }
+  },
+  ar: {
+    hero: {
+      tag: "تعليم اللغة الإنجليزية لكل مرحلة من مراحل رحلتك",
+      title: "دوراتنا التعليمية",
+      subtitle: "نقدم في الهاوس الدولي السعودية مجموعة شاملة من برامج اللغة الإنجليزية المصممة لدعم المتعلمين من مختلف الأعمار والقدرات والأهداف.",
+      desc: "سواء كنت تتعلم اللغة الإنجليزية لأغراض التعليم، أو التقدم المهني، أو التطوير الوظيفي، أو الامتحانات الدولية، أو النمو الشخصي، فإن برامجنا توفر مهارات اتصال عملية، وتقدماً منظماً، ونتائج تعليمية متوافقة دولياً.",
+      placementNotice: "يبدأ جميع المتعلمين بتقييم تحديد المستوى لضمان تسجيلهم في البرنامج الأكثر ملاءمة لمستواهم وأهدافهم."
+    },
+    sections: {
+      general: {
+        id: "general-english",
+        title: "اللغة الإنجليزية العامة",
+        subtitle: "بناء الثقة في التواصل اليومي",
+        desc: "تم تصميم برامج اللغة الإنجليزية العامة لدينا لتطوير المهارات اللغوية الأربعة الأساسية: التحدث والاستماع والقراءة والكتابة. من خلال الدروس التفاعلية وأنشطة التواصل العملية، يكتسب المتعلمون الثقة والطلاقة اللازمة للمواقف الحياتية اليومية والدراسة الأكاديمية والبيئات المهنية.",
+        suitableTitle: "مناسب لـ",
+        suitableItems: ["البالغين", "طلاب الجامعات", "المهنيين والموظفين", "المتعلمين المستقلين"],
+        levelsTitle: "المستويات المتاحة",
+        levelsItems: ["مبتدئ (A1)", "ابتدائي (A2)", "دون المتوسط (B1)", "متوسط (B1-B2)", "فوق المتوسط (B2)", "متقدم (C1)"],
+        cta: "استفسر الآن"
+      },
+      business: {
+        id: "business-english",
+        title: "اللغة الإنجليزية للأعمال",
+        subtitle: "التواصل بفعالية في مكان العمل",
+        desc: "تركز برامج اللغة الإنجليزية للأعمال على المهارات اللغوية المطلوبة للنجاح المهني في بيئة العمل العالمية اليوم. يطور المتعلمون مهارات اتصال عملية للاجتماعات والعروض التقديمية والمفاوضات ورسائل البريد الإلكتروني والتقارير والتفاعلات المهنية.",
+        focusTitle: "مجالات التركيز",
+        focusItems: ["الاتصال المهني والأعمال", "كتابة البريد الإلكتروني", "العروض التقديمية", "الاجتماعات", "المفاوضات", "الكتابة المهنية والتقارير"],
+        cta: "استفسر الآن"
+      },
+      technical: {
+        id: "technical-english",
+        title: "اللغة الإنجليزية الفنية والمهنية",
+        subtitle: "حلول لغوية للقطاعات الصناعية والمتخصصة",
+        desc: "تقدم معاهد الهاوس الدولي السعودية برامج لغة إنجليزية مخصصة للقطاعات المهنية لدعم الموظفين العاملين في البيئات الفنية والتخصصية. يمكن تصميم هذه البرامج لتناسب قطاعات محددة ومتطلبات مكان العمل.",
+        focusTitle: "المجالات الفنية المتخصصة",
+        focusItems: [
+          "الإنجليزية الفنية والتقنية",
+          "الإنجليزية للمهندسين",
+          "الإنجليزية لقطاع النفط والغاز",
+          "الإنجليزية للخدمات اللوجستية والنقل",
+          "الإنجليزية للضيافة والسياحة",
+          "الإنجليزية لممارسي الرعاية الصحية",
+          "الإنجليزية لخدمة العملاء"
+        ],
+        cta: "طلب مقترح مخصص"
+      },
+      exams: {
+        id: "exam-prep",
+        title: "التحضير للاختبارات الدولية",
+        subtitle: "الاستعداد للمؤهلات المعترف بها عالمياً",
+        desc: "تساعد برامج التحضير للامتحانات لدينا المتعلمين على تحقيق الكفاءة اللغوية المطلوبة للفرص الأكاديمية والمهنية والدولية. يقدم مدربونا ذوو الخبرة إعداداً منظماً وتقييمات تجريبية واستراتيجيات اختبار لمساعدة المتعلمين على أداء الامتحانات بكل ثقة.",
+        focusTitle: "تشمل دورات التحضير",
+        focusItems: ["الآيلتس الأكاديمي والعام (IELTS)", "اختبارات لاينجوج سيرت (LanguageCert)", "مؤهلات كامبريدج للغة الإنجليزية", "مؤهلات بيرسون للغة الإنجليزية (PTE)"],
+        cta: "احجز دورة تحضيرية"
+      },
+      young: {
+        id: "young-learners",
+        title: "برامج المتعلمين الصغار",
+        subtitle: "بناء أسس قوية للنجاح في المستقبل",
+        desc: "تم تصميم برامج المتعلمين الصغار لدينا لمساعدة الأطفال والمراهقين على تطوير الثقة ومهارات التواصل والاتجاه الإيجابي نحو تعلم اللغة الإنجليزية. تجمع البرامج بين الأنشطة التفاعلية الجذابة والتواصل العملي وتطوير اللغة المنظم في بيئة تعليمية داعمة.",
+        suitableTitle: "مناسب لـ",
+        suitableItems: ["طلاب المدارس", "المراهقين والشباب", "برامج الدعم الأكاديمي"],
+        levelsTitle: "مجالات التركيز",
+        levelsItems: ["القراءة والكتابة المبكرة", "بناء الثقة في التحدث", "الأنشطة التفاعلية", "دعم المناهج المدرسية"],
+        cta: "استفسر للأطفال"
+      },
+      online: {
+        id: "online-hybrid",
+        title: "التعلم عبر الإنترنت والتعليم الهجين",
+        subtitle: "تعلم مرن بلا حدود",
+        desc: "تقدم معاهد الهاوس الدولي السعودية حلول تعليمية مرنة تتيح للمتعلمين الوصول إلى تعليم عالي الجودة أينما كانوا. توفر برامجنا عبر الإنترنت والبرامج الهجينة نفس الالتزام بالجودة والدعم ونتائج التعلم كالدورات الحضورية.",
+        focusTitle: "خيارات مرنة",
+        focusItems: ["الدروس الحضورية وجهاً لوجه", "الدروس الحية عبر الإنترنت", "برامج التعلم الهجين", "الدروس الخصوصية (فردي)", "الدورات الجماعية"],
+        cta: "اقرأ المزيد عن التعلم أونلاين"
+      },
+      private: {
+        id: "private-tuition",
+        title: "الدروس الخصوصية والتدريب التنفيذي",
+        subtitle: "تعليم مخصص لتحقيق أهدافك الفردية",
+        desc: "للمتعلمين الذين يبحثون عن دعم مخصص، نقدم تدريباً فردياً أو لمجموعات صغيرة مصمماً حول احتياجاتهم وأهدافهم الخاصة. توفر هذه البرامج أقصى قدر من المرونة والاهتمام الشخصي لتحقيق تقدم أسرع.",
+        focusTitle: "مجالات التركيز المتاحة",
+        focusItems: ["اللغة الإنجليزية العامة المخصصة", "اللغة الإنجليزية للأعمال المخصصة", "إعداد امتحانات مخصص ومكثف", "التدريب التنفيذي والقيادي", "مهارات التواصل المهني المتقدمة"],
+        cta: "احجز استشارة إدارية"
+      },
+      guidance: {
+        id: "guidance",
+        title: "تحديد المستوى والتوجيه الأكاديمي",
+        subtitle: "كل رحلة تعليمية ناجحة تبدأ بالتحديد الصحيح للمستوى",
+        desc: "يقدم فريقنا الأكاديمي اختبارات تحديد المستوى والتوجيه المهني لمساعدة المتعلمين على اختيار الدورة التدريبية ومسار التعلم الأكثر ملاءمة بناءً على مستواهم الحالي وأهدافهم المستقبلية. نقوم بتقييم التحدث والاستماع والقراءة والقواعد لبناء مسار مخصص لك."
+      }
+    },
+    cta: {
+      title: "ابدأ التعلم مع الهاوس الدولي السعودية",
+      subtitle: "سواء كنت تخطو خطواتك الأولى في اللغة الإنجليزية، أو تستعد لامتحان دولي، أو تطور مهارات التواصل في مكان العمل، أو تدعم النجاح التعليمي لطفلك، فإن الهاوس الدولي السعودية يقدم مساراً تعليمياً مصمماً خصيصاً لك.",
+      placement: "احجز اختبار تحديد المستوى",
+      explore: "استكشف خيارات التعلم",
+      contact: "تواصل مع مستشار أكاديمي",
+      register: "سجل في دورة تدريبية"
+    }
+  }
+};
+
+// Configurable themes using premium colors from IH Colombia
+const sectionThemes = {
+  general: {
+    bg: "bg-[#046bd2]/5",
+    border: "border-[#046bd2]/20",
+    borderLeft: "border-l-[#046bd2]",
+    hoverShadow: "hover:shadow-[#046bd2]/10",
+    cornerBg: "bg-[#046bd2]/10",
+    iconBg: "bg-[#046bd2]/15",
+    iconText: "text-[#046bd2]",
+    titleText: "text-[#034e9a]",
+    bullet: "text-[#046bd2]",
+    badgeBg: "bg-[#046bd2]/10",
+    badgeText: "text-[#034e9a]",
+    label: { en: "General English", ar: "إنجليزي عام" }
+  },
+  business: {
+    bg: "bg-[#cf2e2e]/5",
+    border: "border-[#cf2e2e]/20",
+    borderLeft: "border-l-[#cf2e2e]",
+    hoverShadow: "hover:shadow-[#cf2e2e]/10",
+    cornerBg: "bg-[#cf2e2e]/10",
+    iconBg: "bg-[#cf2e2e]/15",
+    iconText: "text-[#cf2e2e]",
+    titleText: "text-[#a81a1a]",
+    bullet: "text-[#cf2e2e]",
+    badgeBg: "bg-[#cf2e2e]/10",
+    badgeText: "text-[#a81a1a]",
+    label: { en: "Business English", ar: "إنجليزي أعمال" }
+  },
+  technical: {
+    bg: "bg-[#fcb900]/5",
+    border: "border-[#fcb900]/20",
+    borderLeft: "border-l-[#fcb900]",
+    hoverShadow: "hover:shadow-[#fcb900]/10",
+    cornerBg: "bg-[#fcb900]/10",
+    iconBg: "bg-[#fcb900]/15",
+    iconText: "text-[#d99e00]",
+    titleText: "text-[#b27d00]",
+    bullet: "text-[#d99e00]",
+    badgeBg: "bg-[#fcb900]/10",
+    badgeText: "text-[#b27d00]",
+    label: { en: "Technical", ar: "تخصصي" }
+  },
+  exams: {
+    bg: "bg-[#00d084]/5",
+    border: "border-[#00d084]/20",
+    borderLeft: "border-l-[#00d084]",
+    hoverShadow: "hover:shadow-[#00d084]/10",
+    cornerBg: "bg-[#00d084]/10",
+    iconBg: "bg-[#00d084]/15",
+    iconText: "text-[#00ab6c]",
+    titleText: "text-[#008a55]",
+    bullet: "text-[#00ab6c]",
+    badgeBg: "bg-[#00d084]/10",
+    badgeText: "text-[#008a55]",
+    label: { en: "Examinations", ar: "امتحانات دولية" }
+  },
+  young: {
+    bg: "bg-[#9b51e0]/5",
+    border: "border-[#9b51e0]/20",
+    borderLeft: "border-l-[#9b51e0]",
+    hoverShadow: "hover:shadow-[#9b51e0]/10",
+    cornerBg: "bg-[#9b51e0]/10",
+    iconBg: "bg-[#9b51e0]/15",
+    iconText: "text-[#8038c3]",
+    titleText: "text-[#65259e]",
+    bullet: "text-[#8038c3]",
+    badgeBg: "bg-[#9b51e0]/10",
+    badgeText: "text-[#65259e]",
+    label: { en: "Young Learners", ar: "صغار السن" }
+  },
+  online: {
+    bg: "bg-[#fcb900]/5",
+    border: "border-[#fcb900]/20",
+    borderLeft: "border-l-[#fcb900]",
+    hoverShadow: "hover:shadow-[#fcb900]/10",
+    cornerBg: "bg-[#fcb900]/10",
+    iconBg: "bg-[#fcb900]/15",
+    iconText: "text-[#d99e00]",
+    titleText: "text-[#b27d00]",
+    bullet: "text-[#d99e00]",
+    badgeBg: "bg-[#fcb900]/10",
+    badgeText: "text-[#b27d00]",
+    label: { en: "Virtual Classes", ar: "مرن أونلاين" }
+  },
+  private: {
+    bg: "bg-[#00d084]/5",
+    border: "border-[#00d084]/20",
+    borderLeft: "border-l-[#00d084]",
+    hoverShadow: "hover:shadow-[#00d084]/10",
+    cornerBg: "bg-[#00d084]/10",
+    iconBg: "bg-[#00d084]/15",
+    iconText: "text-[#00ab6c]",
+    titleText: "text-[#008a55]",
+    bullet: "text-[#00ab6c]",
+    badgeBg: "bg-[#00d084]/10",
+    badgeText: "text-[#008a55]",
+    label: { en: "Custom/Executive", ar: "تدريب مخصص" }
+  }
+};
+
+// Section Metadata mapping downloaded IH Colombia image assets
+const sectionMeta = [
+  { key: "general", image: "/colombia_ingles.svg", icon: <BookOpen className="w-5 h-5" />, theme: sectionThemes.general },
+  { key: "business", image: "/colombia_hero.webp", icon: <Briefcase className="w-5 h-5" />, theme: sectionThemes.business },
+  { key: "technical", image: "/colombia_tesol.webp", icon: <Wrench className="w-5 h-5" />, theme: sectionThemes.technical },
+  { key: "exams", image: "/colombia_cambridge.svg", icon: <GraduationCap className="w-5 h-5" />, theme: sectionThemes.exams },
+  { key: "young", image: "/colombia_tkt.webp", icon: <Sparkles className="w-5 h-5" />, theme: sectionThemes.young },
+  { key: "online", image: "/colombia_ielts.svg", icon: <Laptop className="w-5 h-5" />, theme: sectionThemes.online },
+  { key: "private", image: "/colombia_celta_tesol.webp", icon: <UserCheck className="w-5 h-5" />, theme: sectionThemes.private },
+];
+
+export default function CoursesPage() {
+  const { lang } = useLanguage();
+  const isRtl = lang === "ar";
+  const t = content[lang];
+  const [activeTab, setActiveTab] = useState("general-english");
+
+  // Handle intersection observer to highlight side navigation tabs as user scrolls
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: "-25% 0px -55% 0px",
+      threshold: 0,
+    };
+
+    const handleIntersect = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveTab(entry.target.id);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(handleIntersect, observerOptions);
+    const sections = [
+      "general-english",
+      "business-english",
+      "technical-professional",
+      "exam-preparation",
+      "young-learners",
+      "online-hybrid",
+      "private-tuition",
+      "placement-testing"
+    ];
+
+    sections.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const scrollToSection = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      const headerOffset = 100;
+      const elementPosition = el.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+      setActiveTab(id);
+    }
+  };
+
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" as const } },
+  };
+
+  const menuItems = [
+    { id: "general-english", label: t.sections.general.title, icon: <BookOpen className="w-4 h-4" /> },
+    { id: "business-english", label: t.sections.business.title, icon: <Briefcase className="w-4 h-4" /> },
+    { id: "technical-professional", label: t.sections.technical.title, icon: <Wrench className="w-4 h-4" /> },
+    { id: "exam-preparation", label: t.sections.exams.title, icon: <GraduationCap className="w-4 h-4" /> },
+    { id: "young-learners", label: t.sections.young.title, icon: <Sparkles className="w-4 h-4" /> },
+    { id: "online-hybrid", label: t.sections.online.title, icon: <Laptop className="w-4 h-4" /> },
+    { id: "private-tuition", label: t.sections.private.title, icon: <UserCheck className="w-4 h-4" /> },
+    { id: "placement-testing", label: t.sections.guidance.title, icon: <ClipboardCheck className="w-4 h-4" /> },
+  ];
+
+  return (
+    <div className="bg-slate-50 min-h-screen pt-20 lg:pt-28">
+      <ThemeAccent />
+
+      {/* ─── SECTION 1: HERO BANNER ─── */}
+      <section className="relative bg-gradient-to-br from-[#001a3f] via-[#002f6c] to-[#00112b] text-white overflow-hidden py-24 lg:py-36">
+        {/* Animated background particles */}
+        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
+        <div className="absolute -top-32 -left-32 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-[#cf1430]/10 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            {/* Left Column */}
+            <div className="lg:col-span-7 text-start">
+              <motion.span
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-blue-300 text-xs sm:text-sm font-semibold tracking-wide uppercase mb-6"
+              >
+                <Sparkles className="w-3.5 h-3.5" />
+                {t.hero.tag}
+              </motion.span>
+
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="text-4xl sm:text-5xl lg:text-6xl font-black font-['Montserrat',_sans-serif] tracking-tight leading-none mb-6"
+              >
+                {t.hero.title}
+              </motion.h1>
+
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="text-lg sm:text-xl font-light text-slate-200 leading-relaxed mb-8 max-w-3xl"
+              >
+                {t.hero.subtitle}
+              </motion.p>
+
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="text-base font-light text-slate-300 leading-relaxed max-w-3xl border-s-2 border-blue-500/50 ps-4 mb-8"
+              >
+                {t.hero.desc}
+              </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="bg-white/5 border border-white/15 backdrop-blur-md rounded-2xl p-4 sm:p-5 flex items-start gap-4 max-w-2xl text-slate-200"
+              >
+                <ClipboardCheck className="w-6 h-6 text-blue-400 shrink-0 mt-0.5" />
+                <p className="text-sm sm:text-base font-light leading-relaxed">
+                  {t.hero.placementNotice}
+                </p>
+              </motion.div>
+            </div>
+
+            {/* Right Column: Wonderful Interactive Image Frame (IH Colombia Hero Image) */}
+            <div className="hidden lg:block lg:col-span-5 relative">
+              {/* Back Glow */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/20 to-purple-500/20 rounded-full blur-3xl" />
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9, rotate: 1 }}
+                animate={{ opacity: 1, scale: 1, rotate: -2 }}
+                transition={{ type: "spring", stiffness: 100, damping: 15, delay: 0.3 }}
+                whileHover={{ scale: 1.03, rotate: 0 }}
+                className="relative w-full aspect-[4/3] rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-slate-900 group"
+              >
+                <Image
+                  src="/colombia_hero.webp"
+                  alt="IH Saudi Arabia Classroom"
+                  fill
+                  sizes="400px"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/0 to-black/20" />
+                {/* Floating quality assurance stamp */}
+                <motion.div
+                  animate={{ y: [0, -8, 0] }}
+                  transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+                  className="absolute bottom-6 right-6 bg-white/95 backdrop-blur-md border border-slate-200 rounded-2xl p-3 shadow-xl flex items-center gap-3"
+                >
+                  <img src="/ih_70years_v2.png" alt="Celebrating 70 Years" className="h-10 w-auto" />
+                  <div className="text-start">
+                    <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">IH Quality</div>
+                    <div className="text-xs font-bold text-[#002f6c]">Since 1953</div>
+                  </div>
+                </motion.div>
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── NAVIGATION TAB BAR & MAIN BODY ─── */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12">
+        <div className="flex flex-col lg:flex-row gap-8 relative">
+          
+          {/* Sticky Sidebar Navigation (Desktop) */}
+          <aside className="hidden lg:block w-72 shrink-0">
+            <div className="sticky top-28 bg-white border border-slate-200 rounded-3xl p-5 shadow-sm">
+              <h3 className="text-sm font-bold text-[#002f6c] font-['Montserrat',_sans-serif] uppercase tracking-wider mb-4 px-2">
+                {isRtl ? "تصفح البرامج" : "Browse Programs"}
+              </h3>
+              <nav className="flex flex-col gap-1">
+                {menuItems.map((item) => {
+                  const isActive = activeTab === item.id;
+                  return (
+                    <button
+                      key={item.id}
+                      onClick={() => scrollToSection(item.id)}
+                      className={`flex items-center gap-3 w-full px-4 py-3 rounded-xl text-sm font-semibold transition-all duration-300 text-start group ${
+                        isActive
+                          ? "bg-[#002f6c] text-white shadow-md shadow-[#002f6c]/10"
+                          : "text-slate-600 hover:text-[#002f6c] hover:bg-slate-50"
+                      }`}
+                    >
+                      <span className={`shrink-0 transition-colors ${isActive ? "text-white" : "text-slate-400 group-hover:text-[#002f6c]"}`}>
+                        {item.icon}
+                      </span>
+                      <span className="truncate">{item.label}</span>
+                      {isActive && (
+                        <motion.span
+                          layoutId="sidebarActiveIndicator"
+                          className={`ms-auto shrink-0 ${isRtl ? "rotate-180" : ""}`}
+                        >
+                          <ChevronRight className="w-4 h-4 text-white/80" />
+                        </motion.span>
+                      )}
+                    </button>
+                  );
+                })}
+              </nav>
+            </div>
+          </aside>
+
+          {/* Sticky Tab Bar (Mobile & Tablet) */}
+          <div className="lg:hidden sticky top-16 z-30 bg-slate-50/95 backdrop-blur-md py-3 -mx-4 px-4 overflow-x-auto border-b border-slate-200 flex gap-2 select-none scrollbar-none">
+            {menuItems.map((item) => {
+              const isActive = activeTab === item.id;
+              return (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className={`flex items-center gap-2 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold whitespace-nowrap transition-all shrink-0 ${
+                    isActive
+                      ? "bg-[#002f6c] text-white shadow-md shadow-[#002f6c]/15"
+                      : "bg-white text-slate-600 border border-slate-200 hover:bg-slate-50"
+                  }`}
+                >
+                  {item.icon}
+                  {item.label}
+                </button>
+              );
+            })}
+          </div>
+
+          {/* ─── COURSE CONTENT BLOCKS ─── */}
+          <div className="flex-1 space-y-16">
+            
+            {/* 1. General English */}
+            <motion.div
+              id="general-english"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={fadeInUp}
+              className={`${sectionMeta[0].theme.bg} border ${sectionMeta[0].theme.border} border-l-4 ${sectionMeta[0].theme.borderLeft} rounded-3xl overflow-hidden shadow-sm hover:shadow-xl ${sectionMeta[0].theme.hoverShadow} transition-all duration-300 p-6 sm:p-8 lg:p-10`}
+            >
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div className="lg:col-span-5 relative h-64 sm:h-80 rounded-2xl overflow-hidden shadow-sm border border-slate-200">
+                  <Image
+                    src={sectionMeta[0].image}
+                    alt={t.sections.general.title}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 400px"
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                </div>
+                <div className="lg:col-span-7 text-start flex flex-col justify-between h-full">
+                  <div>
+                    <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full ${sectionMeta[0].theme.badgeBg} ${sectionMeta[0].theme.badgeText} text-xs font-bold uppercase mb-4`}>
+                      {sectionMeta[0].icon}
+                      {isRtl ? sectionMeta[0].theme.label.ar : sectionMeta[0].theme.label.en}
+                    </span>
+                    <h2 className={`text-3xl font-black ${sectionMeta[0].theme.titleText} font-['Montserrat',_sans-serif] leading-tight mb-2`}>
+                      {t.sections.general.title}
+                    </h2>
+                    <h4 className="text-lg font-bold text-slate-500 mb-4">
+                      {t.sections.general.subtitle}
+                    </h4>
+                    <p className="text-slate-600 font-light leading-relaxed mb-6">
+                      {t.sections.general.desc}
+                    </p>
+                    
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8 border-t border-slate-200/50 pt-6">
+                      <div>
+                        <h5 className="text-sm font-bold text-slate-800 uppercase tracking-wider mb-3">
+                          {t.sections.general.suitableTitle}
+                        </h5>
+                        <ul className="space-y-1.5">
+                          {t.sections.general.suitableItems.map((item) => (
+                            <li key={item} className="flex items-center gap-2 text-sm text-slate-600 font-light">
+                              <Check className={`w-4 h-4 ${sectionMeta[0].theme.bullet} shrink-0`} />
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      <div>
+                        <h5 className="text-sm font-bold text-slate-800 uppercase tracking-wider mb-3">
+                          {t.sections.general.levelsTitle}
+                        </h5>
+                        <div className="flex flex-wrap gap-1.5">
+                          {t.sections.general.levelsItems.map((lvl) => (
+                            <span key={lvl} className="px-2.5 py-1 bg-white hover:bg-slate-100 transition-colors text-slate-700 text-xs font-semibold rounded-lg border border-slate-250">
+                              {lvl}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <button
+                    onClick={() => scrollToSection("courses-cta")}
+                    className="inline-flex items-center justify-center gap-2 self-start px-6 py-3 bg-[#002f6c] hover:bg-[#cf1430] text-white text-sm font-bold rounded-xl shadow-md hover:shadow-lg transition-all duration-300 group"
+                  >
+                    {t.sections.general.cta}
+                    <ArrowRight className={`w-4 h-4 transition-transform group-hover:translate-x-1 ${isRtl ? "rotate-180 group-hover:-translate-x-1" : ""}`} />
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* 2. Business English */}
+            <motion.div
+              id="business-english"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={fadeInUp}
+              className={`${sectionMeta[1].theme.bg} border ${sectionMeta[1].theme.border} border-l-4 ${sectionMeta[1].theme.borderLeft} rounded-3xl overflow-hidden shadow-sm hover:shadow-xl ${sectionMeta[1].theme.hoverShadow} transition-all duration-300 p-6 sm:p-8 lg:p-10`}
+            >
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div className="lg:col-span-7 text-start flex flex-col justify-between h-full order-2 lg:order-1">
+                  <div>
+                    <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full ${sectionMeta[1].theme.badgeBg} ${sectionMeta[1].theme.badgeText} text-xs font-bold uppercase mb-4`}>
+                      {sectionMeta[1].icon}
+                      {isRtl ? sectionMeta[1].theme.label.ar : sectionMeta[1].theme.label.en}
+                    </span>
+                    <h2 className={`text-3xl font-black ${sectionMeta[1].theme.titleText} font-['Montserrat',_sans-serif] leading-tight mb-2`}>
+                      {t.sections.business.title}
+                    </h2>
+                    <h4 className="text-lg font-bold text-slate-500 mb-4">
+                      {t.sections.business.subtitle}
+                    </h4>
+                    <p className="text-slate-600 font-light leading-relaxed mb-6">
+                      {t.sections.business.desc}
+                    </p>
+                    
+                    <div className="mb-8 border-t border-slate-200/50 pt-6">
+                      <h5 className="text-sm font-bold text-slate-800 uppercase tracking-wider mb-3">
+                        {t.sections.business.focusTitle}
+                      </h5>
+                      <div className="grid grid-cols-2 gap-y-2 gap-x-4">
+                        {t.sections.business.focusItems.map((item) => (
+                          <div key={item} className="flex items-center gap-2 text-sm text-slate-600 font-light">
+                            <Check className={`w-4 h-4 ${sectionMeta[1].theme.bullet} shrink-0`} />
+                            {item}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                  <button
+                    onClick={() => scrollToSection("courses-cta")}
+                    className="inline-flex items-center justify-center gap-2 self-start px-6 py-3 bg-[#002f6c] hover:bg-[#cf1430] text-white text-sm font-bold rounded-xl shadow-md hover:shadow-lg transition-all duration-300 group"
+                  >
+                    {t.sections.business.cta}
+                    <ArrowRight className={`w-4 h-4 transition-transform group-hover:translate-x-1 ${isRtl ? "rotate-180 group-hover:-translate-x-1" : ""}`} />
+                  </button>
+                </div>
+                <div className="lg:col-span-5 relative h-64 sm:h-80 rounded-2xl overflow-hidden shadow-sm order-1 lg:order-2 border border-slate-200">
+                  <Image
+                    src={sectionMeta[1].image}
+                    alt={t.sections.business.title}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 400px"
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                </div>
+              </div>
+            </motion.div>
+
+            {/* 3. Technical & Professional English */}
+            <motion.div
+              id="technical-professional"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={fadeInUp}
+              className={`${sectionMeta[2].theme.bg} border ${sectionMeta[2].theme.border} border-l-4 ${sectionMeta[2].theme.borderLeft} rounded-3xl overflow-hidden shadow-sm hover:shadow-xl ${sectionMeta[2].theme.hoverShadow} transition-all duration-300 p-6 sm:p-8 lg:p-10`}
+            >
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div className="lg:col-span-5 relative h-64 sm:h-80 rounded-2xl overflow-hidden shadow-sm border border-slate-200">
+                  <Image
+                    src={sectionMeta[2].image}
+                    alt={t.sections.technical.title}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 400px"
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                </div>
+                <div className="lg:col-span-7 text-start flex flex-col justify-between h-full">
+                  <div>
+                    <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full ${sectionMeta[2].theme.badgeBg} ${sectionMeta[2].theme.badgeText} text-xs font-bold uppercase mb-4`}>
+                      {sectionMeta[2].icon}
+                      {isRtl ? sectionMeta[2].theme.label.ar : sectionMeta[2].theme.label.en}
+                    </span>
+                    <h2 className={`text-3xl font-black ${sectionMeta[2].theme.titleText} font-['Montserrat',_sans-serif] leading-tight mb-2`}>
+                      {t.sections.technical.title}
+                    </h2>
+                    <h4 className="text-lg font-bold text-slate-500 mb-4">
+                      {t.sections.technical.subtitle}
+                    </h4>
+                    <p className="text-slate-600 font-light leading-relaxed mb-6">
+                      {t.sections.technical.desc}
+                    </p>
+                    
+                    <div className="mb-8 border-t border-slate-200/50 pt-6">
+                      <h5 className="text-sm font-bold text-slate-800 uppercase tracking-wider mb-3">
+                        {t.sections.technical.focusTitle}
+                      </h5>
+                      <div className="flex flex-wrap gap-2">
+                        {t.sections.technical.focusItems.map((item) => (
+                          <span key={item} className="px-3 py-1.5 bg-white border border-slate-200 text-slate-700 text-sm font-semibold rounded-xl hover:border-amber-500/40 hover:bg-amber-50/20 transition-all">
+                            {item}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                  <button
+                    onClick={() => scrollToSection("courses-cta")}
+                    className="inline-flex items-center justify-center gap-2 self-start px-6 py-3 bg-[#002f6c] hover:bg-[#cf1430] text-white text-sm font-bold rounded-xl shadow-md hover:shadow-lg transition-all duration-300 group"
+                  >
+                    {t.sections.technical.cta}
+                    <ArrowRight className={`w-4 h-4 transition-transform group-hover:translate-x-1 ${isRtl ? "rotate-180 group-hover:-translate-x-1" : ""}`} />
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* 4. International Examination Preparation */}
+            <motion.div
+              id="exam-preparation"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={fadeInUp}
+              className={`${sectionMeta[3].theme.bg} border ${sectionMeta[3].theme.border} border-l-4 ${sectionMeta[3].theme.borderLeft} rounded-3xl overflow-hidden shadow-sm hover:shadow-xl ${sectionMeta[3].theme.hoverShadow} transition-all duration-300 p-6 sm:p-8 lg:p-10`}
+            >
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div className="lg:col-span-7 text-start flex flex-col justify-between h-full order-2 lg:order-1">
+                  <div>
+                    <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full ${sectionMeta[3].theme.badgeBg} ${sectionMeta[3].theme.badgeText} text-xs font-bold uppercase mb-4`}>
+                      {sectionMeta[3].icon}
+                      {isRtl ? sectionMeta[3].theme.label.ar : sectionMeta[3].theme.label.en}
+                    </span>
+                    <h2 className={`text-3xl font-black ${sectionMeta[3].theme.titleText} font-['Montserrat',_sans-serif] leading-tight mb-2`}>
+                      {t.sections.exams.title}
+                    </h2>
+                    <h4 className="text-lg font-bold text-slate-500 mb-4">
+                      {t.sections.exams.subtitle}
+                    </h4>
+                    <p className="text-slate-600 font-light leading-relaxed mb-6">
+                      {t.sections.exams.desc}
+                    </p>
+                    
+                    <div className="mb-8 border-t border-slate-200/50 pt-6">
+                      <h5 className="text-sm font-bold text-slate-800 uppercase tracking-wider mb-3">
+                        {t.sections.exams.focusTitle}
+                      </h5>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        {t.sections.exams.focusItems.map((item) => (
+                          <div key={item} className="flex items-center gap-2 text-sm text-slate-700 font-semibold p-2.5 bg-white border border-slate-150 rounded-xl">
+                            <GraduationCap className={`w-4 h-4 ${sectionMeta[3].theme.bullet} shrink-0`} />
+                            {item}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                  <button
+                    onClick={() => scrollToSection("courses-cta")}
+                    className="inline-flex items-center justify-center gap-2 self-start px-6 py-3 bg-[#002f6c] hover:bg-[#cf1430] text-white text-sm font-bold rounded-xl shadow-md hover:shadow-lg transition-all duration-300 group"
+                  >
+                    {t.sections.exams.cta}
+                    <ArrowRight className={`w-4 h-4 transition-transform group-hover:translate-x-1 ${isRtl ? "rotate-180 group-hover:-translate-x-1" : ""}`} />
+                  </button>
+                </div>
+                <div className="lg:col-span-5 relative h-64 sm:h-80 rounded-2xl overflow-hidden shadow-sm order-1 lg:order-2 border border-slate-200">
+                  <Image
+                    src={sectionMeta[3].image}
+                    alt={t.sections.exams.title}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 400px"
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                </div>
+              </div>
+            </motion.div>
+
+            {/* 5. Young Learners Programs */}
+            <motion.div
+              id="young-learners"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={fadeInUp}
+              className={`${sectionMeta[4].theme.bg} border ${sectionMeta[4].theme.border} border-l-4 ${sectionMeta[4].theme.borderLeft} rounded-3xl overflow-hidden shadow-sm hover:shadow-xl ${sectionMeta[4].theme.hoverShadow} transition-all duration-300 p-6 sm:p-8 lg:p-10`}
+            >
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div className="lg:col-span-5 relative h-64 sm:h-80 rounded-2xl overflow-hidden shadow-sm border border-slate-200">
+                  <Image
+                    src={sectionMeta[4].image}
+                    alt={t.sections.young.title}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 400px"
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                </div>
+                <div className="lg:col-span-7 text-start flex flex-col justify-between h-full">
+                  <div>
+                    <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full ${sectionMeta[4].theme.badgeBg} ${sectionMeta[4].theme.badgeText} text-xs font-bold uppercase mb-4`}>
+                      {sectionMeta[4].icon}
+                      {isRtl ? sectionMeta[4].theme.label.ar : sectionMeta[4].theme.label.en}
+                    </span>
+                    <h2 className={`text-3xl font-black ${sectionMeta[4].theme.titleText} font-['Montserrat',_sans-serif] leading-tight mb-2`}>
+                      {t.sections.young.title}
+                    </h2>
+                    <h4 className="text-lg font-bold text-slate-500 mb-4">
+                      {t.sections.young.subtitle}
+                    </h4>
+                    <p className="text-slate-600 font-light leading-relaxed mb-6">
+                      {t.sections.young.desc}
+                    </p>
+                    
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8 border-t border-slate-200/50 pt-6">
+                      <div>
+                        <h5 className="text-sm font-bold text-slate-800 uppercase tracking-wider mb-3">
+                          {t.sections.young.suitableTitle}
+                        </h5>
+                        <ul className="space-y-1.5">
+                          {t.sections.young.suitableItems.map((item) => (
+                            <li key={item} className="flex items-center gap-2 text-sm text-slate-600 font-light">
+                              <Check className={`w-4 h-4 ${sectionMeta[4].theme.bullet} shrink-0`} />
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      <div>
+                        <h5 className="text-sm font-bold text-slate-800 uppercase tracking-wider mb-3">
+                          {t.sections.young.levelsTitle}
+                        </h5>
+                        <ul className="space-y-1.5">
+                          {t.sections.young.levelsItems.map((item) => (
+                            <li key={item} className="flex items-center gap-2 text-sm text-slate-600 font-light">
+                              <Check className={`w-4 h-4 ${sectionMeta[4].theme.bullet} shrink-0`} />
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <button
+                    onClick={() => scrollToSection("courses-cta")}
+                    className="inline-flex items-center justify-center gap-2 self-start px-6 py-3 bg-[#002f6c] hover:bg-[#cf1430] text-white text-sm font-bold rounded-xl shadow-md hover:shadow-lg transition-all duration-300 group"
+                  >
+                    {t.sections.young.cta}
+                    <ArrowRight className={`w-4 h-4 transition-transform group-hover:translate-x-1 ${isRtl ? "rotate-180 group-hover:-translate-x-1" : ""}`} />
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* 6. Online & Hybrid Learning */}
+            <motion.div
+              id="online-hybrid"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={fadeInUp}
+              className={`${sectionMeta[5].theme.bg} border ${sectionMeta[5].theme.border} border-l-4 ${sectionMeta[5].theme.borderLeft} rounded-3xl overflow-hidden shadow-sm hover:shadow-xl ${sectionMeta[5].theme.hoverShadow} transition-all duration-300 p-6 sm:p-8 lg:p-10`}
+            >
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div className="lg:col-span-7 text-start flex flex-col justify-between h-full order-2 lg:order-1">
+                  <div>
+                    <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full ${sectionMeta[5].theme.badgeBg} ${sectionMeta[5].theme.badgeText} text-xs font-bold uppercase mb-4`}>
+                      {sectionMeta[5].icon}
+                      {isRtl ? sectionMeta[5].theme.label.ar : sectionMeta[5].theme.label.en}
+                    </span>
+                    <h2 className={`text-3xl font-black ${sectionMeta[5].theme.titleText} font-['Montserrat',_sans-serif] leading-tight mb-2`}>
+                      {t.sections.online.title}
+                    </h2>
+                    <h4 className="text-lg font-bold text-slate-500 mb-4">
+                      {t.sections.online.subtitle}
+                    </h4>
+                    <p className="text-slate-600 font-light leading-relaxed mb-6">
+                      {t.sections.online.desc}
+                    </p>
+                    
+                    <div className="mb-8 border-t border-slate-200/50 pt-6">
+                      <h5 className="text-sm font-bold text-slate-800 uppercase tracking-wider mb-3">
+                        {t.sections.online.focusTitle}
+                      </h5>
+                      <div className="flex flex-wrap gap-2">
+                        {t.sections.online.focusItems.map((item) => (
+                          <span key={item} className="px-3 py-1.5 bg-white text-slate-700 text-sm font-semibold rounded-xl border border-slate-200 hover:border-amber-500/40 hover:bg-amber-50/20 transition-all">
+                            {item}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                  <button
+                    onClick={() => scrollToSection("courses-cta")}
+                    className="inline-flex items-center justify-center gap-2 self-start px-6 py-3 bg-[#002f6c] hover:bg-[#cf1430] text-white text-sm font-bold rounded-xl shadow-md hover:shadow-lg transition-all duration-300 group"
+                  >
+                    {t.sections.online.cta}
+                    <ArrowRight className={`w-4 h-4 transition-transform group-hover:translate-x-1 ${isRtl ? "rotate-180 group-hover:-translate-x-1" : ""}`} />
+                  </button>
+                </div>
+                <div className="lg:col-span-5 relative h-64 sm:h-80 rounded-2xl overflow-hidden shadow-sm order-1 lg:order-2 border border-slate-200">
+                  <Image
+                    src={sectionMeta[5].image}
+                    alt={t.sections.online.title}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 400px"
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                </div>
+              </div>
+            </motion.div>
+
+            {/* 7. Private Tuition & Executive Coaching */}
+            <motion.div
+              id="private-tuition"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={fadeInUp}
+              className={`${sectionMeta[6].theme.bg} border ${sectionMeta[6].theme.border} border-l-4 ${sectionMeta[6].theme.borderLeft} rounded-3xl overflow-hidden shadow-sm hover:shadow-xl ${sectionMeta[6].theme.hoverShadow} transition-all duration-300 p-6 sm:p-8 lg:p-10`}
+            >
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div className="lg:col-span-5 relative h-64 sm:h-80 rounded-2xl overflow-hidden shadow-sm border border-slate-200">
+                  <Image
+                    src={sectionMeta[6].image}
+                    alt={t.sections.private.title}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 400px"
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                </div>
+                <div className="lg:col-span-7 text-start flex flex-col justify-between h-full">
+                  <div>
+                    <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full ${sectionMeta[6].theme.badgeBg} ${sectionMeta[6].theme.badgeText} text-xs font-bold uppercase mb-4`}>
+                      {sectionMeta[6].icon}
+                      {isRtl ? sectionMeta[6].theme.label.ar : sectionMeta[6].theme.label.en}
+                    </span>
+                    <h2 className={`text-3xl font-black ${sectionMeta[6].theme.titleText} font-['Montserrat',_sans-serif] leading-tight mb-2`}>
+                      {t.sections.private.title}
+                    </h2>
+                    <h4 className="text-lg font-bold text-slate-500 mb-4">
+                      {t.sections.private.subtitle}
+                    </h4>
+                    <p className="text-slate-600 font-light leading-relaxed mb-6">
+                      {t.sections.private.desc}
+                    </p>
+                    
+                    <div className="mb-8 border-t border-slate-200/50 pt-6">
+                      <h5 className="text-sm font-bold text-slate-800 uppercase tracking-wider mb-3">
+                        {t.sections.private.focusTitle}
+                      </h5>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                        {t.sections.private.focusItems.map((item) => (
+                          <div key={item} className="flex items-center gap-2 text-sm text-slate-600 font-light">
+                            <Check className={`w-4 h-4 ${sectionMeta[6].theme.bullet} shrink-0`} />
+                            {item}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                  <button
+                    onClick={() => scrollToSection("courses-cta")}
+                    className="inline-flex items-center justify-center gap-2 self-start px-6 py-3 bg-[#002f6c] hover:bg-[#cf1430] text-white text-sm font-bold rounded-xl shadow-md hover:shadow-lg transition-all duration-300 group"
+                  >
+                    {t.sections.private.cta}
+                    <ArrowRight className={`w-4 h-4 transition-transform group-hover:translate-x-1 ${isRtl ? "rotate-180 group-hover:-translate-x-1" : ""}`} />
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* 8. Placement Testing & Academic Guidance */}
+            <motion.div
+              id="placement-testing"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={fadeInUp}
+              className="bg-gradient-to-br from-[#002f6c] to-[#001a3f] text-white rounded-3xl overflow-hidden shadow-xl p-8 sm:p-12 lg:p-16 relative"
+            >
+              {/* background shapes */}
+              <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-bl-full pointer-events-none" />
+              <div className="absolute bottom-0 left-0 w-48 h-48 bg-blue-500/10 rounded-tr-full pointer-events-none" />
+              
+              <div className="relative z-10 max-w-4xl text-start">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-blue-300 text-xs font-bold uppercase mb-4">
+                  <ClipboardCheck className="w-4 h-4" />
+                  {isRtl ? "توجيه أكاديمي" : "Assessment & Pathway"}
+                </span>
+                
+                <h2 className="text-3xl sm:text-4xl font-black font-['Montserrat',_sans-serif] leading-tight mb-4">
+                  {t.sections.guidance.title}
+                </h2>
+                <h4 className="text-xl font-bold text-blue-200 mb-6">
+                  {t.sections.guidance.subtitle}
+                </h4>
+                <p className="text-slate-200 font-light text-base sm:text-lg leading-relaxed mb-8 max-w-3xl">
+                  {t.sections.guidance.desc}
+                </p>
+                
+                <button
+                  onClick={() => scrollToSection("courses-cta")}
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white hover:bg-[#cf1430] text-[#002f6c] hover:text-white text-base font-bold rounded-2xl shadow-lg transition-all duration-300 group"
+                >
+                  {isRtl ? "احجز اختبار تحديد المستوى" : "Book Placement Assessment"}
+                  <ArrowRight className={`w-5 h-5 transition-transform group-hover:translate-x-1.5 ${isRtl ? "rotate-180 group-hover:-translate-x-1.5" : ""}`} />
+                </button>
+              </div>
+            </motion.div>
+
+          </div>
+        </div>
+      </div>
+
+      {/* ─── SECTION 10: CALL TO ACTION (QUICK ACTIONS) ─── */}
+      <section id="courses-cta" className="py-24 bg-white border-t border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-3xl sm:text-4xl font-black text-[#002f6c] font-['Montserrat',_sans-serif] mb-4">
+              {t.cta.title}
+            </h2>
+            <p className="text-slate-600 font-light text-base sm:text-lg leading-relaxed">
+              {t.cta.subtitle}
+            </p>
+            <div className="w-12 h-1 bg-[#cf1430] mx-auto rounded-full mt-6" />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            
+            {/* Quick Action 1: Placement Test */}
+            <motion.div
+              whileHover={{ y: -8 }}
+              className="bg-white border border-slate-200 rounded-3xl p-8 text-start flex flex-col justify-between group shadow-sm hover:shadow-xl hover:border-blue-500/30 transition-all duration-300"
+            >
+              <div>
+                <div className="w-12 h-12 rounded-2xl bg-blue-50 border border-blue-100 flex items-center justify-center text-blue-600 mb-6 group-hover:bg-[#002f6c] group-hover:text-white transition-all">
+                  <ClipboardCheck className="w-6 h-6" />
+                </div>
+                <h4 className="text-lg font-bold text-[#002f6c] mb-2">
+                  {isRtl ? "تحديد المستوى" : "Placement Assessment"}
+                </h4>
+                <p className="text-sm font-light text-slate-600 leading-relaxed mb-6">
+                  {isRtl 
+                    ? "احجز اختبار تحديد المستوى اللغوي لمعرفة رتبتك الأكاديمية والبدء بالمسار الصحيح."
+                    : "Schedule a comprehensive evaluation to pinpoint your language level and choose your ideal course."}
+                </p>
+              </div>
+              <a
+                href="/contact?action=placement"
+                className="inline-flex items-center gap-1.5 text-sm font-bold text-[#002f6c] hover:text-[#cf1430] transition-colors"
+              >
+                {t.cta.placement}
+                <ArrowRight className={`w-4 h-4 transition-transform group-hover:translate-x-1 ${isRtl ? "rotate-180 group-hover:-translate-x-1" : ""}`} />
+              </a>
+            </motion.div>
+
+            {/* Quick Action 2: Explore Options */}
+            <motion.div
+              whileHover={{ y: -8 }}
+              className="bg-[#00d084] rounded-3xl p-8 text-start flex flex-col justify-between group shadow-sm hover:shadow-xl transition-all duration-300"
+            >
+              <div>
+                <div className="w-12 h-12 rounded-2xl bg-white/20 border border-white/20 flex items-center justify-center text-white mb-6 group-hover:bg-white group-hover:text-[#00d084] transition-all">
+                  <BookOpen className="w-6 h-6" />
+                </div>
+                <h4 className="text-lg font-bold text-white mb-2">
+                  {isRtl ? "استكشاف الخيارات" : "Learning Pathways"}
+                </h4>
+                <p className="text-sm font-light text-white/90 leading-relaxed mb-6">
+                  {isRtl 
+                    ? "تصفح خيارات الحصص الحضورية، الحصص الحية أونلاين، أو الأنظمة التعليمية الهجينة."
+                    : "Find your preferred learning environment: virtual, in-person, private coaching, or group studies."}
+                </p>
+              </div>
+              <button
+                onClick={() => scrollToSection("general-english")}
+                className="inline-flex items-center gap-1.5 text-sm font-bold text-white hover:text-white/80 transition-colors text-start"
+              >
+                {t.cta.explore}
+                <ArrowRight className={`w-4 h-4 transition-transform group-hover:translate-x-1 ${isRtl ? "rotate-180 group-hover:-translate-x-1" : ""}`} />
+              </button>
+            </motion.div>
+
+            {/* Quick Action 3: Academic Advisor */}
+            <motion.div
+              whileHover={{ y: -8 }}
+              className="bg-[#fcb900] rounded-3xl p-8 text-start flex flex-col justify-between group shadow-sm hover:shadow-xl transition-all duration-300"
+            >
+              <div>
+                <div className="w-12 h-12 rounded-2xl bg-white/20 border border-white/20 flex items-center justify-center text-white mb-6 group-hover:bg-white group-hover:text-[#fcb900] transition-all">
+                  <UserCheck className="w-6 h-6" />
+                </div>
+                <h4 className="text-lg font-bold text-white mb-2">
+                  {isRtl ? "مستشار أكاديمي" : "Expert Consultation"}
+                </h4>
+                <p className="text-sm font-light text-white/90 leading-relaxed mb-6">
+                  {isRtl 
+                    ? "تحدث مباشرة مع مستشارينا الأكاديميين لتحديد أهدافك المهنية وبناء منهجك الخاص."
+                    : "Discuss your professional/personal targets with an advisor to configure a customized roadmap."}
+                </p>
+              </div>
+              <a
+                href="/contact?action=consult"
+                className="inline-flex items-center gap-1.5 text-sm font-bold text-white hover:text-white/80 transition-colors"
+              >
+                {t.cta.contact}
+                <ArrowRight className={`w-4 h-4 transition-transform group-hover:translate-x-1 ${isRtl ? "rotate-180 group-hover:-translate-x-1" : ""}`} />
+              </a>
+            </motion.div>
+
+            {/* Quick Action 4: Register Course */}
+            <motion.div
+              whileHover={{ y: -8 }}
+              className="bg-[#cf1430] rounded-3xl p-8 text-start flex flex-col justify-between group shadow-sm hover:shadow-xl transition-all duration-300"
+            >
+              <div>
+                <div className="w-12 h-12 rounded-2xl bg-white/20 border border-white/20 flex items-center justify-center text-white mb-6 group-hover:bg-white group-hover:text-[#cf1430] transition-all">
+                  <GraduationCap className="w-6 h-6" />
+                </div>
+                <h4 className="text-lg font-bold text-white mb-2">
+                  {isRtl ? "التسجيل في دورة" : "Course Registration"}
+                </h4>
+                <p className="text-sm font-light text-white/90 leading-relaxed mb-6">
+                  {isRtl 
+                    ? "سجل الآن في أحد برامجنا الأكاديمية أو المهنية للبدء في دورتك التدريبية مباشرة."
+                    : "Secure your place in our upcoming term. Registration is open for online & physical classes."}
+                </p>
+              </div>
+              <a
+                href="/contact?action=register"
+                className="inline-flex items-center gap-1.5 text-sm font-bold text-white hover:text-white/80 transition-colors"
+              >
+                {t.cta.register}
+                <ArrowRight className={`w-4 h-4 transition-transform group-hover:translate-x-1 ${isRtl ? "rotate-180 group-hover:-translate-x-1" : ""}`} />
+              </a>
+            </motion.div>
+
+          </div>
+        </div>
+      </section>
+
+    </div>
+  );
+}

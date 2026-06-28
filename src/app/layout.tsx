@@ -26,7 +26,43 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Cairo:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  const clean = (el) => {
+                    if (el.nodeType !== 1) return;
+                    if (el.hasAttribute('bis_skin_checked')) el.removeAttribute('bis_skin_checked');
+                    const children = el.querySelectorAll('[bis_skin_checked]');
+                    for (let i = 0; i < children.length; i++) {
+                      children[i].removeAttribute('bis_skin_checked');
+                    }
+                  };
+                  const observer = new MutationObserver((mutations) => {
+                    for (let i = 0; i < mutations.length; i++) {
+                      const m = mutations[i];
+                      if (m.type === 'attributes' && m.attributeName === 'bis_skin_checked') {
+                        m.target.removeAttribute('bis_skin_checked');
+                      } else if (m.addedNodes) {
+                        for (let j = 0; j < m.addedNodes.length; j++) {
+                          clean(m.addedNodes[j]);
+                        }
+                      }
+                    }
+                  });
+                  observer.observe(document.documentElement, {
+                    attributes: true,
+                    childList: true,
+                    subtree: true,
+                    attributeFilter: ['bis_skin_checked']
+                  });
+                } catch (e) {}
+              })();
+            `
+          }}
+        />
       </head>
       <body className="min-h-screen flex flex-col antialiased" suppressHydrationWarning>
         <LanguageProvider>

@@ -14,6 +14,11 @@
   --color-accent:      #cf1430;   /* Crimson red */
   --color-accent-dark: #a50f26;
 
+  /* Luxury Slider Palette */
+  --color-royal-blue:       #0B3C5D;
+  --color-luxury-gold:      #F5A623;
+  --color-luxury-gold-dark: #D48C16;
+
   /* IH rainbow stripe colors (from attached image) */
   --color-ih-coral:   #e85d4a;
   --color-ih-pink:    #e07898;
@@ -43,6 +48,11 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+/* Offset anchor targets below fixed header */
+[id] {
+  scroll-margin-top: 120px;
 }
 
 body {
@@ -96,53 +106,71 @@ a, button { transition: all 0.2s ease; }
   border-radius: 20% 5% 20% 5%;
 }
 
-/* Colored corporate brand shadows (eliminating harsh black shadows) */
+/* Neutral corporate shadows (no color cast) */
 .shadow-ih-soft {
-  box-shadow: 0 8px 30px -5px rgba(0, 47, 108, 0.08);
+  box-shadow: 0 8px 30px -5px rgba(15, 23, 42, 0.06);
 }
 .shadow-ih-soft:hover {
-  box-shadow: 0 20px 40px -10px rgba(0, 47, 108, 0.25);
+  box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.15);
 }
 
 .shadow-ih-blue {
-  box-shadow: 0 8px 30px -5px rgba(59, 63, 168, 0.12);
+  box-shadow: 0 8px 30px -5px rgba(15, 23, 42, 0.08);
 }
 .shadow-ih-blue:hover {
-  box-shadow: 0 20px 40px -10px rgba(59, 63, 168, 0.35);
+  box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.20);
 }
 
 .shadow-ih-green {
-  box-shadow: 0 8px 30px -5px rgba(31, 169, 104, 0.12);
+  box-shadow: 0 8px 30px -5px rgba(15, 23, 42, 0.08);
 }
 .shadow-ih-green:hover {
-  box-shadow: 0 20px 40px -10px rgba(31, 169, 104, 0.35);
+  box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.20);
 }
 
 .shadow-ih-purple {
-  box-shadow: 0 8px 30px -5px rgba(139, 50, 117, 0.12);
+  box-shadow: 0 8px 30px -5px rgba(15, 23, 42, 0.08);
 }
 .shadow-ih-purple:hover {
-  box-shadow: 0 20px 40px -10px rgba(139, 50, 117, 0.35);
+  box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.20);
 }
 
 .shadow-ih-coral {
-  box-shadow: 0 8px 30px -5px rgba(232, 93, 74, 0.15);
+  box-shadow: 0 8px 30px -5px rgba(15, 23, 42, 0.08);
 }
 .shadow-ih-coral:hover {
-  box-shadow: 0 20px 40px -10px rgba(232, 93, 74, 0.40);
+  box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.20);
 }
 
 .shadow-ih-peach {
-  box-shadow: 0 8px 30px -5px rgba(240, 149, 80, 0.15);
+  box-shadow: 0 8px 30px -5px rgba(15, 23, 42, 0.08);
 }
 .shadow-ih-peach:hover {
-  box-shadow: 0 20px 40px -10px rgba(240, 149, 80, 0.40);
+  box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.20);
 }
 
 .shadow-ih-yellow {
-  box-shadow: 0 8px 30px -5px rgba(246, 201, 106, 0.18);
+  box-shadow: 0 8px 30px -5px rgba(15, 23, 42, 0.08);
 }
 .shadow-ih-yellow:hover {
-  box-shadow: 0 20px 40px -10px rgba(246, 201, 106, 0.45);
+  box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.20);
+}
+
+/* ─── CUSTOM KEYFRAME ANIMATIONS ────────────────────────────── */
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes floatBadge {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50%       { transform: translateY(-8px) rotate(2deg); }
+}
+
+@keyframes shimmer {
+  0%   { opacity: 0.6; }
+  50%  { opacity: 1; }
+  100% { opacity: 0.6; }
 }
 

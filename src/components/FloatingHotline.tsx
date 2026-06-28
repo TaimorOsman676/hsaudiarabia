@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { GraduationCap, Phone } from "lucide-react";
+import { MessageSquare, Phone } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function FloatingHotline() {
@@ -18,30 +18,27 @@ export default function FloatingHotline() {
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Outer Pulse Rings */}
-      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#002F6C] to-[#e85d4a] opacity-35 animate-ping -z-10 scale-125" />
-      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#8b3275] to-[#1fa968] opacity-20 animate-pulse -z-10 scale-150" />
+      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#002F6C] to-[#cf1430] opacity-25 animate-ping -z-10 scale-125" />
+      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#002F6C] to-green-500 opacity-15 animate-pulse -z-10 scale-150" />
 
       <a
-        href="tel:+966920000364"
-        className="flex items-center gap-2 p-3 sm:p-4 rounded-full bg-gradient-to-r from-[#002F6C] via-[#8b3275] to-[#e85d4a] text-white shadow-[0_12px_36px_rgba(0,47,108,0.35)] border border-white/20 backdrop-blur-sm transition-all duration-300 hover:scale-105"
-        style={{
-          boxShadow: "0 12px 36px -5px color-mix(in srgb, var(--color-primary) 40%, transparent)",
-        }}
+        href="https://wa.me/966920000364"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center gap-2.5 p-3.5 sm:p-4 rounded-full bg-gradient-to-r from-[#002f6c] to-green-600 text-white shadow-lg border border-white/20 backdrop-blur-sm transition-all duration-300 hover:scale-105"
       >
-        {/* Animated Graduation Cap / Degree Logo */}
+        {/* Modern Live Chat Bubble Icon */}
         <motion.div
           animate={{
             rotate: isHovered ? [0, -10, 10, -10, 0] : 0,
-            scale: isHovered ? 1.1 : 1,
+            scale: isHovered ? 1.15 : 1,
           }}
-          transition={{ duration: 0.6, ease: "easeInOut" }}
-          className="relative w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/15 backdrop-blur-md flex items-center justify-center border border-white/25 text-white"
+          transition={{ duration: 0.5, ease: "easeInOut" }}
+          className="relative w-8.5 h-8.5 rounded-full bg-white/10 flex items-center justify-center border border-white/20 text-white shrink-0"
         >
-          <GraduationCap size={20} className="sm:size-22" />
-          {/* Subtle phone badge on the logo to indicate call/contact */}
-          <span className="absolute -top-1 -right-1 w-3.5 h-3.5 rounded-full bg-[#1fa968] border border-white flex items-center justify-center text-[8px] font-bold text-white">
-            <Phone size={8} className="fill-white" />
-          </span>
+          <MessageSquare size={18} className="fill-white/10" />
+          {/* Green online indicator dot */}
+          <span className="absolute -top-0.5 -right-0.5 w-3 h-3 rounded-full bg-green-500 border border-white flex items-center justify-center" />
         </motion.div>
 
         {/* Expandable text banner */}
@@ -52,13 +49,13 @@ export default function FloatingHotline() {
             opacity: isHovered ? 1 : 0,
           }}
           transition={{ duration: 0.35, ease: "easeInOut" }}
-          className="overflow-hidden whitespace-nowrap flex flex-col items-start pr-2 pl-1 rtl:pr-1 rtl:pl-2"
+          className="overflow-hidden whitespace-nowrap flex flex-col items-start pr-2.5 pl-1 rtl:pr-1 rtl:pl-2.5"
         >
-          <span className="text-[10px] font-bold uppercase tracking-wider text-white/70">
-            {lang === "ar" ? "الاستشارات الأكاديمية" : "Academic Advisory"}
+          <span className="text-[10px] font-extrabold uppercase tracking-widest text-green-300 leading-tight">
+            {lang === "ar" ? "تواصل معنا" : "ONLINE ADVISOR"}
           </span>
-          <span className="text-sm font-extrabold text-white">
-            +966 920 000 364
+          <span className="text-xs font-bold text-white leading-snug">
+            {lang === "ar" ? "محادثة واتساب مباشرة" : "Chat on WhatsApp"}
           </span>
         </motion.div>
       </a>

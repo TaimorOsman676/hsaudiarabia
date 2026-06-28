@@ -16,290 +16,547 @@ import ThemeAccent from "@/components/ThemeAccent";
 export const companiesData = {
   en: {
     hero: {
-      title: "English for Companies",
-      tagline: "Elevate your workforce. Power your business forward.",
+      title: "Corporate Training",
+      tagline: "Professional Language Training Solutions for Organizations",
       badge: "Corporate Solutions",
     },
-    whoWeWorkWith: {
-      title: "Who We Work With",
-      subtitle: "Trusted by Saudi Industry Leaders",
-      text1: "IH Saudi Arabia works with a vast range of companies from those in the energy industry and utilities to those in banking and finance.",
-      text2: "Our client feedback is excellent and over three decades; IH Saudi Arabia has established a loyal client base even as it continues to expand into new sectors.",
-      text3: "We teach English online and face to face in client training centers.",
-      sectors: [
-        { name: "Energy & Utilities", desc: "Technical communication for petrochemical, oil, gas, and utility sectors." },
-        { name: "Banking & Finance", desc: "Professional English for financial analysts, investment firms, and banks." },
-        { name: "Logistics & Aviation", desc: "Operational English for global supply chains, transport, and aviation." },
-        { name: "Manufacturing & Construction", desc: "Safety-first technical English for factories and site engineering." },
-        { name: "Tourism & Hospitality", desc: "Guest-facing communication for Saudi Arabia's booming tourism sector." },
-        { name: "Medical & Banking", desc: "Specialist terminology for healthcare professionals and corporate banking." }
+    intro: {
+      title: "Customized Language Training & Workforce Development",
+      subtitle: "Professional Language Training Solutions for Organizations",
+      text1: "International House Saudi Arabia (IHSA) provides customized language training and workforce development solutions for companies, government entities, educational institutions, and organizations across the Kingdom.",
+      text2: "With over 30 years of experience supporting Saudi industry, IH Saudi Arabia understands the importance of effective communication, workforce readiness, and continuous professional development.",
+      text3: "Our training solutions are designed to improve employee performance, enhance workplace communication, and support organizational objectives through practical, measurable, and results-driven learning programs."
+    },
+    whyChooseUs: {
+      title: "Why Choose Us",
+      subtitle: "Why Corporate Clients Choose IH Saudi Arabia",
+      text1: "Organizations require more than language training. They need training solutions that deliver measurable outcomes and support business objectives.",
+      text2: "IH Saudi Arabia combines international educational standards with local industry knowledge to create programs that are relevant, practical, and aligned with workplace needs."
+    },
+    strengths: {
+      title: "Our Strengths",
+      list: [
+        { title: "30+ Years Experience", desc: "Over 30 years of experience in Saudi Arabia supporting key industries.", img: "/str_saudi.png" },
+        { title: "Corporate Expertise", desc: "Extensive corporate training expertise tailored to workforce readiness.", img: "/str_corporate.png" },
+        { title: "Global IH Network", desc: "International House global network support and quality assurance.", img: "/str_network.png" },
+        { title: "Customized Solutions", desc: "Customized learning solutions designed around organizational objectives.", img: "/str_method.png" },
+        { title: "Professional Reporting", desc: "Detailed, regular reporting and evaluation of participant progress.", img: "/str_quality.png" },
+        { title: "Flexible Delivery", desc: "Flexible delivery methods including on-site, online, and hybrid options.", img: "/str_hybrid.png" },
+        { title: "Expert Trainers", desc: "Experienced, fully certified trainers and professional assessors.", img: "/str_trainers.png" },
+        { title: "Measurable Outcomes", desc: "A strong focus on measurable performance improvement and ROI.", img: "/str_quality.png" }
       ]
     },
     solutions: {
-      title: "Customized Language Solutions",
-      subtitle: "Tailored to Your Corporate Goals",
-      text1: "IH Saudi Arabia offers flexible training methods for each client’s needs. These include face to face classes, blended learning, and online virtual classes so that your employees can study English 24/7 whenever they wish and wherever they are.",
-      text2: "The course’s delivery method isn’t the only thing that is based on client need; it is also the training content itself.",
-      text3: "IH programs are competency based to give employees the practical skills they need to achieve better job performance. Whether our instructors teach at your facilities, the employees learn at the location of IH Saudi Arabia, or they study in an online virtual class – the learning outcomes that add value through better job performance are all aligned to your corporate goals.",
-      text4: "IH Saudi Arabia offers 6 levels of General English, Business English, Technical English (Beginner to Advance) for Saudi companies, although courses very often need to be designed according to the learners’ professional needs. While these requirements may relate to business communication skills like writing emails, technical report writing, giving presentations, and telephoning, they might also mean specialist programs in areas like the oil and gas industry, logistics, aviation, manufacturing, construction, security, tourism and hospitality, medical English, and banking.",
-      text5: "Regardless of the method of course delivery or course content, IH Saudi Arabia will work with you from the outset to achieve shared goals.",
-      text6: "IH’s decades of experience in Saudi Arabia working at the heart of Saudi industry where we have trained thousands of learners means that our organization understands your business environment."
-    },
-    overview: {
-      title: "In-Company Programs Overview",
-      subtitle: "Comprehensive Language Development",
-      text1: "IH Saudi Arabia offers multi-level Business English, Technical English, and specialist programs to suit individual professions.",
-      text2: "For those classes that are from very diverse job backgrounds, or for low level learners who simply require basic language acquisition, General English programs are also available on a stand-alone or support basis for a wider ESP-focused curriculum.",
-      text3: "Whichever option is finally agreed upon, it will be the result of consultation, needs analysis, and a client centered approach to meeting shared goals. The training plan will be comprehensive offering practical solutions to your needs in key areas like program objectives, curriculum design, materials selection, supplementary support like remedial classes to reduce risk, benchmarking with your company’s job competency framework, and assessment.",
-      text4: "All IH programs are subject to both our organization’s internal quality checks, and IH Saudi Arabia welcomes ongoing feedback from clients throughout the program."
-    },
-    generalEnglish: {
-      title: "General English Program",
-      desc: "There are 6 IH levels benchmarked to the Common European Framework, or CEF. There are 6 Levels of English available up to C1. As per standard client requirements, IH Saudi Arabia offers 6 levels of General English, Business English, and Technical English for companies from A1 to C1 which is from Beginner to Lower Advanced. We use Oxford and Cambridge English teaching materials for the General English and Business English courses. Each ability band is 120 hours of direct contact teaching either online in a virtual class or in the client’s training center. Full time courses are usually for 1 month."
-    },
-    onlineClasses: {
-      title: "Online / Virtual Classes",
-      desc: "International House Saudi Arabia Online General English Classes for the public. Learn English online and certify your language skills to take your ambitions to the next level. Learn with one of the most prestigious language teaching organizations in the world and improve your Speaking, Reading, Writing, and Listening skills at all levels. Courses are available for both Saudi male and female learners. Certify your English skills with a prestigious International House qualification. International House, established in 1953, is one of the largest language teaching organizations in the world with 140 schools in over 45 countries. International House Saudi Arabia has operated in the Kingdom for over 30 years where it has helped tens of thousands of learners to achieve their true potential. Now, following our 12-level online learning system, you can study English in an online live class with an instructor who will support and motivate you to even greater success from the comfort of your own home.",
-      subTitle: "Online English Benchmarking System",
-      subDesc: "International House Saudi Arabia offers certified General English online courses that are recognized by Saudi industry. Certifying your English language skills with IH Saudi Arabia is a vital step in ensuring that you have met the language requirements of today’s job market.",
-      statTitle: "Saudi Employment Insights",
-      stat1: "Over 80% of Saudi employers say they require new employees to have English skills.",
-      stat2: "Major employers such as SABIC and Aramco are constantly recruiting new Saudi employees, but in most cases, the majority of companies in Saudi Arabia now require new hires to have proven English language skills."
-    },
-    outcomes: {
-      title: "Learning Outcomes",
-      subtitle: "You will be able to:",
-      items: [
-        "Communicate more fluently",
-        "Improve your accuracy",
-        "Use strategies and techniques to develop all four skills – listening, reading, writing and speaking (including pronunciation)",
-        "Feel more confident in English-speaking environments and interacting with other English speakers."
-      ]
-    },
-    content: {
-      title: "Course Content",
-      items: [
-        "Teachers adapt the course for the needs and level of each class.",
-        "Regular individual tutorials with your teacher help you to achieve your learning goals.",
-        "Working with other students develops your communication skills through class discussions and project work.",
-        "Develop your grammar and vocabulary.",
-        "Use a wide range of motivating materials including digital resources and course books."
-      ]
-    },
-    portfolio: {
-      title: "Our Training Portfolios",
-      subtitle: "Tailored educational products for companies and individuals",
+      title: "Our Corporate Training Solutions",
       items: [
         {
-          title: "General English",
-          desc: "6 levels benchmarked to CEFR (A1 to C1) using Oxford and Cambridge materials. 120 contact hours per ability band.",
-          shadow: "shadow-ih-blue",
+          key: "business",
+          title: "Business English",
+          desc: "Develop the communication skills required for today's professional workplace.",
+          subtitle: "Programs focus on:",
+          items: [
+            "Business communication",
+            "Meetings and discussions",
+            "Presentations",
+            "Professional writing",
+            "Email communication",
+            "Negotiation skills",
+            "Workplace interaction"
+          ],
+          note: "Customized to align with your organization's business objectives.",
+          img: "/corp_business.png",
           color: "#002F6C",
-          img: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80"
+          shadow: "shadow-ih-blue"
         },
         {
-          title: "Online Classes",
-          desc: "12-level system with live native instructors. Maximum 13 students per small virtual class. Subscription plans available.",
-          shadow: "shadow-ih-green",
+          key: "technical",
+          title: "Technical & Industry-Specific English",
+          desc: "Specialized programs designed to support employees working in technical and operational environments.",
+          subtitle: "Examples include:",
+          items: [
+            "Technical English",
+            "English for Engineers",
+            "English for Oil & Gas",
+            "English for Logistics",
+            "English for Manufacturing",
+            "English for Healthcare",
+            "English for Hospitality & Tourism",
+            "English for Customer Service"
+          ],
+          note: "Programs may be customized to meet the specific requirements of each organization.",
+          img: "/corp_technical.png",
           color: "#1fa968",
-          img: "https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?auto=format&fit=crop&w=600&q=80"
+          shadow: "shadow-ih-green"
         },
         {
-          title: "IELTS Training",
-          desc: "60 or 120 hours of focused preparation. Tailored study plans focusing on writing, speaking, and test techniques.",
-          shadow: "shadow-ih-purple",
-          color: "#8b3275",
-          img: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=600&q=80"
+          key: "executive",
+          title: "Executive Coaching",
+          desc: "Individual and small-group training programs designed for managers, executives, and professionals who require highly focused language and communication development.",
+          subtitle: "Areas may include:",
+          items: [
+            "Executive communication",
+            "Presentation skills",
+            "Business meetings",
+            "Public speaking",
+            "Leadership communication",
+            "Professional writing"
+          ],
+          note: "Confidential and highly focused, tailored to executive schedules.",
+          img: "/corp_executive.png",
+          color: "#fcb900",
+          shadow: "shadow-ih-yellow"
         },
         {
-          title: "Private Tuition",
-          desc: "General English IH levels 1a-12b, Saudi High School curriculum support (Grades 10-12), and Math tuition.",
-          shadow: "shadow-ih-coral",
-          color: "#e85d4a",
-          img: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=600&q=80"
-        },
-        {
-          title: "Exam Classes",
-          desc: "Cambridge prep for children (Starters, Movers, Flyers, A2/B1 Preliminary) and adults. 15-25 hours per week.",
-          shadow: "shadow-ih-yellow",
-          color: "#f6c96a",
-          img: "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=600&q=80"
+          key: "testing",
+          title: "Placement Testing & Language Assessment",
+          desc: "Accurate placement is critical to training success. IH Saudi Arabia provides reliable English language assessment and placement testing services designed to support recruitment, workforce development, and training programs.",
+          subtitle: "Our assessment solutions help organizations:",
+          items: [
+            "Identify current language levels",
+            "Benchmark employees against international standards",
+            "Design effective training pathways",
+            "Measure progress and development"
+          ],
+          note: "Assessment services may be delivered online or on-site depending on client requirements.",
+          img: "/corp_testing.png",
+          color: "#cf1430",
+          shadow: "shadow-ih-red"
         }
       ]
     },
-    steps: {
-      title: "Take the Next Step",
-      subtitle: "Our simple onboarding process to start learning",
+    process: {
+      title: "Our Corporate Training Process",
+      subtitle: "A structured methodology ensuring measurable results",
       list: [
-        { step: "Step 1", title: "Free Consultation", desc: "Contact IH Saudi Arabia for a free academic consultation." },
-        { step: "Step 2", title: "Placement Test", desc: "IH will arrange for you to take our online placement test which is totally free." },
-        { step: "Step 3", title: "Select Start Date", desc: "Once you have registered, choose your start date. Courses begin each Sunday." },
-        { step: "Step 4", title: "Choose Timetable", desc: "Select a timetable that best suits you. Classes run from 8am to 9pm daily." },
-        { step: "Step 5", title: "Group Allocation", desc: "Get allocated to a study group based on your level of English and schedule." },
-        { step: "Step 6", title: "Receive Class Link", desc: "IH administration will email your first 24-hour active virtual class link in the evening." },
-        { step: "Step 7", title: "Certify Achievement", desc: "Complete your 60-hour course, pass assessments, and receive your IH Certificate." }
+        { step: "Step 1", title: "Consultation & Needs Analysis", desc: "We work closely with clients to understand organizational goals, workforce requirements, and training objectives.", img: "/str_corporate.png" },
+        { step: "Step 2", title: "Placement Testing & Assessment", desc: "Participants are assessed to determine current language proficiency and training needs.", img: "/corp_testing.png" },
+        { step: "Step 3", title: "Program Design", desc: "Customized learning pathways are developed based on organizational and participant requirements.", img: "/str_method.png" },
+        { step: "Step 4", title: "Training Delivery", desc: "Programs are delivered by experienced trainers through face-to-face, online, or hybrid learning solutions.", img: "/about_classroom.png" },
+        { step: "Step 5", title: "Monitoring & Reporting", desc: "Progress is monitored throughout the program with regular reporting and communication.", img: "/str_quality.png" },
+        { step: "Step 6", title: "Evaluation & Recommendations", desc: "Program outcomes are evaluated and recommendations are provided for future development.", img: "/corp_executive.png" }
       ]
     },
-    essentialInfo: {
-      title: "Essential Information",
-      study: "Study: General English Online",
-      levels: "IH Levels: 1A-12B | Ages: 17+",
-      cert: "Certification: All Levels",
-      teachers: "Teachers: UK, USA and fully certified & experienced.",
-      classSize: "Class Size: Maximum 13 students in virtual classes.",
-      subPlans: "Monthly Subscription Plans & Part/Full-Time classes are available."
+    delivery: {
+      title: "Flexible Delivery Options",
+      desc: "IH Saudi Arabia offers training solutions designed to fit organizational schedules and operational requirements.",
+      subtitle: "Delivery Methods",
+      items: [
+        "On-Site Training",
+        "Training at IH Saudi Arabia Centers",
+        "Live Online Training",
+        "Hybrid Learning Solutions",
+        "Executive One-to-One Coaching",
+        "Small Group Programs"
+      ],
+      note: "Our flexible approach allows organizations to select the most effective learning environment for their employees."
+    },
+    support: {
+      title: "Supporting Workforce Development",
+      desc: "IH Saudi Arabia is committed to supporting organizations in developing the communication skills, language proficiency, and professional capabilities required in today's competitive workplace.",
+      text: "Through practical training, professional support, and internationally aligned standards, we help organizations invest in their people and achieve sustainable workforce development outcomes."
+    },
+    cta: {
+      title: "Request a Corporate Proposal",
+      desc: "Our team will be pleased to discuss your training requirements and recommend the most suitable solution for your organization.",
+      subtitle: "Corporate Services Include",
+      items: [
+        "Training Needs Analysis",
+        "Placement Testing",
+        "Business English",
+        "Technical English",
+        "Executive Coaching",
+        "Customized Programs",
+        "Online & Hybrid Training",
+        "Progress Reporting"
+      ]
     }
   },
   ar: {
     hero: {
-      title: "الإنجليزية للشركات",
-      tagline: "رفّع كفاءة موظفيك. قدّم أعمالك للأمام.",
+      title: "التدريب المؤسسي",
+      tagline: "حلول تدريب لغوي احترافية للشركات والمؤسسات",
       badge: "حلول الشركات والمؤسسات",
     },
-    whoWeWorkWith: {
-      title: "الجهات التي نعمل معها",
-      subtitle: "موثوقون من قبل رواد الصناعة السعودية",
-      text1: "تعمل الهاوس الدولي السعودية مع مجموعة واسعة من الشركات، بدءاً من قطاعات الطاقة والمرافق الخدمية إلى القطاعات المصرفية والمالية.",
-      text2: "تقييمات عملائنا ممتازة؛ وعلى مدار ثلاثة عقود، نجحت الهاوس الدولي السعودية في بناء قاعدة عملاء مخلصة بالتزامن مع توسعها المستمر في قطاعات جديدة.",
-      text3: "نحن ندرس اللغة الإنجليزية عبر الإنترنت وحضورياً في مراكز التدريب الخاصة بالعملاء.",
-      sectors: [
-        { name: "الطاقة والمرافق", desc: "التواصل التقني لقطاعات البتروكيماويات والنفط والغاز والمرافق العامة." },
-        { name: "الخدمات المصرفية والمالية", desc: "اللغة الإنجليزية المهنية للمحللين الماليين وشركات الاستثمار والبنوك." },
-        { name: "الخدمات اللوجستية والطيران", desc: "الإنجليزية التشغيلية لسلاسل التوريد العالمية والنقل والطيران." },
-        { name: "التصنيع والتشييد", desc: "الإنجليزية الفنية مع التركيز على السلامة للمصانع وهندسة المواقع." },
-        { name: "السياحة والضيافة", desc: "التواصل المباشر مع الضيوف لقطاع السياحة الواعد في المملكة." },
-        { name: "الطبية والخدمات البنكية الخاصة", desc: "المصطلحات التخصصية لمتخصصي الرعاية الصحية والخدمات المصرفية للشركات." }
+    intro: {
+      title: "التدريب اللغوي المخصص وتطوير رأس المال البشري",
+      subtitle: "حلول تدريب لغوي احترافية للشركات والمؤسسات",
+      text1: "يقدم معهد الهاوس الدولي السعودية (IHSA) حلولاً مخصصة للتدريب اللغوي وتطوير القوى العاملة للشركات والجهات الحكومية والمؤسسات التعليمية والمنظمات في جميع أنحاء المملكة.",
+      text2: "انطلاقاً من خبرتنا الممتدة لأكثر من 30 عاماً في دعم الصناعة السعودية، يتفهم معهد الهاوس الدولي السعودية أهمية التواصل الفعال وجاهزية الموظفين والتطوير المهني المستمر.",
+      text3: "تم تصميم حلولنا التدريبية لتحسين أداء الموظفين وتعزيز التواصل في بيئة العمل ودعم الأهداف المؤسسية من خلال برامج تعليمية عملية وقابلة للقياس وموجهة نحو النتائج."
+    },
+    whyChooseUs: {
+      title: "لماذا نحن",
+      subtitle: "لماذا يختار عملاء قطاع الأعمال معهد الهاوس الدولي السعودية؟",
+      text1: "تتطلب الشركات ما هو أكثر من مجرد تدريب لغوي عابر؛ إنها بحاجة إلى حلول تدريبية تحقق نتائج ملموسة وتدعم الأهداف التجارية والتشغيلية.",
+      text2: "يجمع معهد الهاوس الدولي السعودية بين معايير التعليم العالمية والمعرفة بالصناعة المحلية لتصميم برامج ذات صلة وعملية ومتوافقة مع احتياجات بيئة العمل."
+    },
+    strengths: {
+      title: "نقاط قوتنا",
+      list: [
+        { title: "أكثر من 30 عاماً من الخبرة", desc: "أكثر من 30 عاماً من الخبرة في المملكة العربية السعودية لدعم الصناعات الحيوية.", img: "/str_saudi.png" },
+        { title: "خبرة تدريبية واسعة", desc: "خبرة تدريبية واسعة للشركات مصممة لتأهيل الكوادر وتطوير الأداء.", img: "/str_corporate.png" },
+        { title: "شبكة IH العالمية", desc: "دعم كامل وضمان جودة من الشبكة العالمية لمعاهد الهاوس الدولي.", img: "/str_network.png" },
+        { title: "حلول تدريب مخصصة", desc: "حلول تدريبية مخصصة ومصممة بالكامل حول متطلبات جهة العمل.", img: "/str_method.png" },
+        { title: "تقارير مهنية دورية", desc: "تقارير وتقييمات دورية مهنية وتفصيلية لمتابعة تقدم الموظفين.", img: "/str_quality.png" },
+        { title: "طرق تقديم مرنة", desc: "طرق تقديم مرنة تشمل التدريب الحضوري، وعبر الإنترنت، والمدمج.", img: "/str_hybrid.png" },
+        { title: "مدربون خبراء ومقيمون", desc: "مدربون ذوو خبرة وكفاءة عالية ومقيمون معتمدون دولياً.", img: "/str_trainers.png" },
+        { title: "نتائج قابلة للقياس", desc: "تركيز كبير على تحقيق نتائج أداء ملموسة وعائد حقيقي على الاستثمار.", img: "/str_quality.png" }
       ]
     },
     solutions: {
-      title: "حلول لغوية مخصصة",
-      subtitle: "مصممة لتتوافق مع أهداف شركتكم",
-      text1: "تقدم الهاوس الدولي السعودية طرق تدريب مرنة تناسب احتياجات كل عميل. ويشمل ذلك الفصول الحضورية والتعليم المدمج والفصول الافتراضية عبر الإنترنت ليتمكن موظفوكم من دراسة الإنجليزية على مدار الساعة طوال أيام الأسبوع في أي وقت وأي مكان.",
-      text2: "طريقة تقديم الدورة ليست الشيء الوحيد المعتمد على حاجة العميل؛ بل يشمل ذلك المحتوى التدريبي نفسه.",
-      text3: "برامج الهاوس الدولي قائمة على الجدارات لتزويد الموظفين بالمهارات العملية اللازمة لتحسين أدائهم الوظيفي. وسواء قام مدربونا بالتدريس في منشآتكم، أو تعلم الموظفون في مقرات الهاوس الدولي السعودية، أو درسوا في فصول افتراضية - فإن جميع مخرجات التعلم التي تضيف قيمة للأداء الوظيفي تتماشى تماماً مع أهداف شركتكم.",
-      text4: "تقدم الهاوس الدولي السعودية 6 مستويات من اللغة الإنجليزية العامة، وإنجليزي الأعمال والإنجليزية التقنية (من المبتدئ إلى المتقدم) للشركات السعودية، على الرغم من أن الدورات غالباً ما يتم تصميمها وفقاً للاحتياجات المهنية للمتدربين. وقد تتعلق هذه المتطلبات بمهارات التواصل في الأعمال مثل كتابة رسائل البريد الإلكتروني، وكتابة التقارير الفنية، وتقديم العروض التقديمية، والمحادثات الهاتفية، أو برامج تخصصية في مجالات مثل قطاع النفط والغاز، والخدمات اللوجستية، والطيران، والتصنيع، والتشييد، والأمن، والسياحة والضيافة، والإنجليزية الطبية، والخدمات المصرفية.",
-      text5: "بغض النظر عن طريقة تقديم الدورة أو محتواها، ستعمل الهاوس الدولي السعودية معكم منذ البداية لتحقيق أهدافنا المشتركة.",
-      text6: "إن عقود الخبرة الطويلة التي تمتلكها الهاوس الدولي في المملكة العربية السعودية بالعمل في قلب الصناعة السعودية، حيث دربنا آلاف المتعلمين، تعني أن مؤسستنا تتفهم تماماً بيئة أعمالكم."
-    },
-    overview: {
-      title: "نظرة عامة على البرامج الداخلية للشركات",
-      subtitle: "تطوير لغوي شامل ومتكامل",
-      text1: "تقدم الهاوس الدولي السعودية برامج متعددة المستويات في إنجليزية الأعمال والإنجليزية التقنية والبرامج التخصصية لتناسب المهن الفردية.",
-      text2: "بالنسبة للفصول ذات الخلفيات الوظيفية المتنوعة، أو للمتعلمين ذوي المستويات المبتدئة الذين يحتاجون ببساطة إلى اكتساب اللغة الأساسية، تتوفر أيضاً برامج اللغة الإنجليزية العامة بشكل مستقل أو كدعم لمنهج أوسع يركز على اللغة الإنجليزية لأغراض خاصة (ESP).",
-      text3: "أياً كان الخيار الذي يتم الاتفاق عليه في النهاية، فإنه سيكون ثمرة الاستشارة وتحليل الاحتياجات والنهج المتمحور حول العميل لتحقيق الأهداف المشتركة. ستكون الخطة التدريبية شاملة وتقدم حلولاً عملية لاحتياجاتكم في مجالات رئيسية مثل أهداف البرنامج، وتصميم المناهج الدراسية، واختيار المواد التدريبية، والدعم الإضافي مثل الفصول التعويضية لتقليل المخاطر، والمواءمة مع إطار الكفاءات الوظيفية لشركتكم، والتقييم.",
-      text4: "تخضع جميع برامج الهاوس الدولي لفحوصات الجودة الداخلية لمؤسستنا، وترحب الهاوس الدولي السعودية بملاحظات العملاء المستمرة طوال فترة البرنامج."
-    },
-    generalEnglish: {
-      title: "برنامج اللغة الإنجليزية العامة",
-      desc: "هناك 6 مستويات معتمدة من الهاوس الدولي متوافقة مع الإطار الأوروبي المشترك (CEFR). تتوفر 6 مستويات من اللغة الإنجليزية حتى المستوى C1. ووفقاً لمتطلبات العملاء القياسية، تقدم الهاوس الدولي السعودية 6 مستويات من الإنجليزية العامة وإنجليزي الأعمال والإنجليزية التقنية للشركات من A1 إلى C1، وهو من المبتدئ إلى المتقدم المنخفض. نستخدم مواد تدريس أكسفورد وكامبريدج المعتمدة. تبلغ مدة تدريس كل مستوى 120 ساعة تدريس مباشرة، إما عبر الإنترنت في فصل افتراضي أو في مركز التدريب الخاص بالعميل. وعادة ما تكون الدورات بدوام كامل لمدة شهر واحد."
-    },
-    onlineClasses: {
-      title: "الفصول الافتراضية وعبر الإنترنت",
-      desc: "فصول لغة إنجليزية عامة عبر الإنترنت للجمهور من الهاوس الدولي السعودية. تعلم الإنجليزية عبر الإنترنت ووثق مهاراتك اللغوية لتنتقل بطموحاتك إلى المستوى التالي. تعلم مع واحدة من أعرق منظمات تعليم اللغات في العالم وحسّن مهارات التحدث والقراءة والكتابة والاستماع في جميع المستويات. الدورات متاحة للطلاب والطالبات السعوديين على حد سواء. وثق مهاراتك بشهادة الهاوس الدولي المرموقة. تأسست الهاوس الدولي عام 1953، وهي واحدة من أكبر منظمات تدريس اللغات في العالم ولديها 140 مدرسة في أكثر من 45 دولة. تعمل الهاوس الدولي السعودية في المملكة منذ أكثر من 30 عاماً حيث ساعدت عشرات الآلاف من المتعلمين على تحقيق إمكاناتهم الحقيقية. الآن، باتباع نظام التعلم عبر الإنترنت المكون من 12 مستوى، يمكنك دراسة اللغة الإنجليزية في فصل افتراضي مباشر مع معلم يدعمك ويحفزك لتحقيق نجاح أكبر من راحة منزلك.",
-      subTitle: "نظام المواءمة للإنجليزية عبر الإنترنت",
-      subDesc: "تقدم الهاوس الدولي السعودية دورات إنجليزية عامة معتمدة عبر الإنترنت ومعترف بها في قطاع الصناعة السعودي. شهادة مهاراتك مع الهاوس الدولي هي خطوة حيوية لضمان تلبية متطلبات اللغة في سوق العمل اليوم.",
-      statTitle: "رؤية حول التوظيف في السعودية",
-      stat1: "أكثر من 80% من أصحاب العمل في السعودية يطلبون مهارات اللغة الإنجليزية لدى الموظفين الجدد.",
-      stat2: "تستمر الشركات الكبرى مثل سابك وأرامكو في توظيف مواطنين سعوديين جدد، ولكن في معظم الحالات، تطلب غالبية الشركات في المملكة الآن من الموظفين الجدد إثبات مهاراتهم في اللغة الإنجليزية."
-    },
-    outcomes: {
-      title: "مخرجات التعلم",
-      subtitle: "ستكون قادراً على:",
-      items: [
-        "التواصل بمزيد من الطلاقة والسهولة",
-        "تحسين دقة وصحة لغتك وصحتها",
-        "استخدام استراتيجيات وتقنيات لتطوير المهارات الأربع - الاستماع والقراءة والكتابة والتحدث (بما في ذلك النطق الصحيح)",
-        "الشعور بمزيد من الثقة في البيئات الناطقة بالإنجليزية والتفاعل مع المتحدثين بها."
-      ]
-    },
-    content: {
-      title: "محتوى الدورة",
-      items: [
-        "يقوم المعلمون بتعديل وتكييف الدورة لتناسب احتياجات ومستوى كل فصل.",
-        "تساعدك الدروس الفردية المنتظمة مع معلمك على تحقيق أهدافك التعليمية.",
-        "العمل مع الطلاب الآخرين ينمي مهارات التواصل لديك من خلال المناقشات الصفية والمشاريع المشتركة.",
-        "تطوير القواعد اللغوية والمفردات الخاصة بك.",
-        "استخدام مجموعة واسعة من المواد المحفزة بما في ذلك المصادر الرقمية والكتب المنهجية."
-      ]
-    },
-    portfolio: {
-      title: "حقائبنا التدريبية للشركات",
-      subtitle: "منتجات تعليمية مصممة خصيصاً للشركات والأفراد لتناسب بيئة العمل الحديثة",
+      title: "حلولنا التدريبية للشركات",
       items: [
         {
-          title: "اللغة الإنجليزية العامة",
-          desc: "6 مستويات متوافقة مع الإطار الأوروبي (A1 إلى C1) بمواد أكسفورد وكامبريدج. 120 ساعة اتصال لكل مستوى.",
-          shadow: "shadow-ih-blue",
+          key: "business",
+          title: "اللغة الإنجليزية للأعمال",
+          desc: "تطوير مهارات التواصل المطلوبة في بيئة العمل الاحترافية الحديثة.",
+          subtitle: "تركز البرامج على:",
+          items: [
+            "التواصل في مجال الأعمال",
+            "الاجتماعات والمناقشات",
+            "العروض التقديمية",
+            "الكتابة المهنية",
+            "المراسلات الإلكترونية",
+            "مهارات التفاوض",
+            "التفاعل في بيئة العمل"
+          ],
+          note: "مصممة لتتوافق مع أهداف أعمال شركتكم.",
+          img: "/corp_business.png",
           color: "#002F6C",
-          img: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80"
+          shadow: "shadow-ih-blue"
         },
         {
-          title: "الفصول الدراسية عبر الإنترنت",
-          desc: "نظام من 12 مستوى مع معلمي لغة إنجليزية مباشرين. 13 متعلماً كحد أقصى في فصول صغيرة. تتوفر اشتراكات شهرية.",
-          shadow: "shadow-ih-green",
+          key: "technical",
+          title: "الإنجليزية التقنية والتخصصية",
+          desc: "برامج متخصصة مصممة لدعم الموظفين العاملين في البيئات الفنية والتشغيلية.",
+          subtitle: "وتشمل الأمثلة:",
+          items: [
+            "الإنجليزية التقنية",
+            "الإنجليزية للمهندسين",
+            "الإنجليزية للنفط والغاز",
+            "الإنجليزية للخدمات اللوجستية",
+            "الإنجليزية للتصنيع",
+            "الإنجليزية للرعاية الصحية",
+            "الإنجليزية للضيافة والسياحة",
+            "الإنجليزية لخدمة العملاء"
+          ],
+          note: "يمكن تخصيص البرامج لتلبية المتطلبات المحددة لكل مؤسسة.",
+          img: "/corp_technical.png",
           color: "#1fa968",
-          img: "https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?auto=format&fit=crop&w=600&q=80"
+          shadow: "shadow-ih-green"
         },
         {
-          title: "التدريب على آيلتس (IELTS)",
-          desc: "دورات مكثفة 60 أو 120 ساعة. خطط شخصية تركز على الكتابة والمحادثة وتجاوز متطلبات مراكز الاختبار الشريكة.",
-          shadow: "shadow-ih-purple",
-          color: "#8b3275",
-          img: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=600&q=80"
+          key: "executive",
+          title: "تدريب التنفيذيين والقيادات",
+          desc: "برامج تدريبية فردية أو لمجموعات صغيرة مصممة للمدراء والتنفيذيين الذين يتطلب عملهم تطويراً لغوياً وتواصلياً عالي التركيز.",
+          subtitle: "وتشمل مجالات التدريب:",
+          items: [
+            "التواصل القيادي والتنفيذي",
+            "مهارات العروض التقديمية",
+            "اجتماعات الأعمال الدولية",
+            "التحدث أمام الجمهور",
+            "التواصل القيادي المؤثر",
+            "الكتابة المهنية المتقدمة"
+          ],
+          note: "تدريب فردي سري ومكثف، مصمم ليناسب جداول التنفيذيين المزدحمة.",
+          img: "/corp_executive.png",
+          color: "#fcb900",
+          shadow: "shadow-ih-yellow"
         },
         {
-          title: "الدروس الخصوصية",
-          desc: "تدريس خصوصي في الإنجليزية العامة (مستويات 1a-12b)، ودعم مناهج الثانوية السعودية (10-12) والرياضيات.",
-          shadow: "shadow-ih-coral",
-          color: "#e85d4a",
-          img: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=600&q=80"
-        },
-        {
-          title: "فصول التحضير للامتحانات",
-          desc: "التحضير لشهادات كامبريدج للصغار (Starters, Movers, Flyers, A2/B1 Preliminary) والبالغين. 15-25 ساعة أسبوعياً.",
-          shadow: "shadow-ih-yellow",
-          color: "#f6c96a",
-          img: "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=600&q=80"
+          key: "testing",
+          title: "اختبارات التحديد والتقييم اللغوي",
+          desc: "التحديد الدقيق للمستوى هو أساس نجاح التدريب. يقدم معهد الهاوس الدولي السعودية خدمات موثوقة للتقييم واختبارات تحديد المستوى لدعم التوظيف وتطوير القوى العاملة.",
+          subtitle: "تساعد حلول التقييم لدينا المؤسسات على:",
+          items: [
+            "تحديد المستويات اللغوية الحالية بدقة",
+            "مقارنة مهارات الموظفين بالمعايير الدولية",
+            "رسم مسارات تدريبية فعالة واقتصادية",
+            "قياس التطور والتقدم الفردي والمجمّع"
+          ],
+          note: "يمكن تقديم خدمات التقييم عبر الإنترنت أو حضورياً في موقع العميل.",
+          img: "/corp_testing.png",
+          color: "#cf1430",
+          shadow: "shadow-ih-red"
         }
       ]
     },
-    steps: {
-      title: "اتخذ الخطوة التالية",
-      subtitle: "خطوات بسيطة وميسرة للتسجيل وبدء رحلتك التعليمية معنا",
+    process: {
+      title: "منهجية التدريب والعمل",
+      subtitle: "عملية منظمة تضمن تحقيق نتائج ملموسة وقابلة للقياس",
       list: [
-        { step: "الخطوة 1", title: "استشارة أكاديمية مجانية", desc: "اتصل بالهاوس الدولي السعودية للحصول على استشارة أكاديمية مجانية." },
-        { step: "الخطوة 2", title: "اختبار تحديد المستوى", desc: "سوف ترتب الهاوس الدولي خضوعك لاختبار تحديد المستوى عبر الإنترنت مجاناً بالكامل." },
-        { step: "الخطوة 3", title: "اختيار تاريخ البدء", desc: "بمجرد التسجيل في الدورة، يمكنك تحديد تاريخ بدء دراستك. تبدأ الدورات كل يوم أحد." },
-        { step: "الخطوة 4", title: "تحديد الجدول الدراسي", desc: "اختر الجدول الذي يناسبك. تعمل الفصول عبر الإنترنت من 8 صباحاً حتى 9 مساءً لأقصى مرونة." },
-        { step: "الخطوة 5", title: "توزيع المجموعات", desc: "يتم تخصيصك لمجموعة دراسية بناءً على مستواك في اللغة الإنجليزية وخيارات جدولك." },
-        { step: "الخطوة 6", title: "استلام رابط الفصل الافتراضي", desc: "ترسل الإدارة رابط الفصل الافتراضي في المساء ويكون صالحاً لمدة 24 ساعة للانضمام المباشر." },
-        { step: "الخطوة 7", title: "الحصول على الشهادة المعتمدة", desc: "بمجرد إكمال الدورة (60 ساعة) واجتياز التقييمات، تحصل على شهادة إنجاز معتمدة." }
+        { step: "الخطوة 1", title: "الاستشارة وتحليل الاحتياجات", desc: "نعمل عن كثب مع عملائنا لفهم الأهداف المؤسسية ومتطلبات القوى العاملة.", img: "/str_corporate.png" },
+        { step: "الخطوة 2", title: "اختبار تحديد المستوى والتقييم", desc: "يتم تقييم المشاركين لتحديد كفاءتهم الحالية واحتياجاتهم التدريبية الدقيقة.", img: "/corp_testing.png" },
+        { step: "الخطوة 3", title: "تصميم البرنامج", desc: "تطوير مسارات تعليمية مخصصة بناءً على متطلبات الشركة والمشاركين.", img: "/str_method.png" },
+        { step: "الخطوة 4", title: "تقديم التدريب", desc: "تقديم البرامج بواسطة مدربين خبراء حضورياً، عبر الإنترنت، أو عبر التعليم المدمج.", img: "/about_classroom.png" },
+        { step: "الخطوة 5", title: "المتابعة وإرسال التقارير", desc: "مراقبة التقدم والالتزام طوال البرنامج مع تقديم تقارير دورية لإدارتكم.", img: "/str_quality.png" },
+        { step: "الخطوة 6", title: "التقييم والتوصيات", desc: "تقييم مخرجات البرنامج بالكامل وتقديم توصيات مفصلة للتطوير المستقبلي.", img: "/corp_executive.png" }
       ]
     },
-    essentialInfo: {
-      title: "معلومات أساسية",
-      study: "الدراسة: الإنجليزية العامة عبر الإنترنت",
-      levels: "مستويات IH: 1A-12B | الأعمار: +17 سنة",
-      cert: "الشهادات: متوفرة لجميع المستويات",
-      teachers: "المعلمون: من بريطانيا وأمريكا، مؤهلون تأهيلاً كاملاً وذوو خبرة.",
-      classSize: "حجم الفصل: فصول افتراضية صغيرة بحد أقصى 13 طالباً وطالبة.",
-      subPlans: "تتوفر خطط اشتراك شهري مرنة وفصول بدوام كامل أو جزئي."
+    delivery: {
+      title: "خيارات تقديم مرنة",
+      desc: "يقدم معهد الهاوس الدولي السعودية حلولاً تدريبية مصممة لتناسب جداول أعمالكم ومتطلباتكم التشغيلية.",
+      subtitle: "طرق التدريب تشمل",
+      items: [
+        "التدريب في مقر العميل (On-Site)",
+        "التدريب في فروع الهاوس الدولي السعودية",
+        "التدريب المباشر عبر الإنترنت",
+        "حلول التعليم المدمج (Hybrid)",
+        "تدريب التنفيذيين الفردي (1-to-1)",
+        "برامج المجموعات الصغيرة المخصصة"
+      ],
+      note: "يسمح نهجنا المرن للمؤسسات باختيار أفضل بيئة تعليمية لموظفيها لضمان الاستمرارية."
+    },
+    support: {
+      title: "دعم تطوير القوى العاملة",
+      desc: "يلتزم معهد الهاوس الدولي السعودية بدعم المؤسسات في تطوير مهارات التواصل، الكفاءة اللغوية، والقدرات المهنية المطلوبة في سوق العمل التنافسي اليوم.",
+      text: "من خلال التدريب العملي، الدعم المهني، والمعايير المتوافقة دولياً، نساعد الشركات على الاستثمار في كوادرها البشرية وتحقيق نتائج مستدامة لتطوير قواها العاملة بما يتماشى مع رؤية المملكة 2030."
+    },
+    cta: {
+      title: "طلب عرض تدريب للشركات",
+      desc: "يسعد فريقنا بمناقشة متطلبات التدريب الخاصة بمؤسستكم والتوصية بالحل الأنسب لأهدافكم وميزانيتكم.",
+      subtitle: "خدمات الشركات تشمل",
+      items: [
+        "تحليل الاحتياجات التدريبية",
+        "اختبارات تحديد المستوى",
+        "اللغة الإنجليزية للأعمال",
+        "الإنجليزية التقنية",
+        "تدريب التنفيذيين",
+        "البرامج المخصصة",
+        "التدريب المدمج وعبر الإنترنت",
+        "تقارير التقدم الفردية"
+      ]
     }
   }
 };
 
+
 export function EnglishForCompaniesView({ lang }: { lang: string }) {
   const d = companiesData[lang as "en" | "ar"] || companiesData.en;
 
+  const getStrengthCardTheme = (idx: number) => {
+    const cycleIndex = idx % 4;
+    if (cycleIndex === 0) {
+      return {
+        bg: "bg-white text-slate-800 border-x border-b border-slate-200",
+        accent: "border-t-4 border-t-[#002F6C]",
+        title: "text-[#002F6C]",
+        desc: "text-slate-500",
+        icon: "text-white bg-[#002F6C]",
+      };
+    } else if (cycleIndex === 1) {
+      return {
+        bg: "bg-white text-slate-800 border-x border-b border-slate-200",
+        accent: "border-t-4 border-t-[#00d084]",
+        title: "text-[#00d084]",
+        desc: "text-slate-500",
+        icon: "text-white bg-[#00d084]",
+      };
+    } else if (cycleIndex === 2) {
+      return {
+        bg: "bg-white text-slate-800 border-x border-b border-slate-200",
+        accent: "border-t-4 border-t-[#fcb900]",
+        title: "text-[#fcb900]",
+        desc: "text-slate-500",
+        icon: "text-white bg-[#fcb900]",
+      };
+    } else {
+      return {
+        bg: "bg-white text-slate-800 border-x border-b border-slate-200",
+        accent: "border-t-4 border-t-[#cf1430]",
+        title: "text-[#cf1430]",
+        desc: "text-slate-500",
+        icon: "text-white bg-[#cf1430]",
+      };
+    }
+  };
+
+  const getSolutionCardTheme = (idx: number) => {
+    const cycleIndex = idx % 4;
+    if (cycleIndex === 0) {
+      return {
+        bg: "bg-white text-slate-800 border-x border-b border-slate-200",
+        accent: "border-t-8 border-t-[#002F6C]",
+        title: "text-[#002F6C]",
+        desc: "text-slate-600",
+        bulletIcon: "text-[#00d084]",
+        note: "text-slate-500 border-slate-100",
+        badge: "text-[#002F6C] bg-blue-50"
+      };
+    } else if (cycleIndex === 1) {
+      return {
+        bg: "bg-[#00d084] text-white",
+        accent: "border-t-8 border-t-white/10",
+        title: "text-white",
+        desc: "text-white/90",
+        bulletIcon: "text-white",
+        note: "text-white/80 border-white/20",
+        badge: "text-[#00d084] bg-white"
+      };
+    } else if (cycleIndex === 2) {
+      return {
+        bg: "bg-[#fcb900] text-white",
+        accent: "border-t-8 border-t-white/10",
+        title: "text-white",
+        desc: "text-white/95",
+        bulletIcon: "text-white",
+        note: "text-white/80 border-white/20",
+        badge: "text-[#fcb900] bg-white"
+      };
+    } else {
+      return {
+        bg: "bg-[#cf1430] text-white",
+        accent: "border-t-8 border-t-white/10",
+        title: "text-white",
+        desc: "text-white/90",
+        bulletIcon: "text-white",
+        note: "text-white/80 border-white/20",
+        badge: "text-[#cf1430] bg-white"
+      };
+    }
+  };
+
+  const getStepTheme = (idx: number) => {
+    const cycleIndex = idx % 4;
+    if (cycleIndex === 0) {
+      return {
+        border: "border-t-4 border-t-[#002F6C]",
+        iconBg: "bg-blue-50 text-[#002F6C]",
+        stepText: "text-[#002F6C]",
+        num: "0" + (idx + 1)
+      };
+    } else if (cycleIndex === 1) {
+      return {
+        border: "border-t-4 border-t-[#00d084]",
+        iconBg: "bg-emerald-50 text-[#00d084]",
+        stepText: "text-[#00d084]",
+        num: "0" + (idx + 1)
+      };
+    } else if (cycleIndex === 2) {
+      return {
+        border: "border-t-4 border-t-[#fcb900]",
+        iconBg: "bg-amber-50 text-[#fcb900]",
+        stepText: "text-[#fcb900]",
+        num: "0" + (idx + 1)
+      };
+    } else {
+      return {
+        border: "border-t-4 border-t-[#cf1430]",
+        iconBg: "bg-rose-50 text-[#cf1430]",
+        stepText: "text-[#cf1430]",
+        num: "0" + (idx + 1)
+      };
+    }
+  };
+
+  const getStepIcon = (idx: number) => {
+    switch (idx) {
+      case 0: return <MessageSquare className="w-5 h-5" />;
+      case 1: return <FileCheck className="w-5 h-5" />;
+      case 2: return <Sparkles className="w-5 h-5" />;
+      case 3: return <BookOpen className="w-5 h-5" />;
+      case 4: return <TrendingUp className="w-5 h-5" />;
+      case 5: return <Award className="w-5 h-5" />;
+      default: return <CheckCircle className="w-5 h-5" />;
+    }
+  };
+
+  const getCtaCardTheme = (idx: number) => {
+    // 8 cards mapped to specific colors, borders, bg gradients, shadows, and PNG images from the public folder
+    const themes = [
+      {
+        color: "#cf1430",
+        border: "border-red-100/80",
+        bg: "bg-gradient-to-b from-red-50/50 via-white to-white",
+        shadow: "hover:shadow-red-200/50",
+        text: "text-slate-800",
+        png: "/str_method.png",
+        borderBottom: "border-b-[#cf1430]",
+        iconBg: "bg-red-50 text-[#cf1430]"
+      },
+      {
+        color: "#00d084",
+        border: "border-emerald-100/80",
+        bg: "bg-gradient-to-b from-emerald-50/50 via-white to-white",
+        shadow: "hover:shadow-emerald-200/50",
+        text: "text-slate-800",
+        png: "/corp_testing.png",
+        borderBottom: "border-b-[#00d084]",
+        iconBg: "bg-emerald-50 text-[#00d084]"
+      },
+      {
+        color: "#002F6C",
+        border: "border-blue-100/80",
+        bg: "bg-gradient-to-b from-blue-50/50 via-white to-white",
+        shadow: "hover:shadow-blue-200/50",
+        text: "text-slate-800",
+        png: "/corp_business.png",
+        borderBottom: "border-b-[#002F6C]",
+        iconBg: "bg-blue-50 text-[#002F6C]"
+      },
+      {
+        color: "#fcb900",
+        border: "border-amber-100/80",
+        bg: "bg-gradient-to-b from-amber-50/50 via-white to-white",
+        shadow: "hover:shadow-amber-200/50",
+        text: "text-slate-800",
+        png: "/corp_technical.png",
+        borderBottom: "border-b-[#fcb900]",
+        iconBg: "bg-amber-50 text-[#fcb900]"
+      },
+      {
+        color: "#ec4899",
+        border: "border-pink-100/80",
+        bg: "bg-gradient-to-b from-pink-50/50 via-white to-white",
+        shadow: "hover:shadow-pink-200/50",
+        text: "text-slate-800",
+        png: "/corp_executive.png",
+        borderBottom: "border-b-pink-500",
+        iconBg: "bg-pink-50 text-pink-500"
+      },
+      {
+        color: "#cf1430",
+        border: "border-red-100/80",
+        bg: "bg-gradient-to-b from-red-50/50 via-white to-white",
+        shadow: "hover:shadow-red-200/50",
+        text: "text-slate-800",
+        png: "/str_corporate.png",
+        borderBottom: "border-b-[#cf1430]",
+        iconBg: "bg-red-50 text-[#cf1430]"
+      },
+      {
+        color: "#00d084",
+        border: "border-emerald-100/80",
+        bg: "bg-gradient-to-b from-emerald-50/50 via-white to-white",
+        shadow: "hover:shadow-emerald-200/50",
+        text: "text-slate-800",
+        png: "/str_hybrid.png",
+        borderBottom: "border-b-[#00d084]",
+        iconBg: "bg-emerald-50 text-[#00d084]"
+      },
+      {
+        color: "#002F6C",
+        border: "border-blue-100/80",
+        bg: "bg-gradient-to-b from-blue-50/50 via-white to-white",
+        shadow: "hover:shadow-blue-200/50",
+        text: "text-slate-800",
+        png: "/str_quality.png",
+        borderBottom: "border-b-[#002F6C]",
+        iconBg: "bg-blue-50 text-[#002F6C]"
+      }
+    ];
+    return themes[idx] || themes[0];
+  };
+
   return (
     <div className="pt-[72px]">
-      {/* HERO SECTION */}
+      {/* 1. HERO SECTION */}
       <section className="py-24 sm:py-32 relative overflow-hidden group bg-gradient-to-br from-[#002F6C] via-[#083e87] to-[#0c4ea6]">
         <Image
-          src="/arab_education_bg.png"
-          alt="Arab education background"
+          src="/corporate_training.png"
+          alt="Corporate training background"
           fill
-          className="object-cover object-center opacity-25 group-hover:opacity-40 transition-opacity duration-500 ease-in-out mix-blend-overlay pointer-events-none"
+          className="object-cover object-center opacity-10 group-hover:opacity-20 transition-opacity duration-500 ease-in-out mix-blend-overlay pointer-events-none"
           priority
         />
         <div className="absolute top-0 right-0 w-96 h-96 rounded-full opacity-10 -translate-y-32 translate-x-32 bg-white" />
@@ -316,23 +573,13 @@ export function EnglishForCompaniesView({ lang }: { lang: string }) {
             <p className="text-lg sm:text-xl text-white/80 mb-10 max-w-2xl leading-relaxed">
               {d.hero.tagline}
             </p>
-            
-            {/* Quick Badges */}
-            <div className="flex flex-wrap gap-2 mb-10 max-w-4xl">
-              {d.portfolio.items.map((item, idx) => (
-                <span key={idx} className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/10 backdrop-blur-sm text-white text-xs font-semibold border border-white/20">
-                  <span className="w-2 h-2 rounded-full" style={{ backgroundColor: item.color }} />
-                  {item.title}
-                </span>
-              ))}
-            </div>
 
             <div className="flex flex-wrap gap-4">
               <Link
                 href="/contact"
                 className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-white font-bold text-sm text-[#002F6C] shadow-lg hover:scale-105 transition-all duration-300"
               >
-                {lang === "ar" ? "احصل على استشارة مجانية" : "Free Consultation"} <ArrowRight size={16} className="rtl:rotate-180" />
+                {lang === "ar" ? "احصل على مقترح للشركات" : "Request Corporate Proposal"} <ArrowRight size={16} className="rtl:rotate-180" />
               </Link>
               <a
                 href="tel:+966920000364"
@@ -347,63 +594,45 @@ export function EnglishForCompaniesView({ lang }: { lang: string }) {
 
       <ThemeAccent height="h-2" />
 
-      {/* WHO WE WORK WITH */}
+      {/* 2. INTRODUCTION SECTION */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-            <div className="lg:col-span-5">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div className="lg:col-span-6">
               <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
                 <span className="inline-block text-xs font-bold uppercase tracking-widest mb-3 px-3 py-1 rounded-full bg-[#f0f4ff] text-[#002F6C]">
-                  {d.whoWeWorkWith.title}
+                  {lang === "ar" ? "التدريب اللغوي للشركات" : "Corporate Language Training"}
                 </span>
                 <h2 className="text-3xl font-extrabold mb-6 text-[#002F6C]">
-                  {d.whoWeWorkWith.subtitle}
+                  {d.intro.title}
                 </h2>
-                <p className="text-slate-600 text-base leading-relaxed mb-4">
-                  {d.whoWeWorkWith.text1}
+                <p className="text-slate-700 text-lg leading-relaxed font-semibold mb-6">
+                  {d.intro.text1}
                 </p>
-                <p className="text-slate-600 text-base leading-relaxed mb-4">
-                  {d.whoWeWorkWith.text2}
+                <p className="text-slate-600 text-base leading-relaxed mb-6">
+                  {d.intro.text2}
                 </p>
-                <div className="flex items-center gap-3 p-4 rounded-2xl bg-slate-50 border border-slate-100 mt-6">
-                  <div className="w-10 h-10 rounded-xl bg-[#002F6C]/10 flex items-center justify-center text-[#002F6C] shrink-0">
-                    <Globe size={20} />
-                  </div>
-                  <p className="text-sm font-bold text-[#002F6C]">
-                    {d.whoWeWorkWith.text3}
-                  </p>
-                </div>
+                <p className="text-slate-600 text-base leading-relaxed mb-6">
+                  {d.intro.text3}
+                </p>
               </motion.div>
             </div>
             
-            <div className="lg:col-span-7">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {d.whoWeWorkWith.sectors.map((sec, idx) => {
-                  const colors = [
-                    { bg: "bg-blue-50/50", border: "border-blue-100", text: "text-blue-700" },
-                    { bg: "bg-emerald-50/50", border: "border-emerald-100", text: "text-emerald-700" },
-                    { bg: "bg-purple-50/50", border: "border-purple-100", text: "text-purple-700" },
-                    { bg: "bg-rose-50/50", border: "border-rose-100", text: "text-rose-700" },
-                    { bg: "bg-amber-50/50", border: "border-amber-100", text: "text-amber-700" },
-                    { bg: "bg-sky-50/50", border: "border-sky-100", text: "text-sky-700" }
-                  ];
-                  const c = colors[idx % 6];
-                  return (
-                    <motion.div
-                      key={idx}
-                      initial="hidden"
-                      whileInView="visible"
-                      viewport={{ once: true }}
-                      variants={fadeUp}
-                      custom={idx}
-                      className={`p-6 rounded-2xl border ${c.bg} ${c.border} transition-all duration-300 hover:shadow-md`}
-                    >
-                      <h4 className={`font-bold text-base mb-2 ${c.text}`}>{sec.name}</h4>
-                      <p className="text-slate-500 text-xs leading-relaxed">{sec.desc}</p>
-                    </motion.div>
-                  );
-                })}
-              </div>
+            <div className="lg:col-span-6 relative flex justify-center">
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeUp}
+                className="relative w-full max-w-[500px] aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border border-slate-100"
+              >
+                <Image
+                  src="/about_classroom.png"
+                  alt="Corporate Training Classroom"
+                  fill
+                  className="object-cover"
+                />
+              </motion.div>
             </div>
           </div>
         </div>
@@ -411,141 +640,27 @@ export function EnglishForCompaniesView({ lang }: { lang: string }) {
 
       <ThemeAccent height="h-1.5" pills />
 
-      {/* CUSTOMIZED LANGUAGE SOLUTIONS */}
+      {/* 3. WHY CHOOSE US & STRENGTHS GRID */}
       <section className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <motion.span initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="inline-block text-xs font-bold uppercase tracking-widest mb-3 px-3 py-1 rounded-full bg-[#f0f4ff] text-[#002F6C]">
-              {d.solutions.title}
-            </motion.span>
-            <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={1} className="text-3xl sm:text-4xl font-extrabold text-[#002F6C] mb-6">
-              {d.solutions.subtitle}
-            </motion.h2>
-          </div>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-6 space-y-6">
-              <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
-                <p className="text-slate-600 text-base leading-relaxed mb-4 font-semibold">
-                  {d.solutions.text1}
-                </p>
-                <p className="text-slate-600 text-sm leading-relaxed mb-4">
-                  {d.solutions.text2}
-                </p>
-                <p className="text-slate-600 text-sm leading-relaxed mb-4">
-                  {d.solutions.text3}
-                </p>
-                <p className="text-slate-600 text-sm leading-relaxed mb-4">
-                  {d.solutions.text4}
-                </p>
-              </motion.div>
-            </div>
-            
-            <div className="lg:col-span-6 space-y-4">
-              <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={1} className="p-6 rounded-3xl bg-white border border-slate-100 shadow-sm">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-2xl bg-emerald-50 text-[#1fa968] flex items-center justify-center shrink-0">
-                    <CheckCircle size={22} />
-                  </div>
-                  <div>
-                    <h4 className="font-extrabold text-slate-800 text-base mb-1">{lang === "ar" ? "أهداف متطابقة تماماً مع الشركة" : "Perfect Corporate Alignment"}</h4>
-                    <p className="text-slate-500 text-xs leading-relaxed">{d.solutions.text5}</p>
-                  </div>
-                </div>
-              </motion.div>
-              
-              <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={2} className="p-6 rounded-3xl bg-white border border-slate-100 shadow-sm">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-2xl bg-blue-50 text-[#002F6C] flex items-center justify-center shrink-0">
-                    <Award size={22} />
-                  </div>
-                  <div>
-                    <h4 className="font-extrabold text-slate-800 text-base mb-1">{lang === "ar" ? "خبرة في السوق السعودي" : "Saudi Industrial Expertise"}</h4>
-                    <p className="text-slate-500 text-xs leading-relaxed">{d.solutions.text6}</p>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* IN-COMPANY PROGRAMS OVERVIEW */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-5">
-              <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
-                <span className="inline-block text-xs font-bold uppercase tracking-widest mb-3 px-3 py-1 rounded-full bg-[#f0f4ff] text-[#002F6C]">
-                  {d.overview.title}
-                </span>
-                <h2 className="text-3xl font-extrabold mb-6 text-[#002F6C]">
-                  {d.overview.subtitle}
-                </h2>
-                <p className="text-slate-600 text-sm leading-relaxed mb-4">
-                  {d.overview.text1}
-                </p>
-                <p className="text-slate-600 text-sm leading-relaxed mb-4">
-                  {d.overview.text2}
-                </p>
-                <p className="text-slate-600 text-sm leading-relaxed mb-4">
-                  {d.overview.text3}
-                </p>
-                <p className="text-slate-500 text-xs italic leading-relaxed">
-                  {d.overview.text4}
-                </p>
-              </motion.div>
-            </div>
-
-            <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {[
-                { title: lang === "ar" ? "تحليل الاحتياجات اللغوية" : "Language Needs Analysis", desc: lang === "ar" ? "تحديد الثغرات والأهداف بشكل دقيق عبر اختبارات ونماذج متقدمة" : "Precise mapping of skills gaps and professional goals before training begins" },
-                { title: lang === "ar" ? "تصميم مناهج مخصصة" : "Tailored Curriculum", desc: lang === "ar" ? "تطوير مناهج لتناسب المصطلحات الخاصة بقطاعكم الوظيفي" : "Syllabus customized to target business jargon, email writing, and presentations" },
-                { title: lang === "ar" ? "تخفيف المخاطر بفصول علاجية" : "Remedial Classes to Reduce Risk", desc: lang === "ar" ? "دروس دعم إضافية للتأكد من مواكبة جميع المتدربين للمنهج" : "Targeted supplementary support to help slower learners keep pace" },
-                { title: lang === "ar" ? "تقييم الكفاءة والامتثال" : "Competency & Compliance Assessment", desc: lang === "ar" ? "مواءمة مخرجات التعلم مع أطر الكفاءات الوظيفية بالشركة" : "Aligning assessments directly with your company's HR job competency framework" }
-              ].map((item, idx) => (
-                <motion.div
-                  key={idx}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  variants={fadeUp}
-                  custom={idx}
-                  className="p-6 rounded-3xl border border-slate-100 bg-[#f8f9fc] hover:bg-[#f0f4ff]/50 transition-colors duration-300"
-                >
-                  <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow-sm text-[#002F6C] font-extrabold mb-4 border border-slate-100">
-                    {idx + 1}
-                  </div>
-                  <h4 className="font-extrabold text-slate-800 text-base mb-2">{item.title}</h4>
-                  <p className="text-slate-500 text-xs leading-relaxed">{item.desc}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <ThemeAccent height="h-1.5" />
-
-      {/* PORTFOLIO GRID: English Courses for Companies */}
-      <section className="py-20 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <motion.span initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="inline-block text-xs font-bold uppercase tracking-widest mb-3 px-3 py-1 rounded-full bg-[#f0f4ff] text-[#002F6C]">
-              {lang === "ar" ? "حقائبنا التدريبية" : "Our Educational Offerings"}
+              {d.whyChooseUs.title}
             </motion.span>
             <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={1} className="text-3xl sm:text-4xl font-extrabold text-[#002F6C] mb-4">
-              {d.portfolio.title}
+              {d.whyChooseUs.subtitle}
             </motion.h2>
-            <motion.p initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={2} className="text-slate-500 text-sm sm:text-base">
-              {d.portfolio.subtitle}
+            <motion.p initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={2} className="text-slate-600 text-base leading-relaxed mb-6">
+              {d.whyChooseUs.text1}
+            </motion.p>
+            <motion.p initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={3} className="text-slate-600 text-base leading-relaxed">
+              {d.whyChooseUs.text2}
             </motion.p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {d.portfolio.items.map((item, idx) => {
-              const cardBorder = `color-mix(in srgb, ${item.color} 20%, transparent)`;
-              const cardHoverBorder = `color-mix(in srgb, ${item.color} 50%, transparent)`;
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {d.strengths.list.map((str, idx) => {
+              const theme = getStrengthCardTheme(idx);
               return (
                 <motion.div
                   key={idx}
@@ -554,50 +669,27 @@ export function EnglishForCompaniesView({ lang }: { lang: string }) {
                   viewport={{ once: true }}
                   variants={fadeUp}
                   custom={idx}
-                  className={`relative overflow-hidden p-8 asymmetric-card border bg-white transition-all duration-500 hover:-translate-y-1.5 group/card cursor-pointer ${item.shadow}`}
-                  style={{
-                    borderColor: cardBorder,
-                  }}
-                  whileHover={{
-                    borderColor: cardHoverBorder,
-                    background: `linear-gradient(135deg, ${item.color} 0%, color-mix(in srgb, ${item.color} 70%, #000000) 100%)`,
-                  }}
+                  className={`relative overflow-hidden rounded-3xl ${theme.bg} ${theme.accent} shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group/strength`}
                 >
-                  {/* Photo background inside card (35% default opacity, 65% hover opacity) */}
-                  <Image
-                    src={item.img}
-                    alt={item.title}
-                    fill
-                    className="object-cover object-center opacity-[0.35] group-hover/card:opacity-[0.65] transition-opacity duration-500 pointer-events-none z-0 mix-blend-overlay"
-                  />
-                  
-                  {/* Soft overlay on hover to guarantee text readability */}
-                  <div className="absolute inset-0 bg-black/0 group-hover/card:bg-black/30 transition-colors duration-500 pointer-events-none z-0" />
-
-                  <div className="relative z-10 flex flex-col h-full justify-between">
-                    <div>
-                      <div
-                        className="w-12 h-12 rounded-2xl flex items-center justify-center text-white mb-6 transition-transform duration-500 group-hover/card:scale-110"
-                        style={{ backgroundColor: item.color }}
-                      >
-                        {idx === 0 && <BookOpen size={24} />}
-                        {idx === 1 && <Monitor size={24} />}
-                        {idx === 2 && <TrendingUp size={24} />}
-                        {idx === 3 && <Users size={24} />}
-                        {idx === 4 && <Star size={24} />}
-                      </div>
-                      
-                      <h3 className="font-extrabold text-xl mb-4 text-slate-800 transition-colors duration-500 group-hover/card:text-white">
-                        {item.title}
-                      </h3>
-                      <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 font-medium transition-colors duration-500 group-hover/card:text-white/90">
-                        {item.desc}
-                      </p>
+                  {/* Top Image Section */}
+                  <div className="relative h-36 w-full overflow-hidden shrink-0 bg-slate-100">
+                    <Image
+                      src={str.img}
+                      alt={str.title}
+                      fill
+                      className="object-cover object-center group-hover/strength:scale-105 transition-transform duration-500 opacity-100"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                    <div className={`absolute top-3 left-3 w-8 h-8 rounded-lg ${theme.icon} flex items-center justify-center font-bold text-xs shadow-md`}>
+                      {idx + 1}
                     </div>
+                  </div>
 
-                    <div className="flex items-center gap-2 text-xs font-bold text-slate-700 transition-colors duration-500 group-hover/card:text-white">
-                      <span>{lang === "ar" ? "عرض المزيد" : "Learn More"}</span>
-                      <ChevronRight size={14} className="transition-transform duration-300 group-hover/card:translate-x-1 rtl:rotate-180 rtl:group-hover/card:-translate-x-1" />
+                  {/* Text Section */}
+                  <div className="p-5 flex-grow flex flex-col justify-between">
+                    <div>
+                      <h4 className={`font-extrabold text-sm mb-1.5 ${theme.title}`}>{str.title}</h4>
+                      <p className={`text-2xs leading-relaxed ${theme.desc}`}>{str.desc}</p>
                     </div>
                   </div>
                 </motion.div>
@@ -607,328 +699,317 @@ export function EnglishForCompaniesView({ lang }: { lang: string }) {
         </div>
       </section>
 
-      {/* ONLINE CLASSES SPECIFICS + STATS */}
+      <ThemeAccent height="h-1.5" />
+
+      {/* 4. CORPORATE SOLUTIONS GRID (VIBRANT CARD CYCLING & IMAGES) */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-7 space-y-6">
-              <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
-                <span className="inline-block text-xs font-bold uppercase tracking-widest mb-3 px-3 py-1 rounded-full bg-emerald-50 text-[#1fa968]">
-                  {d.onlineClasses.title}
-                </span>
-                <h2 className="text-3xl font-extrabold mb-6 text-[#002F6C]">
-                  {d.onlineClasses.subTitle}
-                </h2>
-                <p className="text-slate-600 text-sm leading-relaxed mb-6">
-                  {d.onlineClasses.desc}
-                </p>
-                <p className="text-slate-600 text-sm leading-relaxed mb-8">
-                  {d.onlineClasses.subDesc}
-                </p>
-              </motion.div>
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <motion.span initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="inline-block text-xs font-bold uppercase tracking-widest mb-3 px-3 py-1 rounded-full bg-[#f0f4ff] text-[#002F6C]">
+              {lang === "ar" ? "خدماتنا التدريبية" : "OUR PROGRAMS"}
+            </motion.span>
+            <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={1} className="text-3xl sm:text-4xl font-extrabold text-[#002F6C]">
+              {d.solutions.title}
+            </motion.h2>
+          </div>
 
-              {/* Stats Block */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {d.solutions.items.map((sol, idx) => {
+              const theme = getSolutionCardTheme(idx);
+              return (
                 <motion.div
+                  key={sol.key}
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true }}
                   variants={fadeUp}
-                  custom={1}
-                  className="p-6 rounded-3xl border border-slate-100 bg-[#f8f9fc] hover:shadow-ih-soft transition-all duration-300"
+                  custom={idx}
+                  className={`relative overflow-hidden rounded-3xl ${theme.bg} ${theme.accent} shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 flex flex-col justify-between group/card`}
                 >
-                  <h4 className="font-extrabold text-[#1fa968] text-3xl mb-2">80%+</h4>
-                  <p className="text-slate-700 text-xs font-semibold leading-relaxed">{d.onlineClasses.stat1}</p>
-                </motion.div>
-                <motion.div
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  variants={fadeUp}
-                  custom={2}
-                  className="p-6 rounded-3xl border border-slate-100 bg-[#f8f9fc] hover:shadow-ih-soft transition-all duration-300"
-                >
-                  <h4 className="font-extrabold text-[#002F6C] text-xl mb-2">{d.onlineClasses.statTitle}</h4>
-                  <p className="text-slate-600 text-xs leading-relaxed">{d.onlineClasses.stat2}</p>
-                </motion.div>
-              </div>
-            </div>
+                  {/* Top Image Section */}
+                  <div className="relative h-56 w-full overflow-hidden shrink-0">
+                    <Image
+                      src={sol.img}
+                      alt={sol.title}
+                      fill
+                      className="object-cover object-center group-hover/card:scale-105 transition-transform duration-700 ease-out"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent z-10" />
+                    
+                    {/* Solution Badge */}
+                    <div className="absolute top-4 right-4 z-20 px-3 py-1 rounded-full bg-white/95 backdrop-blur-sm flex items-center justify-center shadow-md text-2xs font-extrabold border border-white/30 uppercase tracking-wide group-hover/card:scale-105 transition-transform duration-300">
+                      <span className={theme.title}>{lang === "ar" ? "برنامج تدريبي" : "Corporate"}</span>
+                    </div>
+                  </div>
 
-            {/* Essential Info Sidebar */}
-            <div className="lg:col-span-5">
-              <motion.div
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={fadeUp}
-                className="p-8 rounded-3xl border-2 border-slate-100 bg-slate-50/50 shadow-md space-y-6"
-              >
-                <h3 className="font-extrabold text-lg text-[#002F6C] border-b pb-3 border-slate-200/60 flex items-center gap-2">
-                  <FileCheck size={20} /> {d.essentialInfo.title}
-                </h3>
-                
-                <div className="space-y-4 text-slate-700 text-xs sm:text-sm">
-                  <div className="flex items-start gap-3">
-                    <CheckCircle size={16} className="text-[#002F6C] mt-0.5 shrink-0" />
-                    <span className="font-semibold">{d.essentialInfo.study}</span>
+                  {/* Bottom Text Section */}
+                  <div className="p-8 flex-grow flex flex-col justify-between relative z-10">
+                    <div>
+                      <span className={`inline-block text-2xs font-extrabold uppercase tracking-widest mb-3 px-2 py-0.5 rounded ${theme.badge}`}>
+                        {lang === "ar" ? "معتمد دولياً" : "Accredited Program"}
+                      </span>
+                      <h3 className={`text-2xl font-extrabold mb-3 ${theme.title}`}>
+                        {sol.title}
+                      </h3>
+                      <p className={`text-sm leading-relaxed mb-6 ${theme.desc}`}>
+                        {sol.desc}
+                      </p>
+                      <span className={`block font-bold text-xs uppercase tracking-wider mb-3 ${theme.title}`}>
+                        {sol.subtitle}
+                      </span>
+                      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2.5 mb-6">
+                        {sol.items.map((item, itemIdx) => (
+                          <li key={itemIdx} className="flex items-start gap-2 text-xs font-semibold leading-snug">
+                            <CheckCircle className={`${theme.bulletIcon} shrink-0 mt-0.5`} size={14} />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    {sol.note && (
+                      <div className={`pt-4 border-t text-xs font-semibold leading-relaxed ${theme.note}`}>
+                        {sol.note}
+                      </div>
+                    )}
                   </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle size={16} className="text-[#002F6C] mt-0.5 shrink-0" />
-                    <span>{d.essentialInfo.levels}</span>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle size={16} className="text-[#002F6C] mt-0.5 shrink-0" />
-                    <span>{d.essentialInfo.cert}</span>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle size={16} className="text-[#002F6C] mt-0.5 shrink-0" />
-                    <span>{d.essentialInfo.teachers}</span>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle size={16} className="text-[#002F6C] mt-0.5 shrink-0" />
-                    <span>{d.essentialInfo.classSize}</span>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle size={16} className="text-[#002F6C] mt-0.5 shrink-0" />
-                    <span className="text-slate-500 font-medium italic">{d.essentialInfo.subPlans}</span>
-                  </div>
-                </div>
-
-                <div className="pt-4 border-t border-slate-200/60">
-                  <Link
-                    href="/contact"
-                    className="flex items-center justify-center gap-2 w-full py-3.5 rounded-2xl font-bold text-sm text-white shadow-md hover:scale-[1.02] transition-all bg-[#002F6C]"
-                  >
-                    {lang === "ar" ? "سجل الآن" : "Apply for Courses"} <ArrowRight size={15} className="rtl:rotate-180" />
-                  </Link>
-                </div>
-              </motion.div>
-            </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
 
       <ThemeAccent height="h-1.5" pills />
 
-      {/* LEARNING OUTCOMES & COURSE CONTENT */}
+      {/* 5. TRAINING PROCESS TIMELINE (PREMIUM GRID CARDS DESIGN WITH IMAGES) */}
       <section className="py-20 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Outcomes */}
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeUp}
-              className="p-8 rounded-3xl bg-white border border-slate-100 shadow-sm"
-            >
-              <h3 className="font-extrabold text-xl mb-2 text-[#002F6C]">{d.outcomes.title}</h3>
-              <p className="text-slate-500 text-sm mb-6">{d.outcomes.subtitle}</p>
-              <div className="space-y-4">
-                {d.outcomes.items.map((item, idx) => (
-                  <div key={idx} className="flex items-start gap-3">
-                    <div className="w-6 h-6 rounded-full bg-blue-50 text-[#002F6C] flex items-center justify-center shrink-0 mt-0.5">
-                      <ChevronRight size={14} className="rtl:rotate-180" />
-                    </div>
-                    <p className="text-slate-700 text-xs sm:text-sm font-semibold">{item}</p>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-
-            {/* Content Details */}
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeUp}
-              className="p-8 rounded-3xl bg-white border border-slate-100 shadow-sm"
-            >
-              <h3 className="font-extrabold text-xl mb-6 text-[#002F6C]">{d.content.title}</h3>
-              <div className="space-y-4">
-                {d.content.items.map((item, idx) => (
-                  <div key={idx} className="flex items-start gap-3">
-                    <CheckCircle size={18} className="text-[#1fa968] mt-0.5 shrink-0" />
-                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{item}</p>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* TIMELINE: TAKE THE NEXT STEP */}
-      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <motion.span initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="inline-block text-xs font-bold uppercase tracking-widest mb-3 px-3 py-1 rounded-full bg-[#f0f4ff] text-[#002F6C]">
-              {lang === "ar" ? "خطوات بسيطة" : "How it Works"}
+              {lang === "ar" ? "منهجيتنا للنجاح" : "Our Methodology"}
             </motion.span>
             <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={1} className="text-3xl sm:text-4xl font-extrabold text-[#002F6C] mb-4">
-              {d.steps.title}
+              {d.process.title}
             </motion.h2>
             <motion.p initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={2} className="text-slate-500 text-sm">
-              {d.steps.subtitle}
+              {d.process.subtitle}
             </motion.p>
           </div>
 
-          <div className="relative">
-            {/* Desktop Timeline Line */}
-            <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-[#002F6C]/10 -translate-x-1/2" />
-
-            <div className="space-y-8">
-              {d.steps.list.map((step, idx) => {
-                const isEven = idx % 2 === 0;
-                return (
-                  <div key={idx} className={`flex flex-col lg:flex-row items-center justify-between ${isEven ? 'lg:flex-row-reverse' : ''}`}>
-                    {/* Empty block for layout spacing on large screens */}
-                    <div className="hidden lg:block w-[45%]" />
-
-                    {/* Timeline Node Badge */}
-                    <div className="relative z-10 w-12 h-12 rounded-full bg-[#002F6C] text-white flex items-center justify-center font-bold text-sm border-4 border-white shadow-md my-4 lg:my-0">
-                      {idx + 1}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {d.process.list.map((step, idx) => {
+              const theme = getStepTheme(idx);
+              return (
+                <motion.div
+                  key={idx}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={fadeUp}
+                  custom={idx}
+                  className={`relative overflow-hidden rounded-3xl border border-slate-200 bg-white ${theme.border} shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between group/step`}
+                >
+                  {/* Top Image Section */}
+                  <div className="relative h-36 w-full overflow-hidden shrink-0 bg-slate-50">
+                    <Image
+                      src={step.img}
+                      alt={step.title}
+                      fill
+                      className="object-cover object-center group-hover/step:scale-105 transition-transform duration-500 opacity-100"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent z-10" />
+                    
+                    {/* Floating Icon Badge */}
+                    <div className={`absolute top-3 left-3 z-20 w-8 h-8 rounded-lg ${theme.iconBg} flex items-center justify-center shadow-md transition-transform duration-300 group-hover/step:scale-110`}>
+                      {getStepIcon(idx)}
                     </div>
 
-                    {/* Content Card */}
-                    <motion.div
-                      initial="hidden"
-                      whileInView="visible"
-                      viewport={{ once: true }}
-                      variants={fadeUp}
-                      className="w-full lg:w-[45%] p-6 rounded-3xl border border-slate-100 bg-[#f8f9fc] hover:shadow-md transition-all duration-300"
-                    >
-                      <span className="text-[#002F6C] text-xs font-extrabold uppercase tracking-wide block mb-1">{step.step}</span>
-                      <h4 className="font-extrabold text-slate-800 text-base mb-2">{step.title}</h4>
-                      <p className="text-slate-500 text-xs sm:text-sm leading-relaxed">{step.desc}</p>
-                    </motion.div>
+                    {/* Stylized Step Number watermark on top of image */}
+                    <div className="absolute right-4 bottom-2 z-20 text-4xl font-black text-white/40 select-none pointer-events-none group-hover/step:text-white/60 transition-colors duration-300">
+                      {theme.num}
+                    </div>
                   </div>
+
+                  {/* Text Section */}
+                  <div className="p-6 flex-grow flex flex-col justify-between">
+                    <div>
+                      {/* Step Subtitle */}
+                      <span className={`text-[10px] font-extrabold uppercase tracking-widest block mb-1.5 ${theme.stepText}`}>
+                        {step.step}
+                      </span>
+
+                      {/* Step Title */}
+                      <h4 className="font-extrabold text-slate-800 text-base mb-2.5 leading-snug group-hover/step:text-[#002F6C] transition-colors duration-300">
+                        {step.title}
+                      </h4>
+
+                      {/* Step Description */}
+                      <p className="text-slate-500 text-xs sm:text-sm leading-relaxed font-semibold">
+                        {step.desc}
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <ThemeAccent height="h-1.5" />
+
+      {/* 6. FLEXIBLE DELIVERY & SUPPORT SPLIT SECTION */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            
+            {/* Delivery Methods column */}
+            <motion.div
+              initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
+              className="relative overflow-hidden p-8 sm:p-10 rounded-3xl bg-slate-50 border border-slate-100 flex flex-col justify-between hover:shadow-md transition-shadow duration-300 group/delivery"
+            >
+              <div className="relative z-10 w-full">
+                <div className="w-12 h-12 rounded-2xl bg-red-50 text-[#cf1430] flex items-center justify-center mb-6">
+                  <Clock size={24} />
+                </div>
+                <h3 className="text-2xl font-extrabold text-[#002F6C] mb-4">
+                  {d.delivery.title}
+                </h3>
+                <p className="text-slate-600 text-sm leading-relaxed mb-6">
+                  {d.delivery.desc}
+                </p>
+                <span className="block font-bold text-xs uppercase tracking-wider mb-4 text-[#002F6C]">
+                  {d.delivery.subtitle}
+                </span>
+
+                {/* Visual grid with small cards and images */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+                  {d.delivery.items.map((item, idx) => {
+                    let img = "/learn_face_to_face.png";
+                    if (idx === 2) img = "/learn_online_classes.png";
+                    else if (idx === 3) img = "/learn_hybrid.png";
+                    else if (idx === 4) img = "/corp_executive.png";
+                    else if (idx === 5) img = "/corp_business.png";
+
+                    return (
+                      <div key={idx} className="relative overflow-hidden rounded-2xl border border-slate-150 bg-white p-3 shadow-2xs flex items-center gap-3 hover:shadow-md transition-all duration-300 group/item">
+                        <div className="relative w-12 h-12 rounded-xl overflow-hidden shrink-0 bg-slate-50">
+                          <Image
+                            src={img}
+                            alt={item}
+                            fill
+                            className="object-cover group-hover/item:scale-110 transition-transform duration-300"
+                          />
+                        </div>
+                        <span className="text-xs font-bold text-slate-700 leading-tight">
+                          {item}
+                        </span>
+                      </div>
+                    );
+                  })}
+                </div>
+
+                <p className="text-slate-400 text-xs italic leading-relaxed pt-4 border-t border-slate-200">
+                  {d.delivery.note}
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Support column */}
+            <motion.div
+              initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={1}
+              className="relative overflow-hidden p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-[#002F6C] to-[#0c4ea6] text-white flex flex-col justify-between hover:shadow-lg transition-all duration-300 group/support"
+            >
+              <Image
+                src="/values_mission.png"
+                alt="Workforce development background"
+                fill
+                className="object-cover opacity-10 group-hover/support:opacity-20 transition-opacity duration-500 mix-blend-overlay pointer-events-none"
+              />
+
+              <div className="relative z-10">
+                <div className="w-12 h-12 rounded-2xl bg-white/10 text-white flex items-center justify-center mb-6">
+                  <Globe size={24} />
+                </div>
+                <h3 className="text-2xl font-extrabold mb-4">
+                  {d.support.title}
+                </h3>
+                <p className="text-white/90 text-sm leading-relaxed mb-6">
+                  {d.support.desc}
+                </p>
+                <p className="text-white/85 text-sm leading-relaxed">
+                  {d.support.text}
+                </p>
+              </div>
+            </motion.div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* 7. FINAL CTA BANNER (PROPOSAL REQUEST WITH PREMIUM CARDS GRID) */}
+      <section className="py-20 bg-gradient-to-br from-[#002F6C] via-[#0b3c7b] to-[#124d9c] relative overflow-hidden group">
+        <div className="absolute top-0 right-0 w-96 h-96 rounded-full opacity-5 -translate-y-32 translate-x-32 bg-white" />
+        <div className="absolute bottom-0 left-0 w-64 h-64 rounded-full opacity-5 translate-y-16 -translate-x-16 bg-white" />
+        
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center relative z-10">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
+            <span className="inline-block text-xs font-bold uppercase tracking-wider mb-4 px-3 py-1 rounded-full bg-white/20 backdrop-blur-sm text-white border border-white/30">
+              {lang === "ar" ? "تواصل معنا" : "GET STARTED"}
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-6 leading-tight">
+              {d.cta.title}
+            </h2>
+            <p className="text-white/80 mb-10 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
+              {d.cta.desc}
+            </p>
+            
+            {/* Services cards grid with cycled border/badge colors (Red, Green, Red, Yellow, Pink) */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 max-w-5xl mx-auto">
+              {d.cta.items.map((item, idx) => {
+                const theme = getCtaCardTheme(idx);
+                return (
+                  <motion.div
+                    key={idx}
+                    whileHover={{ y: -6, scale: 1.02 }}
+                    className={`relative overflow-hidden p-6 rounded-3xl ${theme.bg} ${theme.border} border shadow-lg hover:shadow-xl ${theme.shadow} transition-all duration-300 flex flex-col items-center justify-center text-center group border-b-4 ${theme.borderBottom}`}
+                  >
+                    {/* Floating Step Number */}
+                    <div className="absolute top-3 right-3 w-6 h-6 rounded-full bg-slate-900/10 text-slate-800 text-[11px] font-extrabold flex items-center justify-center group-hover:bg-slate-900 group-hover:text-white transition-colors duration-300">
+                      {idx + 1}
+                    </div>
+                    
+                    {/* Premium PNG Icon container */}
+                    <div className="relative w-20 h-20 rounded-2xl overflow-hidden mb-5 border border-slate-100 shadow-md group-hover:scale-110 transition-transform duration-300">
+                      <Image
+                        src={theme.png}
+                        alt={item}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    
+                    <span className={`text-sm font-black leading-snug tracking-wide transition-colors duration-300 ${theme.text} group-hover:text-slate-900`}>
+                      {item}
+                    </span>
+                  </motion.div>
                 );
               })}
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* EXAM PREP & IELTS DETAILS */}
-      <section className="py-20 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-7 space-y-6">
-              <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
-                <span className="inline-block text-xs font-bold uppercase tracking-widest mb-3 px-3 py-1 rounded-full bg-amber-50 text-[#f0a950]">
-                  {lang === "ar" ? "التحضير للامتحانات الدولية" : "International Exam Classes"}
-                </span>
-                <h2 className="text-3xl font-extrabold mb-6 text-[#002F6C]">
-                  {lang === "ar" ? "التحضير لاختبارات كامبريدج وآيلتس" : "Prepare for Cambridge & IELTS Exams"}
-                </h2>
-                <p className="text-slate-600 text-sm leading-relaxed mb-4">
-                  {lang === "ar" 
-                    ? "تساعد الهاوس الدولي السعودية المتعلمين من سن 8 إلى 80 عاماً على الاستعداد للاختبارات الدولية. يمكنك الدراسة مع مدربين خبراء بينما ترتب لك الهاوس الدولي التقدم للامتحان عبر مراكز اختبار شريكة."
-                    : "IH Saudi Arabia helps learners from 8-80 prepare for international exams. You can prepare to take the exam with IH’s expert trainers while IH will arrange for you to take the exam via our partner testing centers."}
-                </p>
-                <p className="text-slate-600 text-sm leading-relaxed mb-6">
-                  {lang === "ar"
-                    ? "تتراوح خيارات الدراسة من خيار غير مكثف يبلغ 15 ساعة في الأسبوع إلى خيار أكثر كثافة يبلغ 25 ساعة في الأسبوع."
-                    : "You can study from a non-intensive 15 hours per week to a more intensive option of 25 hours per week."}
-                </p>
-              </motion.div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                {[
-                  { title: lang === "ar" ? "أهداف مرنة" : "Flexible Learning", desc: lang === "ar" ? "من 15 إلى 25 ساعة تدريب أسبوعياً" : "15 - 25 hours per week to suit your schedule" },
-                  { title: lang === "ar" ? "اعتماد جامعي" : "No Expiry Date", desc: lang === "ar" ? "شهادات كامبريدج صالحة مدى الحياة" : "Cambridge qualifications do not expire" },
-                  { title: lang === "ar" ? "آيلتس مخصص" : "60/120 Hours", desc: lang === "ar" ? "دورات آيلتس شاملة ومخصصة لمستواك" : "IELTS training packages in full or part-time options" }
-                ].map((item, idx) => (
-                  <motion.div
-                    key={idx}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    variants={fadeUp}
-                    custom={idx}
-                    className="p-5 rounded-2xl bg-white border border-slate-100 shadow-sm text-center"
-                  >
-                    <h4 className="font-bold text-[#002F6C] text-sm mb-1">{item.title}</h4>
-                    <p className="text-slate-500 text-xs leading-relaxed">{item.desc}</p>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-
-            <div className="lg:col-span-5 grid grid-cols-1 gap-4">
-              <motion.div
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={fadeUp}
-                className="p-6 rounded-3xl bg-white border border-slate-100 shadow-sm"
-              >
-                <h4 className="font-extrabold text-slate-800 text-base mb-3 flex items-center gap-2">
-                  <Star size={18} className="text-amber-500" />
-                  {lang === "ar" ? "امتحانات كامبريدج للصغار والكبار" : "Cambridge Exams Preparation"}
-                </h4>
-                <p className="text-slate-500 text-xs leading-relaxed mb-4">
-                  {lang === "ar"
-                    ? "تشمل امتحانات كامبريدج للصغار (Starters, Movers, Flyers) والامتحانات التمهيدية للمدارس (A2 & B1 Preliminary)، بالإضافة إلى دورات مخصصة للكبار."
-                    : "Offering Young Learner training based on Starters, Movers, Flyers, and A2 & B1 Preliminary for Schools, as well as adult tracks."}
-                </p>
-                <div className="text-[#002F6C] text-xs font-bold">
-                  {lang === "ar" ? "كامبريدج جزء من جامعة كامبريدج المرموقة." : "Cambridge English is part of the University of Cambridge."}
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={fadeUp}
-                custom={1}
-                className="p-6 rounded-3xl bg-white border border-slate-100 shadow-sm"
-              >
-                <h4 className="font-extrabold text-slate-800 text-base mb-3 flex items-center gap-2">
-                  <TrendingUp size={18} className="text-purple-500" />
-                  {lang === "ar" ? "التدريب على آيلتس (IELTS)" : "IELTS Training & Assessment"}
-                </h4>
-                <p className="text-slate-500 text-xs leading-relaxed">
-                  {lang === "ar"
-                    ? "بمجرد تحديد مستواك في اللغة الإنجليزية، سيتم وضعك في مسار آيلتس مناسب. يتضمن ذلك خطة دراسية تركز على مجالات التطوير التي تحتاجها مثل الكتابة أو التحدث."
-                    : "Once tested to find your level, you will be placed on an IELTS course that fits your needs. Benefit from a personal study plan focusing on writing or speaking."}
-                </p>
-                <div className="text-slate-400 text-xs mt-3 italic">
-                  {lang === "ar" ? "* تطبق رسوم منفصلة لتقديم الاختبار مع مراكز التدريب الشريكة." : "* Separate fees apply for taking exams with our partner testing centers."}
-                </div>
-              </motion.div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FINAL CTA BANNER */}
-      <section className="py-20 bg-gradient-to-br from-[#002F6C] via-[#083e87] to-[#0c4ea6]">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
-            <h2 className="text-3xl font-extrabold text-white mb-4">
-              {lang === "ar" ? "جاهز للارتقاء بمهاراتك أو كفاءة فريقك؟" : "Ready to Empower Your Team?"}
-            </h2>
-            <p className="text-white/80 mb-10 text-base sm:text-lg">
-              {lang === "ar" 
-                ? "تواصل معنا اليوم للحديث مع المستشار الأكاديمي وبدء التدريب المخصص لشركتك." 
-                : "Contact our advisory team today to design a bespoke training plan that meets your corporate goals."}
-            </p>
-            <div className="flex flex-wrap gap-4 justify-center">
+            <div className="flex flex-wrap gap-4 justify-center mt-4">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-white font-bold text-sm text-[#002F6C] shadow-xl hover:scale-105 transition-all duration-300"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-[#00d084] font-bold text-sm text-white shadow-xl hover:bg-[#00b070] hover:scale-105 transition-all duration-300"
               >
-                {lang === "ar" ? "تواصل معنا الآن" : "Contact Advisory Team"} <ArrowRight size={16} className="rtl:rotate-180" />
+                {lang === "ar" ? "طلب العرض الآن" : "Request Proposal"} <ArrowRight size={16} className="rtl:rotate-180" />
               </Link>
-              <a
-                href="tel:+966920000364"
+              <Link
+                href="/contact"
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-white/15 border border-white/30 backdrop-blur-sm font-bold text-sm text-white hover:bg-white/25 hover:scale-105 transition-all duration-300"
               >
-                <Phone size={16} /> +966 920 000 364
-              </a>
+                {lang === "ar" ? "عرض المزيد" : "View More"} <ArrowRight size={16} className="rtl:rotate-180" />
+              </Link>
             </div>
           </motion.div>
         </div>
@@ -936,6 +1017,7 @@ export function EnglishForCompaniesView({ lang }: { lang: string }) {
     </div>
   );
 }
+
 
 /* ─── 2. ESP COURSES VIEW ────────────────────────────────────────── */
 export const espData = {
@@ -1232,153 +1314,438 @@ export function EspCoursesView({ lang }: { lang: string }) {
 export const arabicData = {
   en: {
     hero: {
-      title: "Learn Arabic",
-      tagline: "Connect with the Kingdom on a deeper level.",
-      badge: "Arabic Language Programmes",
+      title: "Languages & Cultural Programs",
+      tagline: "Connecting People, Languages, and Cultures",
+      badge: "Language & Culture Portfolio",
     },
     intro: {
-      title: "Arabic: A Beautiful and Enigmatic Language",
-      text1: "Arabic is a beautiful and enigmatic language whose influence extends from Morocco to Iraq while through Islam, it has infused languages as diverse as Persian and Swahili with its unique character.",
-      text2: "Interest in learning Arabic is on the rise: Travelers, tourists, expat workers, and professionals working in the fields of journalism, humanitarian aid, research, and the military all have their own reasons for learning Arabic which is the official language of 26 states and spoken by over 300 million people.",
-      text3: "International House has always been about intercultural dialogue and language is a key part of any genuine cultural communication.",
-      text4: "That’s why IH Saudi Arabia believes that the country that was the historical cradle of Old Arabic some 2,000 years ago should today be one of the prime destinations for those wishing to study its linguistic descendants.",
-      text5: "This is particularly so as the recent visa liberalization system now makes Saudi Arabia more accessible than ever before with no off-putting red tape and surprisingly affordable accommodation options once in the country. But Arabic differs from other languages in that how it is written differs from its spoken form. Not only that, but there are multiple dialects, while Arabic pronunciation requires learning and practice both with a teacher and through wider real life usage. Arabic grammar is complex and most of all – Arabic can’t be separated from Arab culture."
+      title: "Understanding People, Languages, and Cultures",
+      text1: "At International House Saudi Arabia, we believe that language learning is about more than communication—it is about understanding people, cultures, and the world around us.",
+      text2: "Building on the global expertise of the International House network, IH Saudi Arabia offers language learning opportunities designed to support personal growth, academic development, professional success, and intercultural understanding.",
+      text3: "Whether you wish to learn Arabic, French, Spanish, Chinese, or other world languages, our programs provide practical communication skills and meaningful cultural engagement."
     },
-    advantages: {
-      title: "Why Learn Arabic in Saudi Arabia with IH?",
+    arabic: {
+      title: "Arabic Language & Cultural Studies",
+      subtitle: "Discover the Language and Culture of the Arab World",
+      desc: "As the historical home of the Arabic language and the heart of the Islamic world, Saudi Arabia provides a unique environment for learning Arabic and experiencing Arab culture. IH Saudi Arabia aims to become a leading center for Arabic language education, cultural immersion, and international exchange programs.",
       items: [
-        { title: "Timeless Milieu Exposure", desc: "Exposing the learner to the same cultural milieu in which Arabic first formed. From the oasis of Al Hassa to the bustling markets of Jeddah and the mysterious Saudi Arabian hinterland where Bedouin tents and camel herds still dot the desert kingdom’s landscape, learning Arabic with IH Saudi Arabia offers a timeless experience." },
-        { title: "Field Trips & Visits", desc: "Providing opportunity to use Arabic on visits, field trips, and remote excursions from Saudi Arabia’s lush southern Provinces to the rugged northern borders." },
-        { title: "Spiritual & Cultural Setting", desc: "For Muslim learners, combine Arab studies with Hajj or Umra to finalize your studies. Non-Muslims are invited to note that Beirut and Cairo are all within easy reach for extended field visits." },
-        { title: "Functional Communicative Method", desc: "Giving the learner opportunity to study a functional, communicative program that gets students using Arabic fast so that grammar is taught inductively." },
-        { title: "Dialect Diversity", desc: "Offering a wide choice of dialects with Gulf Arabic, Levantine, and Egyptian options available." }
+        "Modern Standard Arabic",
+        "Conversational Arabic",
+        "Gulf Arabic",
+        "Arabic for Professionals",
+        "Arabic & Islamic Studies",
+        "Cultural Immersion Programs"
+      ],
+      note: "Available face-to-face and online.",
+      flag: "/flags/sa.svg",
+      image: "/lang_arabic.png"
+    },
+    french: {
+      title: "French Language Programs",
+      desc: "Develop practical communication skills in one of the world's most influential international languages.",
+      subtitle: "Programs may support:",
+      items: [
+        "Travel & Tourism",
+        "Study Abroad Programs",
+        "Business Communication",
+        "Academic Preparation",
+        "Cultural Enrichment"
+      ],
+      note: "Available through IH Saudi Arabia and selected international partners.",
+      flag: "/flags/fr.svg",
+      image: "/lang_french.png"
+    },
+    spanish: {
+      title: "Spanish Language Programs",
+      desc: "Spanish is one of the most widely spoken languages in the world and opens doors to opportunities across Europe, Latin America, and beyond.",
+      subtitle: "Programs focus on:",
+      items: [
+        "Communication Skills",
+        "Travel & Culture",
+        "Academic Preparation",
+        "Professional Development"
+      ],
+      note: "Learners may access study abroad opportunities and immersion experiences through IH Spain.",
+      flag: "/flags/es.svg",
+      image: "/lang_spanish.png"
+    },
+    chinese: {
+      title: "Chinese Language Programs",
+      desc: "As China's role in global business and international trade continues to expand, Chinese language skills are becoming increasingly valuable.",
+      subtitle: "Mandarin Chinese learning for students and professionals seeking to engage with global economies.",
+      items: [
+        "Beginner Chinese",
+        "Business Chinese",
+        "Chinese for Professionals",
+        "Cultural Awareness Programs"
+      ],
+      note: "Practical Chinese communication skills tailored for career and corporate opportunities.",
+      flag: "/flags/cn.svg",
+      image: "/lang_chinese.png"
+    },
+    german: {
+      title: "German Language Programs",
+      desc: "Master German to access Europe's largest industrial economy, engineering careers, and academic excellence.",
+      subtitle: "Programs focus on business, technology, and study in Germany.",
+      items: [
+        "Conversational German",
+        "German for Engineering",
+        "Academic Prep (TestDaF)",
+        "German Business Culture"
+      ],
+      note: "Unlock academic and industrial opportunities in Germany and Central Europe.",
+      flag: "/flags/de.svg",
+      image: "/lang_german.png"
+    },
+    italian: {
+      title: "Italian Language Programs",
+      desc: "Immerse yourself in the language of design, art, culinary excellence, and rich European heritage.",
+      subtitle: "Programs explore language through culture, travel, and style.",
+      items: [
+        "Conversational Italian",
+        "Italian for Art & Design",
+        "Travel & Tourism Italian",
+        "Cultural Awareness"
+      ],
+      note: "Ideal for culinary, design, art students, and travelers.",
+      flag: "/flags/it.svg",
+      image: "/lang_italian.png"
+    },
+    turkish: {
+      title: "Turkish Language Programs",
+      desc: "Learn Turkish to explore tourism, trade, and cultural connection across the Mediterranean and regional hubs.",
+      subtitle: "Practical communication skills for tourism and business.",
+      items: [
+        "Beginner Turkish",
+        "Conversational Turkish",
+        "Business Turkish",
+        "Turkish Cultural Studies"
+      ],
+      note: "Connect with regional trade hubs and tourist destinations.",
+      flag: "/flags/tr.svg",
+      image: "/lang_turkish.png"
+    },
+    japanese: {
+      title: "Japanese Language Programs",
+      desc: "Discover Japanese language and culture, unlocking paths in technology, gaming, and creative industries.",
+      subtitle: "Language programs matching technology and rich culture.",
+      items: [
+        "Conversational Japanese",
+        "Business Japanese",
+        "Japanese Culture & Etiquette",
+        "JLPT Exam Preparation"
+      ],
+      note: "Essential for technology, automotive, and creative media careers.",
+      flag: "/flags/jp.svg",
+      image: "/lang_japanese.png"
+    },
+    korean: {
+      title: "Korean Language Programs",
+      desc: "Engage with the dynamic Korean language, fueled by global trends in technology, media, and commerce.",
+      subtitle: "Modern Korean language training for professionals and enthusiasts.",
+      items: [
+        "Conversational Korean",
+        "Korean for Business",
+        "Media & Pop Culture Korean",
+        "TOPIK Exam Preparation"
+      ],
+      note: "Join the wave of global technology, commerce, and media trends.",
+      flag: "/flags/kr.svg",
+      image: "/lang_korean.png"
+    },
+    cultural: {
+      title: "Cultural Learning & International Experiences",
+      desc: "Language learning becomes more meaningful when combined with cultural understanding. IH Saudi Arabia aims to promote intercultural dialogue through:",
+      items: [
+        "Cultural Workshops",
+        "International Exchange Opportunities",
+        "Study Abroad Programs",
+        "Language Immersion Experiences",
+        "Educational Events",
+        "International Partnerships"
       ]
     },
-    facts: {
-      title: "Did You Know?",
+    flexible: {
+      title: "Flexible Learning Options",
+      desc: "Programs may be available through:",
       items: [
-        "Arabic is a Semitic language related to Aramaic and Hebrew.",
-        "Old Arabic first emerged in southern Saudi Arabia.",
-        "Arabic is a sacred language and the language of the Holy Quran.",
-        "There is a critical shortage in the West of trained linguists specializing in Arabic.",
-        "Saying that you have studied Arabic in Saudi Arabia on your CV will mean that you immediately stand out as an exceptional candidate for that coveted job."
+        "Face-to-Face Classes",
+        "Live Online Classes",
+        "Hybrid Learning Solutions",
+        "Private Tuition",
+        "Small Group Courses",
+        "Corporate Programs"
       ]
     },
-    portfolio: {
-      title: "Arabic Language Courses",
+    cta: {
+      title: "Begin Your Language Learning Journey",
+      desc: "Whether you wish to learn Arabic, Spanish, French, Chinese, or another world language, IH Saudi Arabia can help you connect with new cultures, broaden your horizons, and develop valuable international communication skills.",
+      subtitle: "Languages May Include:",
       items: [
-        {
-          code: "AS-MSA:X",
-          title: "Arabic Studies",
-          desc: "This program focuses on providing students with a foundation in Modern Standard Arabic. Reading & writing focus for university prep/headlines. 120 hours total.",
-          schedule: "Intensive: 6 Weeks | Non-intensive: 12 Weeks",
-          note: "* Minimum payment is for 60 hours.",
-          shadow: "shadow-ih-blue",
-          color: "#002F6C",
-          img: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=500&q=80"
-        },
-        {
-          code: "AR-CV:X",
-          title: "Conversational Arabic",
-          desc: "Functional everyday vocabulary, traveling/working themes, and immersive real life practice. Recommended for expats in Saudi Arabia.",
-          schedule: "Intensive: 6 Weeks | Non-intensive: 12 Weeks",
-          note: "120-hour program with field trips around the Kingdom.",
-          shadow: "shadow-ih-green",
-          color: "#1fa968",
-          img: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=500&q=80"
-        },
-        {
-          code: "AR-ISTX",
-          title: "Arabic & Islamic Studies",
-          desc: "Classical Arabic and Quranic recitation. Designed for Muslim visitors doing Hajj/Umrah or expats wanting to study Islamic culture.",
-          schedule: "Intensive: 6 Weeks | Non-intensive: 12 Weeks",
-          note: "Taught by skilled Saudi religious specialists under MoE guidance.",
-          shadow: "shadow-ih-purple",
-          color: "#8b3275",
-          img: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=500&q=80"
-        }
-      ]
+        "Arabic", "French", "Spanish", "Chinese", "German", "Italian", "Turkish", "Japanese", "Korean"
+      ],
+      action: "Speak with our team to explore available language programs and cultural learning opportunities.",
+      btn: "Contact Us"
     }
   },
   ar: {
     hero: {
-      title: "تعلم اللغة العربية",
-      tagline: "تواصل مع المملكة على مستوى أعمق.",
-      badge: "برامج اللغة العربية لغير الناطقين بها",
+      title: "برامج اللغات والثقافة",
+      tagline: "ربط الشعوب واللغات والثقافات",
+      badge: "حقيبة اللغات والثقافة",
     },
     intro: {
-      title: "اللغة العربية: لغة الجمال والغموض",
-      text1: "اللغة العربية هي لغة جميلة وغامضة يمتد تأثيرها من المغرب إلى العراق، ومن خلال الإسلام، صبغت لغات متنوعة مثل الفارسية والسواحيلية بطابعها الفريد.",
-      text2: "يزداد الاهتمام بتعلم اللغة العربية باستمرار: فالمسافرون، والسياح، والموظفون المغتربون، والمهنيون العاملون في مجالات الصحافة، والمساعدات الإنسانية، والأبحاث، والجيش، لديهم جميعاً أسبابهم الخاصة لتعلم اللغة العربية، وهي اللغة الرسمية لـ 26 دولة ويتحدث بها أكثر من 300 مليون شخص.",
-      text3: "لطالما كان الهاوس الدولي مهتماً بالحوار بين الثقافات، وتعد اللغة جزءاً أساسياً من أي تواصل ثقافي حقيقي.",
-      text4: "ولهذا السبب، تعتقد الهاوس الدولي السعودية أن الدولة التي كانت المهد التاريخي للغة العربية القديمة قبل حوالي 2000 عام يجب أن تكون اليوم واحدة من الوجهات الرئيسية لأولئك الذين يرغبون في دراسة أحفادها اللغويين.",
-      text5: "هذا صحيح بشكل خاص لأن نظام تحرير تأشيرات الدخول الأخير يجعل المملكة العربية السعودية الآن أكثر سهولة في الوصول إليها من أي وقت مضى مع التخلص من الروتين المزعج وخيارات السكن المعقولة التكلفة داخل البلاد. لكن اللغة العربية تختلف عن غيرها من اللغات في أن طريقة كتابتها تختلف عن طريقة نطقها الشفهية. ليس هذا فحسب، بل إن هناك لهجات متعددة، في حين يتطلب النطق العربي تعلماً وممارسة مع المعلم ومن خلال الاستخدام العملي في الحياة اليومية. قواعد اللغة العربية معقدة، وقبل كل شيء - لا يمكن فصل اللغة العربية عن الثقافة العربية."
+      title: "فهم الشعوب واللغات والثقافات",
+      text1: "في معهد الهاوس الدولي السعودية، نؤمن بأن تعلم اللغة يتجاوز مجرد التواصل؛ بل هو وسيلة لفهم الشعوب والثقافات والعالم من حولنا.",
+      text2: "انطلاقاً من الخبرة العالمية لشبكة معاهد الهاوس الدولي، يقدم معهد الهاوس الدولي السعودية فرصاً لتعلم اللغات مصممة لدعم النمو الشخصي، والتطور الأكاديمي، والنجاح المهني، والتفاهم بين الثقافات.",
+      text3: "سواء كنت ترغب في تعلم اللغة العربية، أو الفرنسية، أو الإسبانية، أو الصينية، أو لغات عالمية أخرى، فإن برامجنا تمنحك مهارات تواصل عملية وتفاعلاً ثقافياً قيماً."
     },
-    advantages: {
-      title: "لماذا تدرس العربية في السعودية مع الهاوس الدولي؟",
+    arabic: {
+      title: "الدراسات الثقافية واللغة العربية",
+      subtitle: "اكتشف لغة وثقافة العالم العربي",
+      desc: "بصفتها الموطن التاريخي للغة العربية وقلب العالم الإسلامي، توفر المملكة العربية السعودية بيئة فريدة لتعلم العربية وتجربة الثقافة العربية الأصيلة. يهدف معهد الهاوس الدولي السعودية إلى أن يصبح مركزاً رائداً لتعليم اللغة العربية، والاندماج الثقافي، وبرامج التبادل الدولي.",
       items: [
-        { title: "البيئة الثقافية الأصيلة", desc: "تعريض المتعلم للبيئة الثقافية نفسها التي تشكلت فيها اللغة العربية لأول مرة. من واحة الأحساء إلى أسواق جدة الصاخبة والمناطق الداخلية السعودية الغامضة حيث لا تزال خيام البدو وقطعان الإبل تزين مشهد الصحراء، فإن تعلم العربية مع الهاوس الدولي يقدم تجربة خالدة." },
-        { title: "الرحلات والزيارات الميدانية", desc: "توفير فرص لاستخدام اللغة العربية في الزيارات الميدانية والرحلات الاستكشافية من المناطق الجنوبية الخضراء في المملكة إلى الحدود الشمالية الوعرة." },
-        { title: "السياق الروحي والثقافي", desc: "للمتعلمين المسلمين، يمكن الجمع بين الدراسات العربية وأداء مناسك الحج أو العمرة لختام دراستهم. وغير المسلمين مدعوون لزيارة بيروت والقاهرة كجزء من زيارات ميدانية ممتدة." },
-        { title: "منهجية تواصلية وظيفية", desc: "إعطاء المتعلم فرصة لدراسة برنامج وظيفي وتواصلي يضمن استخدام العربية سريعاً بحيث تُدرس القواعد بشكل استقرائي." },
-        { title: "تنوع خيارات اللهجات", desc: "تقديم خيارات واسعة من اللهجات بما في ذلك اللهجة الخليجية، والشامية، والمصرية." }
+        "العربية الفصحى الحديثة",
+        "العربية للمحادثة",
+        "اللهجة الخليجية",
+        "العربية للمهنيين",
+        "الدراسات العربية والإسلامية",
+        "برامج الاندماج الثقافي"
+      ],
+      note: "متاحة حضورياً وعبر الإنترنت.",
+      flag: "/flags/sa.svg",
+      image: "/lang_arabic.png"
+    },
+    french: {
+      title: "برامج اللغة الفرنسية",
+      desc: "طوّر مهارات تواصل عملية في واحدة من أكثر اللغات الدولية تأثيراً في العالم.",
+      subtitle: "قد تدعم البرامج:",
+      items: [
+        "السفر والسياحة",
+        "برامج الدراسة في الخارج",
+        "التواصل في مجال الأعمال",
+        "الإعداد الأكاديمي",
+        "الإثراء الثقافي"
+      ],
+      note: "متاحة من خلال معهد الهاوس الدولي السعودية وشركاء دوليين محددين.",
+      flag: "/flags/fr.svg",
+      image: "/lang_french.png"
+    },
+    spanish: {
+      title: "برامج اللغة الإسبانية",
+      desc: "تعد اللغة الإسبانية من أكثر اللغات انتشاراً وتحدثاً في العالم، وتفتح لك الأبواب لفرص واعدة عبر أوروبا وأمريكا اللاتينية وما وراءها.",
+      subtitle: "تركز البرامج على:",
+      items: [
+        "مهارات التواصل",
+        "السفر والثقافة",
+        "الإعداد الأكاديمي",
+        "التطوير المهني"
+      ],
+      note: "يمكن للمتعلمين أيضاً الوصول إلى فرص الدراسة في الخارج وتجارب المعايشة من خلال شركائنا في إسبانيا.",
+      flag: "/flags/es.svg",
+      image: "/lang_spanish.png"
+    },
+    chinese: {
+      title: "برامج اللغة الصينية",
+      desc: "مع استمرار توسع دور الصين في قطاع الأعمال العالمي والتجارة الدولية، تزداد قيمة مهارات اللغة الصينية يوماً بعد يوم.",
+      subtitle: "تعليم لغة صينية (ماندرين) للطلاب والمهنيين الذين يتطلعون للتفاعل مع الاقتصادات العالمية.",
+      items: [
+        "الصينية للمبتدئين",
+        "الصينية للأعمال",
+        "الصينية للمهنيين",
+        "برامج الوعي الثقافي"
+      ],
+      note: "مهارات تواصل صينية عملية مصممة لفرص العمل والشركات.",
+      flag: "/flags/cn.svg",
+      image: "/lang_chinese.png"
+    },
+    german: {
+      title: "برامج اللغة الألمانية",
+      desc: "أتقن الألمانية للوصول إلى أكبر اقتصاد صناعي في أوروبا، والوظائف الهندسية، والتميز الأكاديمي.",
+      subtitle: "برامج تركز على الأعمال والتكنولوجيا والدراسة في ألمانيا.",
+      items: [
+        "الألمانية للمحادثة",
+        "الألمانية للهندسة",
+        "الإعداد الأكاديمي (TestDaF)",
+        "ثقافة الأعمال الألمانية"
+      ],
+      note: "افتح فرصاً أكاديمية وصناعية في ألمانيا ووسط أوروبا.",
+      flag: "/flags/de.svg",
+      image: "/lang_german.png"
+    },
+    italian: {
+      title: "برامج اللغة الإيطالية",
+      desc: "انغمس في لغة التصميم والفن والطهي الإيطالي العريق والتراث الأوروبي الغني.",
+      subtitle: "تستكشف البرامج اللغة من خلال الثقافة والسفر والأناقة.",
+      items: [
+        "الإيطالية للمحادثة",
+        "الإيطالية للفن والتصميم",
+        "الإيطالية للسياحة والسفر",
+        "الوعي الثقافي"
+      ],
+      note: "مثالية لطلاب الفنون والتصميم والطهي والمسافرين.",
+      flag: "/flags/it.svg",
+      image: "/lang_italian.png"
+    },
+    turkish: {
+      title: "برامج اللغة التركية",
+      desc: "تعلم التركية لاستكشاف فرص السياحة والتجارة والروابط الثقافية عبر البحر الأبيض المتوسط والمنطقة.",
+      subtitle: "مهارات تواصل عملية للسياحة والأعمال.",
+      items: [
+        "التركية للمبتدئين",
+        "التركية للمحادثة",
+        "التركية للأعمال",
+        "دراسات الثقافة التركية"
+      ],
+      note: "تواصل مع مراكز التجارة الإقليمية والوجهات السياحية.",
+      flag: "/flags/tr.svg",
+      image: "/lang_turkish.png"
+    },
+    japanese: {
+      title: "برامج اللغة اليابانية",
+      desc: "اكتشف اللغة والثقافة اليابانية، وافتح مسارات جديدة في التكنولوجيا والألعاب والصناعات الإبداعية.",
+      subtitle: "برامج لغوية تتوافق مع التكنولوجيا والثقافة الغنية.",
+      items: [
+        "اليابانية للمحادثة",
+        "اليابانية للأعمال",
+        "الثقافة والآداب اليابانية",
+        "التحضير لاختبار JLPT"
+      ],
+      note: "أساسية للوظائف في مجالات التكنولوجيا والسيارات والإعلام الإبداعي.",
+      flag: "/flags/jp.svg",
+      image: "/lang_japanese.png"
+    },
+    korean: {
+      title: "برامج اللغة الكورية",
+      desc: "تفاعل مع اللغة الكورية الحيوية، المدفوعة بالتوجهات العالمية في التكنولوجيا والإعلام والتجارة.",
+      subtitle: "تدريب حديث في اللغة الكورية للمهنيين والهواة.",
+      items: [
+        "الكورية للمحادثة",
+        "الكورية للأعمال",
+        "الكورية للإعلام والثقافة الشعبية",
+        "التحضير لاختبار TOPIK"
+      ],
+      note: "انضم إلى موجة التكنولوجيا العالمية والتجارة والتوجهات الإعلامية.",
+      flag: "/flags/kr.svg",
+      image: "/lang_korean.png"
+    },
+    cultural: {
+      title: "التعلم الثقافي والتجارب الدولية",
+      desc: "يصبح تعلم اللغة أكثر قيمة وتأثيراً عندما يقترن بالفهم العميق للثقافة. يهدف معهد الهاوس الدولي السعودية إلى تعزيز الحوار بين الثقافات من خلال:",
+      items: [
+        "ورش العمل الثقافية",
+        "فرص التبادل الدولي",
+        "برامج الدراسة في الخارج",
+        "تجارب المعايشة والانغماس اللغوي",
+        "الفعاليات التعليمية",
+        "الشراكات الدولية"
       ]
     },
-    facts: {
-      title: "هل تعلم؟",
+    flexible: {
+      title: "خيارات تعليمية مرنة",
+      desc: "يمكن تقديم البرامج من خلال:",
       items: [
-        "اللغة العربية هي لغة سامية ترتبط بالآرامية والعبرية.",
-        "ظهرت العربية القديمة لأول مرة في جنوب المملكة العربية السعودية.",
-        "اللغة العربية هي لغة مقدسة وهي لغة القرآن الكريم.",
-        "هناك نقص حاد في الغرب في اللغويين المدربين المتخصصين في اللغة العربية.",
-        "إدراج دراسة اللغة العربية في السعودية في سيرتك الذاتية يعني تميزك الفوري كمرشح استثنائي لتلك الوظيفة المرموقة."
+        "حصص حضورية (وجهاً لوجه)",
+        "حصص تفاعلية مباشرة عبر الإنترنت",
+        "حلول التعليم الهجين",
+        "الدروس الخصوصية (فردية)",
+        "دورات المجموعات الصغيرة",
+        "برامج مخصصة للشركات"
       ]
     },
-    portfolio: {
-      title: "برامج اللغة العربية المتاحة",
+    cta: {
+      title: "ابدأ رحلة تعلم اللغة اليوم",
+      desc: "سواء كنت ترغب في تعلم اللغة العربية، أو الإسبانية، أو الفرنسية، أو الصينية، أو أي لغة عالمية أخرى، فإن معهد الهاوس الدولي السعودية يساعدك على التواصل مع ثقافات جديدة وتوسيع آفاقك وتطوير مهارات تواصل دولية قيمة.",
+      subtitle: "قد تشمل اللغات:",
       items: [
-        {
-          code: "AS-MSA:X",
-          title: "الدراسات العربية",
-          desc: "يركز هذا البرنامج على تزويد الطلاب بأساس متين في العربية الفصحى الحديثة. مخصصة لمن يفكرون بالدراسة الجامعية أو قراءة العناوين الصحفية. 120 ساعة.",
-          schedule: "مكثف: 6 أسابيع | غير مكثف: 12 أسبوعاً",
-          note: "* الحد الأدنى للدفع هو 60 ساعة.",
-          shadow: "shadow-ih-blue",
-          color: "#002F6C",
-          img: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=500&q=80"
-        },
-        {
-          code: "AR-CV:X",
-          title: "العربية للمحادثة",
-          desc: "برنامج من العربية الوظيفية التي تركز على المفردات اليومية، والمواضيع الظرفية للسفر والعيش والعمل في العالم العربي مع رحلات ميدانية تفاعلية.",
-          schedule: "مكثف: 6 أسابيع | غير مكثف: 12 أسبوعاً",
-          note: "دورة 120 ساعة مع رحلات تطبيقية في أنحاء المملكة.",
-          shadow: "shadow-ih-green",
-          color: "#1fa968",
-          img: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=500&q=80"
-        },
-        {
-          code: "AR-ISTX",
-          title: "الدراسات العربية والإسلامية",
-          desc: "العربية الكلاسيكية والقرآن الكريم وتلاوته. مصممة للزوار المسلمين لأداء الحج/العمرة أو الوافدين الراغبين بدراسة الثقافة الإسلامية.",
-          schedule: "مكثف: 6 أسابيع | غير مكثف: 12 أسبوعاً",
-          note: "تحت إشراف متخصصين سعوديين معتمدين من وزارة التعليم.",
-          shadow: "shadow-ih-purple",
-          color: "#8b3275",
-          img: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=500&q=80"
-        }
-      ]
+        "العربية", "الفرنسية", "الإسبانية", "الصينية", "الألمانية", "الإيطالية", "التركية", "اليابانية", "الكورية"
+      ],
+      action: "تحدث مع فريقنا اليوم لاستكشاف برامج اللغات المتاحة وفرص التعلم الثقافي.",
+      btn: "تواصل معنا"
     }
   }
 };
-
 export function LearnArabicView({ lang }: { lang: string }) {
   const d = arabicData[lang as "en" | "ar"] || arabicData.en;
+
+  const flagMapping = [
+    "/flags/sa.svg",
+    "/flags/fr.svg",
+    "/flags/es.svg",
+    "/flags/cn.svg",
+    "/flags/de.svg",
+    "/flags/it.svg",
+    "/flags/tr.svg",
+    "/flags/jp.svg",
+    "/flags/kr.svg"
+  ];
+
+  const languagesList = [
+    { key: "arabic", langKey: "arabic" },
+    { key: "french", langKey: "french" },
+    { key: "spanish", langKey: "spanish" },
+    { key: "chinese", langKey: "chinese" },
+    { key: "german", langKey: "german" },
+    { key: "italian", langKey: "italian" },
+    { key: "turkish", langKey: "turkish" },
+    { key: "japanese", langKey: "japanese" },
+    { key: "korean", langKey: "korean" }
+  ];
+
+  const getCardTheme = (idx: number) => {
+    const cycleIndex = idx % 4;
+    if (cycleIndex === 0) {
+      const isArabic = idx === 0;
+      return {
+        bg: "bg-white text-slate-800 border-x border-b border-slate-200",
+        accent: isArabic ? "border-t-8 border-t-[#cf1430]" : "border-t-8 border-t-[#002F6C]",
+        badge: isArabic ? "text-[#cf1430] bg-red-50" : "text-[#002F6C] bg-blue-50",
+        title: "text-[#002F6C]",
+        desc: "text-slate-600",
+        bulletIcon: "text-[#00d084]",
+        note: "text-slate-500 border-slate-100",
+        flagBg: "bg-white border-slate-100 text-slate-800"
+      };
+    } else if (cycleIndex === 1) {
+      return {
+        bg: "bg-[#00d084] text-white",
+        accent: "border-t-8 border-t-white/10",
+        badge: "text-[#00d084] bg-white",
+        title: "text-white",
+        desc: "text-white/90",
+        bulletIcon: "text-white",
+        note: "text-white/80 border-white/20",
+        flagBg: "bg-white/20 border-white/30 text-white"
+      };
+    } else if (cycleIndex === 2) {
+      return {
+        bg: "bg-[#fcb900] text-white",
+        accent: "border-t-8 border-t-white/10",
+        badge: "text-[#fcb900] bg-white",
+        title: "text-white",
+        desc: "text-white/95",
+        bulletIcon: "text-white",
+        note: "text-white/80 border-white/20",
+        flagBg: "bg-white/20 border-white/30 text-white"
+      };
+    } else {
+      return {
+        bg: "bg-[#cf1430] text-white",
+        accent: "border-t-8 border-t-white/10",
+        badge: "text-[#cf1430] bg-white",
+        title: "text-white",
+        desc: "text-white/90",
+        bulletIcon: "text-white",
+        note: "text-white/80 border-white/20",
+        flagBg: "bg-white/20 border-white/30 text-white"
+      };
+    }
+  };
 
   return (
     <div className="pt-[72px]">
       {/* HERO SECTION */}
-      <section className="py-24 sm:py-32 relative overflow-hidden group bg-gradient-to-br from-[#1fa968] via-[#178a55] to-[#11683f]">
+      <section className="py-24 sm:py-32 relative overflow-hidden group bg-gradient-to-br from-[#002F6C] via-[#0b3c7b] to-[#124d9c]">
         <Image
           src="/arab_education_bg.png"
           alt="Arabic background"
@@ -1390,25 +1757,61 @@ export function LearnArabicView({ lang }: { lang: string }) {
         <div className="absolute bottom-0 left-0 w-64 h-64 rounded-full opacity-10 translate-y-16 -translate-x-16 bg-white" />
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
-          <motion.div initial="hidden" animate="visible" variants={fadeUp}>
-            <span className="inline-block text-xs font-bold uppercase tracking-wider mb-4 px-3 py-1 rounded-full bg-white/20 backdrop-blur-sm text-white border border-white/30">
-              {d.hero.badge}
-            </span>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-6 leading-tight">
-              {d.hero.title}
-            </h1>
-            <p className="text-lg sm:text-xl text-white/85 mb-8 max-w-2xl leading-relaxed">
-              {d.hero.tagline}
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-white font-bold text-sm text-[#1fa968] shadow-lg hover:scale-105 transition-all duration-300"
-              >
-                {lang === "ar" ? "سجل الآن" : "Apply for Courses"} <ArrowRight size={16} className="rtl:rotate-180" />
-              </Link>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div className="lg:col-span-7">
+              <motion.div initial="hidden" animate="visible" variants={fadeUp}>
+                <span className="inline-block text-xs font-bold uppercase tracking-wider mb-4 px-3 py-1 rounded-full bg-white/20 backdrop-blur-sm text-white border border-white/30">
+                  {d.hero.badge}
+                </span>
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-6 leading-tight">
+                  {d.hero.title}
+                </h1>
+                <p className="text-lg sm:text-xl text-white/85 mb-8 max-w-2xl leading-relaxed">
+                  {d.hero.tagline}
+                </p>
+                <div className="flex flex-wrap gap-4">
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-white font-bold text-sm text-[#002F6C] shadow-lg hover:scale-105 transition-all duration-300"
+                  >
+                    {lang === "ar" ? "سجل الآن" : "Apply for Courses"} <ArrowRight size={16} className="rtl:rotate-180" />
+                  </Link>
+                  <a
+                    href="tel:+966920000364"
+                    className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-white/15 border border-white/30 backdrop-blur-sm font-bold text-sm text-white hover:bg-white/25 hover:scale-105 transition-all duration-300"
+                  >
+                    <Phone size={16} /> +966 920 000 364
+                  </a>
+                </div>
+              </motion.div>
             </div>
-          </motion.div>
+            
+            <div className="lg:col-span-5 relative flex justify-center">
+              <motion.div
+                initial="hidden"
+                animate="visible"
+                variants={fadeUp}
+                className="relative w-full max-w-[400px] aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border border-white/10 group-hover:scale-[1.02] transition-transform duration-500"
+              >
+                <Image
+                  src="/card_languages.png"
+                  alt="Languages and Cultures"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                <div className="absolute bottom-6 left-6 right-6 p-6 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-white">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Sparkles className="text-yellow-400" size={18} />
+                    <span className="text-xs font-bold uppercase tracking-wider">{lang === "ar" ? "برامج عالمية" : "World Programs"}</span>
+                  </div>
+                  <p className="text-sm font-semibold leading-snug">
+                    {lang === "ar" ? "تعلم وتواصل وانغمس في ثقافات العالم" : "Learn, connect, and immerse in global cultures."}
+                  </p>
+                </div>
+              </motion.div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -1416,123 +1819,136 @@ export function LearnArabicView({ lang }: { lang: string }) {
 
       {/* INTRO TEXT SECTION */}
       <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="space-y-6 text-slate-700">
-            <h2 className="text-3xl font-extrabold text-[#1fa968] mb-6">{d.intro.title}</h2>
-            <p className="text-base sm:text-lg leading-relaxed font-semibold">{d.intro.text1}</p>
-            <p className="text-sm leading-relaxed">{d.intro.text2}</p>
-            <p className="text-sm leading-relaxed">{d.intro.text3}</p>
-            <div className="p-6 rounded-3xl bg-[#f0f9f4] border border-[#1fa968]/20 my-8">
-              <p className="text-[#11683f] text-sm leading-relaxed font-medium">{d.intro.text4}</p>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            <div className="lg:col-span-5">
+              <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
+                <span className="inline-block text-xs font-bold uppercase tracking-widest mb-3 px-3 py-1 rounded-full bg-[#f0f4ff] text-[#002F6C]">
+                  {lang === "ar" ? "من نحن" : "WHO WE ARE"}
+                </span>
+                <h2 className="text-3xl font-extrabold mb-6 text-[#002F6C]">
+                  {d.intro.title}
+                </h2>
+                <p className="text-slate-700 text-lg leading-relaxed font-semibold">
+                  {d.intro.text1}
+                </p>
+              </motion.div>
             </div>
-            <p className="text-sm leading-relaxed">{d.intro.text5}</p>
-          </motion.div>
+            
+            <div className="lg:col-span-7 space-y-6">
+              <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-slate-600 space-y-4">
+                <p className="text-base leading-relaxed">
+                  {d.intro.text2}
+                </p>
+                <p className="text-base leading-relaxed">
+                  {d.intro.text3}
+                </p>
+                <div className="flex items-start gap-4 p-5 rounded-2xl bg-slate-50 border border-slate-100 mt-6">
+                  <div className="w-12 h-12 rounded-xl bg-[#002F6C]/10 flex items-center justify-center text-[#002F6C] shrink-0">
+                    <Globe size={24} />
+                  </div>
+                  <div>
+                    <p className="text-sm font-bold text-[#002F6C] mb-1">
+                      {lang === "ar" ? "رؤية 2030 والتفاهم بين الثقافات" : "Vision 2030 & Intercultural Exchange"}
+                    </p>
+                    <p className="text-slate-500 text-xs">
+                      {lang === "ar" 
+                        ? "نحن ندعم التبادل الثقافي وتطوير رأس المال البشري للمملكة عبر اللغات."
+                        : "Supporting KSA's global integration and human capital development through languages."}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </div>
         </div>
       </section>
 
       <ThemeAccent height="h-1.5" pills />
 
-      {/* ADVANTAGES OF STUDYING IN KSA */}
+      {/* WORLD LANGUAGES GRID */}
       <section className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl font-extrabold text-[#1fa968]">{d.advantages.title}</h2>
+            <motion.span initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="inline-block text-xs font-bold uppercase tracking-widest mb-3 px-3 py-1 rounded-full bg-[#f0f4ff] text-[#002F6C]">
+              {lang === "ar" ? "برامج اللغات المتاحة" : "Available Language Programs"}
+            </motion.span>
+            <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={1} className="text-3xl sm:text-4xl font-extrabold text-[#002F6C]">
+              {lang === "ar" ? "استكشف لغات العالم" : "Explore World Languages"}
+            </motion.h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {d.advantages.items.map((item, idx) => (
-              <motion.div
-                key={idx}
-                initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={idx}
-                className="p-8 rounded-3xl border border-slate-100 bg-white shadow-sm hover:shadow-md transition-shadow duration-300"
-              >
-                <div className="w-10 h-10 rounded-xl bg-emerald-50 text-[#1fa968] flex items-center justify-center font-bold mb-5">
-                  <CheckCircle size={20} />
-                </div>
-                <h4 className="font-extrabold text-slate-800 text-base mb-3 leading-snug">{item.title}</h4>
-                <p className="text-slate-500 text-xs sm:text-sm leading-relaxed">{item.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* DID YOU KNOW PANEL */}
-      <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          <motion.div
-            initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
-            className="p-8 rounded-3xl bg-slate-50 border border-slate-100 shadow-sm"
-          >
-            <h3 className="font-extrabold text-xl text-[#1fa968] mb-6 flex items-center gap-2">
-              <Sparkles size={20} /> {d.facts.title}
-            </h3>
-            <div className="space-y-4">
-              {d.facts.items.map((item, idx) => (
-                <div key={idx} className="flex items-start gap-3 text-slate-700 text-xs sm:text-sm">
-                  <span className="w-5 h-5 rounded-full bg-emerald-100 text-[#11683f] flex items-center justify-center font-bold shrink-0 text-2xs mt-0.5">{idx + 1}</span>
-                  <p className="leading-relaxed font-semibold">{item}</p>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      <ThemeAccent height="h-1.5" />
-
-      {/* ARABIC COURSE TRACKS GRID */}
-      <section className="py-20 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl font-extrabold text-[#1fa968]">{d.portfolio.title}</h2>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {d.portfolio.items.map((item, idx) => {
-              const cardBorder = `color-mix(in srgb, ${item.color} 20%, transparent)`;
-              const cardHoverBorder = `color-mix(in srgb, ${item.color} 50%, transparent)`;
+            {languagesList.map((langItem, idx) => {
+              const langData = d[langItem.langKey as keyof typeof d] as any;
+              if (!langData) return null;
+              
+              const theme = getCardTheme(idx);
+              
               return (
                 <motion.div
-                  key={idx}
+                  key={langItem.key}
                   initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={idx}
-                  className={`relative overflow-hidden p-8 rounded-3xl border bg-white transition-all duration-500 hover:-translate-y-1.5 group/card cursor-pointer ${item.shadow}`}
-                  style={{ borderColor: cardBorder }}
-                  whileHover={{
-                    borderColor: cardHoverBorder,
-                    background: `linear-gradient(135deg, ${item.color} 0%, color-mix(in srgb, ${item.color} 75%, #000000) 100%)`
-                  }}
+                  className={`relative overflow-hidden rounded-3xl ${theme.bg} ${theme.accent} shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-500 flex flex-col justify-between group/card`}
                 >
-                  <Image
-                    src={item.img}
-                    alt={item.title}
-                    fill
-                    className="object-cover object-center opacity-[0.35] group-hover/card:opacity-[0.65] transition-opacity duration-500 pointer-events-none z-0 mix-blend-overlay"
-                  />
-                  <div className="absolute inset-0 bg-black/0 group-hover/card:bg-black/30 transition-colors duration-500 pointer-events-none z-0" />
+                  {/* Top Image Section */}
+                  <div className="relative h-48 w-full overflow-hidden shrink-0">
+                    <Image
+                      src={langData.image}
+                      alt={langData.title}
+                      fill
+                      className="object-cover object-center group-hover/card:scale-105 transition-transform duration-700 ease-out"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent z-10" />
+                    
+                    {/* Floating Flag Badge */}
+                    <div className="absolute top-4 right-4 z-20 w-11 h-11 rounded-full bg-white/95 backdrop-blur-sm flex items-center justify-center shadow-lg border border-white/30 group-hover/card:scale-110 transition-transform duration-300 overflow-hidden">
+                      {langData.flag && langData.flag.includes('/') ? (
+                        <div className="relative w-full h-full">
+                          <Image
+                            src={langData.flag}
+                            alt="Flag"
+                            fill
+                            className="object-cover rounded-full"
+                          />
+                        </div>
+                      ) : (
+                        <span className="text-2xl">{langData.flag}</span>
+                      )}
+                    </div>
+                  </div>
 
-                  <div className="relative z-10 flex flex-col justify-between h-full min-h-[240px]">
+                  {/* Bottom Text Section */}
+                  <div className="p-8 flex-grow flex flex-col justify-between relative z-10">
                     <div>
-                      <span className="inline-block px-3 py-1 rounded-lg bg-white/20 backdrop-blur-sm text-white text-[10px] font-extrabold mb-4 uppercase tracking-wider">
-                        {item.code}
+                      <span className={`inline-block text-2xs font-extrabold uppercase tracking-widest mb-3 px-2 py-0.5 rounded ${theme.badge}`}>
+                        {lang === "ar" ? "برنامج معتمد" : "Accredited Program"}
                       </span>
-                      <h3 className="font-extrabold text-lg mb-3 text-slate-800 transition-colors duration-500 group-hover/card:text-white">
-                        {item.title}
+                      <h3 className={`text-2xl font-extrabold mb-1.5 ${theme.title}`}>
+                        {langData.title}
                       </h3>
-                      <p className="text-slate-600 text-xs leading-relaxed mb-4 transition-colors duration-500 group-hover/card:text-white/90">
-                        {item.desc}
+                      {langData.subtitle && (
+                        <p className="text-xs italic mb-4 font-medium opacity-90">
+                          {langData.subtitle}
+                        </p>
+                      )}
+                      <p className={`text-sm leading-relaxed mb-6 ${theme.desc}`}>
+                        {langData.desc}
                       </p>
+                      <ul className="space-y-2.5 mb-6">
+                        {langData.items.map((item: string, itemIdx: number) => (
+                          <li key={itemIdx} className="flex items-start gap-2 text-sm leading-snug">
+                            <CheckCircle className={`${theme.bulletIcon} shrink-0 mt-0.5`} size={16} />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
-
-                    <div>
-                      <div className="text-2xs font-bold text-slate-400 group-hover/card:text-white/70 transition-colors duration-500 mb-2">
-                        {item.note}
+                    {langData.note && (
+                      <div className={`pt-4 border-t text-xs font-semibold leading-relaxed ${theme.note}`}>
+                        {langData.note}
                       </div>
-                      <div className="flex items-center justify-between text-xs font-bold text-slate-700 transition-colors duration-500 group-hover/card:text-white border-t border-slate-100 group-hover/card:border-white/20 pt-3">
-                        <span>{item.schedule}</span>
-                        <ChevronRight size={14} className="rtl:rotate-180 transition-transform group-hover/card:translate-x-1" />
-                      </div>
-                    </div>
+                    )}
                   </div>
                 </motion.div>
               );
@@ -1541,25 +1957,140 @@ export function LearnArabicView({ lang }: { lang: string }) {
         </div>
       </section>
 
+      <ThemeAccent height="h-1.5" />
+
+      {/* CULTURAL EXPERIENCES & FLEXIBLE OPTIONS */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            
+            {/* Cultural Learning column */}
+            <motion.div
+              initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
+              className="relative overflow-hidden p-8 sm:p-10 rounded-3xl bg-slate-50 border border-slate-100 flex flex-col justify-between hover:shadow-md transition-shadow duration-300 group/cultural"
+            >
+              <Image
+                src="/about_classroom.png"
+                alt="Cultural experiences"
+                fill
+                className="object-cover object-center opacity-[0.04] group-hover/cultural:opacity-[0.09] transition-opacity duration-500 pointer-events-none z-0"
+              />
+              <div className="relative z-10">
+                <div className="w-12 h-12 rounded-2xl bg-red-50 text-[#cf1430] flex items-center justify-center mb-6">
+                  <Sparkles size={24} />
+                </div>
+                <h3 className="text-2xl font-extrabold text-[#002F6C] mb-4">
+                  {d.cultural.title}
+                </h3>
+                <p className="text-slate-600 text-sm leading-relaxed mb-6">
+                  {d.cultural.desc}
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {d.cultural.items.map((item, idx) => (
+                    <div key={idx} className="flex items-start gap-2.5 text-sm text-slate-700">
+                      <CheckCircle className="text-[#cf1430] shrink-0 mt-0.5" size={16} />
+                      <span>{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Flexible Learning Options column */}
+            <motion.div
+              initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={1}
+              className="relative overflow-hidden p-8 sm:p-10 rounded-3xl bg-[#002F6C] text-white flex flex-col justify-between hover:shadow-lg transition-all duration-300 group/flexible"
+            >
+              <Image
+                src="/learn_hybrid.png"
+                alt="Flexible options"
+                fill
+                className="object-cover object-center opacity-20 group-hover/flexible:opacity-35 transition-opacity duration-500 pointer-events-none z-0 mix-blend-overlay"
+              />
+              <div className="relative z-10">
+                <div className="w-12 h-12 rounded-2xl bg-white/10 text-white flex items-center justify-center mb-6">
+                  <Clock size={24} />
+                </div>
+                <h3 className="text-2xl font-extrabold mb-4">
+                  {d.flexible.title}
+                </h3>
+                <p className="text-white/80 text-sm leading-relaxed mb-6">
+                  {d.flexible.desc}
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {d.flexible.items.map((item, idx) => (
+                    <div key={idx} className="flex items-start gap-2.5 text-sm text-white/90">
+                      <CheckCircle className="text-[#00d084] shrink-0 mt-0.5" size={16} />
+                      <span>{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+
+          </div>
+        </div>
+      </section>
+
       {/* FINAL CTA */}
-      <section className="py-20 bg-gradient-to-br from-[#1fa968] via-[#178a55] to-[#11683f]">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <section className="py-20 bg-gradient-to-br from-[#002F6C] via-[#0b3c7b] to-[#124d9c] relative overflow-hidden group">
+        <div className="absolute top-0 right-0 w-96 h-96 rounded-full opacity-5 -translate-y-32 translate-x-32 bg-white" />
+        <div className="absolute bottom-0 left-0 w-64 h-64 rounded-full opacity-5 translate-y-16 -translate-x-16 bg-white" />
+        
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center relative z-10">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
-            <h2 className="text-3xl font-extrabold text-white mb-4">
-              {lang === "ar" ? "ابدأ رحلة تعلم اللغة العربية اليوم" : "Ready to Start Learning Arabic?"}
+            <span className="inline-block text-xs font-bold uppercase tracking-wider mb-4 px-3 py-1 rounded-full bg-white/20 backdrop-blur-sm text-white border border-white/30">
+              {d.cta.subtitle}
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-6 leading-tight">
+              {d.cta.title}
             </h2>
-            <p className="text-white/80 mb-10 text-base sm:text-lg">
-              {lang === "ar"
-                ? "سجل اهتمامك الآن وسيتواصل معك منسقو البرامج لتحديد جدولك وبدء فصولك الدراسية."
-                : "Register your interest today and our coordinators will guide you through start dates and dialect options."}
+            <p className="text-white/80 mb-8 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
+              {d.cta.desc}
             </p>
+            
+            {/* Language Badges */}
+            <div className="flex flex-wrap justify-center gap-3 mb-10 max-w-3xl mx-auto">
+              {d.cta.items.map((item, idx) => {
+                const flagSrc = flagMapping[idx];
+                return (
+                  <span
+                    key={idx}
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-2xl bg-white/10 backdrop-blur-sm text-white text-sm font-semibold border border-white/20 hover:bg-white/15 transition-all duration-300 shadow-sm animate-fade-in"
+                  >
+                    {flagSrc && (
+                      <div className="relative w-5 h-5 rounded-full overflow-hidden shrink-0 border border-white/25">
+                        <Image
+                          src={flagSrc}
+                          alt=""
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                    )}
+                    <span>{item}</span>
+                  </span>
+                );
+              })}
+            </div>
+
+            <p className="text-white/90 text-sm font-bold mb-6">
+              {d.cta.action}
+            </p>
+
             <div className="flex flex-wrap gap-4 justify-center">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-white font-bold text-sm text-[#1fa968] shadow-xl hover:scale-105 transition-all duration-300"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-white font-bold text-sm text-[#002F6C] shadow-xl hover:scale-105 transition-all duration-300"
               >
-                {lang === "ar" ? "تواصل مع المنسقين" : "Contact Program Advisors"} <ArrowRight size={16} className="rtl:rotate-180" />
+                {d.cta.btn} <ArrowRight size={16} className="rtl:rotate-180" />
               </Link>
+              <a
+                href="tel:+966920000364"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-white/15 border border-white/30 backdrop-blur-sm font-bold text-sm text-white hover:bg-white/25 hover:scale-105 transition-all duration-300"
+              >
+                <Phone size={16} /> +966 920 000 364
+              </a>
             </div>
           </motion.div>
         </div>
@@ -1567,8 +2098,6 @@ export function LearnArabicView({ lang }: { lang: string }) {
     </div>
   );
 }
-
-/* ─── 4. YOUNG LEARNERS VIEW ─────────────────────────────────────── */
 export const youngData = {
   en: {
     hero: {

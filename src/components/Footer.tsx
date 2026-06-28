@@ -45,12 +45,18 @@ export default function Footer() {
   const { t } = useLanguage();
 
   const quickLinks = [
-    { label: t("footer.arabic_info"), href: "/" },
-    { label: t("footer.young_learners"), href: "/courses/young-learners" },
-    { label: t("footer.placement"), href: "/courses/placement-test" },
-    { label: t("footer.careers"), href: "/contact" },
-    { label: t("footer.teacher_training"), href: "/teacher-training" },
-    { label: t("footer.privacy"), href: "/" },
+    { label: t("nav.home"), href: "/" },
+    { label: t("nav.who_we_are"), href: "/who-we-are" },
+    { label: t("nav.courses"), href: "/courses" },
+    { label: t("nav.languages_programs"), href: "/languages-programs" },
+    { label: t("nav.corporate_training"), href: "/corporate-training" },
+    { label: t("nav.examinations"), href: "/examinations" },
+    { label: t("nav.teacher_training"), href: "/teacher-training" },
+    { label: t("nav.study_abroad"), href: "/study-abroad" },
+    { label: t("nav.careers"), href: "/careers" },
+    { label: t("nav.news"), href: "/news" },
+    { label: t("nav.faqs"), href: "/faqs" },
+    { label: t("nav.contact"), href: "/contact" },
   ];
 
   const socials = [
@@ -67,10 +73,10 @@ export default function Footer() {
       <ThemeAccent height="h-2.5" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-14">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10">
 
           {/* Brand */}
-          <div className="lg:col-span-1">
+          <div className="lg:col-span-4">
             <div className="flex items-center gap-3 mb-4">
               <div className="bg-white px-3 py-1.5 rounded-xl shadow-sm inline-block">
                 <img
@@ -83,6 +89,13 @@ export default function Footer() {
             <p className="text-blue-200 text-sm leading-relaxed mb-5">
               World-class English language education in the Kingdom since 2001.
             </p>
+            <div className="mb-6 flex items-center bg-white/5 p-3 rounded-2xl border border-white/10 max-w-[140px] justify-center">
+              <img
+                src="/ih_70years_v2.png"
+                alt="Celebrating 70 Years"
+                className="h-12 w-auto object-contain"
+              />
+            </div>
             <div className="flex items-center gap-1.5 mb-2">
               <Phone size={13} className="text-blue-300 shrink-0" />
               <a href="tel:+966920000364" className="text-sm text-blue-100 hover:text-white transition-colors font-medium">
@@ -98,7 +111,7 @@ export default function Footer() {
           </div>
 
           {/* Branches */}
-          <div>
+          <div className="lg:col-span-2">
             <h3 className="font-bold text-sm uppercase tracking-widest text-blue-300 mb-4">
               {t("footer.branches")}
             </h3>
@@ -119,16 +132,16 @@ export default function Footer() {
           </div>
 
           {/* Quick Links */}
-          <div>
+          <div className="lg:col-span-4">
             <h3 className="font-bold text-sm uppercase tracking-widest text-blue-300 mb-4">
               {t("footer.quick_links")}
             </h3>
-            <ul className="space-y-2">
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2">
               {quickLinks.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm text-blue-100 hover:text-white hover:translate-x-1 inline-block transition-all"
+                    className="text-sm text-blue-100 hover:text-white hover:translate-x-1 rtl:hover:-translate-x-1 inline-block transition-all"
                   >
                     {link.label}
                   </Link>
@@ -138,7 +151,7 @@ export default function Footer() {
           </div>
 
           {/* Social */}
-          <div>
+          <div className="lg:col-span-2">
             <h3 className="font-bold text-sm uppercase tracking-widest text-blue-300 mb-4">
               {t("footer.follow")}
             </h3>

@@ -348,7 +348,7 @@ export default function TeacherTrainingPage() {
       </div>
 
       {/* ─── OVERVIEW ─────────────────────────────────── */}
-      <section className="py-24 bg-white">
+      <section id="why-development" className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
@@ -393,7 +393,7 @@ export default function TeacherTrainingPage() {
       </section>
 
       {/* ─── WHY CELTA ────────────────────────────────── */}
-      <section className="py-24" style={{ background: "var(--color-light)" }}>
+      <section id="professional-development" className="py-24" style={{ background: "var(--color-light)" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-14">
             <h2 className="text-3xl sm:text-4xl font-extrabold mb-4" style={{ color: "var(--color-primary)" }}>
@@ -447,7 +447,7 @@ export default function TeacherTrainingPage() {
       <ThemeAccent height="h-1.5" pills />
 
       {/* ─── TRACKS ───────────────────────────────────── */}
-      <section className="py-24 bg-white">
+      <section id="celta-pathways" className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-14">
             <h2 className="text-3xl sm:text-4xl font-extrabold mb-4" style={{ color: "var(--color-primary)" }}>
@@ -529,7 +529,7 @@ export default function TeacherTrainingPage() {
       </section>
 
       {/* ─── ENTRY REQUIREMENTS ───────────────────────── */}
-      <section className="py-24" style={{ background: "var(--color-light)" }}>
+      <section id="institutional" className="py-24" style={{ background: "var(--color-light)" }}>
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-12">
             <h2 className="text-3xl font-extrabold mb-4" style={{ color: "var(--color-primary)" }}>
@@ -620,6 +620,7 @@ export default function TeacherTrainingPage() {
 
       {/* ─── CTA ──────────────────────────────────────── */}
       <section
+        id="commitment"
         className="py-20 relative overflow-hidden"
         style={{ background: "linear-gradient(135deg, var(--color-primary) 0%, #0a4a9f 100%)" }}
       >
