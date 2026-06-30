@@ -287,7 +287,7 @@ export default function CareersPage() {
               viewport={{ once: true }}
               className="relative rounded-2xl overflow-hidden aspect-[4/3] bg-slate-100 flex items-center justify-center border border-slate-200"
             >
-              <Image src="/learn_face_to_face.png" alt="Working environment" fill className="object-cover pointer-events-none" />
+              <Image src="/career_team.jpg" alt="Working environment" fill className="object-cover object-center pointer-events-none" />
             </motion.div>
           </div>
         </div>
