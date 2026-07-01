@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { useLanguage } from "@/context/LanguageContext";
 
 const stripes = [
   "var(--color-ih-coral)",
@@ -20,6 +21,8 @@ interface ThemeAccentProps {
   height?: string;
   /** If true renders as individual rounded pill blocks instead of flush segments */
   pills?: boolean;
+  /** If true, renders as overlapping rounded pills matching parent website branding */
+  overlapping?: boolean;
   /** If true, each segment animates in on load */
   animate?: boolean;
 }
@@ -28,8 +31,41 @@ export default function ThemeAccent({
   className = "",
   height = "h-1.5",
   pills = false,
+  overlapping = false,
   animate = false,
 }: ThemeAccentProps) {
+  const { isRTL } = useLanguage();
+
+  if (overlapping) {
+    return (
+      <div 
+        className={`flex items-center w-full relative ${className}`} 
+        aria-hidden="true"
+        dir={isRTL ? "rtl" : "ltr"}
+      >
+        {stripes.map((color, i) => {
+          const marginStyle = i > 0 
+            ? (isRTL ? { marginRight: "-6px" } : { marginLeft: "-6px" }) 
+            : {};
+          
+          return (
+            <div
+              key={i}
+              className={`rounded-full border border-white ${height}`}
+              style={{
+                backgroundColor: color,
+                zIndex: i + 1,
+                flex: "1 1 0%",
+                boxShadow: "0 1px 2px rgba(0,0,0,0.08)",
+                ...marginStyle,
+              }}
+            />
+          );
+        })}
+      </div>
+    );
+  }
+
   if (pills) {
     return (
       <div className={`flex items-center gap-1.5 w-full ${className}`} aria-hidden="true">

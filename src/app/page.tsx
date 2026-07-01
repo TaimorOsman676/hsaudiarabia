@@ -52,6 +52,67 @@ export default function HomePage() {
     { num: "1000s", label: { en: "Learners Supported", ar: "الطلاب المستفيدين" } },
   ];
 
+  const pillars = [
+    {
+      title: { en: "International Standards", ar: "معايير دولية" },
+      bgColor: "#3f3dbe",
+      textColor: "#fccb56",
+      iconColor: "#fccb56",
+      icon: (
+        <svg viewBox="0 0 100 100" className="w-16 h-16 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-12">
+          <path
+            d="M 50 15 C 50 35, 65 50, 85 50 C 65 50, 50 65, 50 85 C 50 65, 35 50, 15 50 C 35 50, 50 35, 50 15 Z"
+            fill="#fccb56"
+          />
+        </svg>
+      ),
+    },
+    {
+      title: { en: "Saudi Market Understanding", ar: "فهم السوق السعودي" },
+      bgColor: "#9d2b67",
+      textColor: "#ffffff",
+      iconColor: "#ffffff",
+      icon: (
+        <svg viewBox="0 0 100 100" className="w-16 h-16 transition-transform duration-700 ease-out group-hover:rotate-90">
+          <path
+            d="M 50 50 L 50 20 A 15 15 0 0 1 65 35 L 50 50 Z M 50 50 L 80 50 A 15 15 0 0 1 65 65 L 50 50 Z M 50 50 L 50 80 A 15 15 0 0 1 35 65 L 50 50 Z M 50 50 L 20 50 A 15 15 0 0 1 35 35 L 50 50 Z"
+            fill="#ffffff"
+          />
+        </svg>
+      ),
+    },
+    {
+      title: { en: "Practical Learning", ar: "التعليم العملي" },
+      bgColor: "#ff8b3d",
+      textColor: "#8c1f58",
+      iconColor: "#8c1f58",
+      icon: (
+        <svg viewBox="0 0 100 100" className="w-16 h-16 transition-all duration-300 group-hover:scale-110 group-hover:-translate-y-1">
+          <path
+            d="M30 30 h40 a12 12 0 0 1 12 12 v26 a12 12 0 0 1 -12 12 h-34 l-10 8 c-1 1 -2 0 -2 -1.5 v-6.5 a12 12 0 0 1 -6 -12 v-26 a12 12 0 0 1 12 -12 z"
+            fill="#8c1f58"
+          />
+        </svg>
+      ),
+    },
+    {
+      title: { en: "Growth & Development", ar: "النمو والتطوير" },
+      bgColor: "#fed891",
+      textColor: "#3f3dbe",
+      iconColor: "#3f3dbe",
+      icon: (
+        <svg viewBox="0 0 100 100" className="w-16 h-16 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
+          <g transform="rotate(45 50 50)">
+            <path
+              d="M50 20 L25 45 A4 4 0 0 0 31 51 L44 38 V76 A4 4 0 0 0 48 80 H52 A4 4 0 0 0 56 76 V38 L69 51 A4 4 0 0 0 75 45 Z"
+              fill="#3f3dbe"
+            />
+          </g>
+        </svg>
+      ),
+    },
+  ];
+
   const strengths = [
     {
       en: "International House World Organization Member",
@@ -351,6 +412,70 @@ export default function HomePage() {
       <HeroSlider />
 
       <ThemeAccent height="h-2.5" pills />
+
+      {/* ─── NEW: CORE PILLARS SECTION ─── */}
+      <section className="py-20 bg-slate-50 relative overflow-hidden border-b border-slate-100">
+        <div className="absolute inset-0 opacity-[0.02] pointer-events-none"
+          style={{ backgroundImage: "radial-gradient(#002F6C 1px, transparent 1px)", backgroundSize: "24px 24px" }} />
+        
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-[#cf1430] mb-4 font-['Montserrat',_sans-serif]">
+              ★ {isRtl ? "ركائزنا الأساسية" : "OUR CORE PILLARS"}
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-black text-[#002F6C] font-['Montserrat',_sans-serif] tracking-tight">
+              {isRtl ? "ركائز التميز التعليمي" : "Pillars of Educational Excellence"}
+            </h2>
+            <p className="mt-3 text-slate-500 font-light text-base sm:text-lg max-w-2xl mx-auto">
+              {isRtl 
+                ? "نسعى لتقديم تجربة تعليمية فريدة تدمج بين المعايير الدولية والخبرة المحلية لدعم نموك." 
+                : "Empowering learners through world-class standards, practical experiences, and dedicated local support."}
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+          >
+            {pillars.map((pillar, idx) => (
+              <motion.div
+                key={idx}
+                variants={fadeInScale}
+                whileHover={{ y: -6, scale: 1.03 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                className="group relative rounded-[2rem] p-8 sm:p-10 flex flex-col justify-between aspect-[3/2] cursor-default shadow-md hover:shadow-2xl transition-all duration-300"
+                style={{ backgroundColor: pillar.bgColor }}
+              >
+                {/* Icon wrapper at the top */}
+                <div className="flex items-start justify-between w-full">
+                  <div className="relative">
+                    {pillar.icon}
+                  </div>
+                </div>
+
+                {/* Text content at the bottom */}
+                <div className="mt-8">
+                  <h3 
+                    className="text-xl sm:text-2xl font-black font-['Montserrat',_sans-serif] leading-tight"
+                    style={{ color: pillar.textColor }}
+                  >
+                    {pillar.title[lang]}
+                  </h3>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
 
       {/* ─────────────────────────────────────────────────────────────────
           1. ABOUT & EMPOWERMENT + 70 YEARS BADGE

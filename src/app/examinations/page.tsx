@@ -487,7 +487,7 @@ export default function ExaminationsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
             {/* Left: Preparation Features */}
-            <div className="lg:col-span-6 space-y-8">
+            <div className="lg:col-span-6 space-y-8 flex flex-col justify-between">
               <div>
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-[#002F6C] font-heading">
                   {d.prepFeatures.title}
@@ -497,23 +497,35 @@ export default function ExaminationsPage() {
                 </p>
               </div>
 
-              <div className="space-y-4">
-                {d.prepFeatures.list.map((feat, idx) => (
-                  <div key={idx} className="bg-white border border-slate-200/40 p-4 rounded-2xl flex gap-3 shadow-xs">
-                    <span className="p-2 rounded-xl bg-red-50 text-[#cf1430] self-start">
-                      <Bookmark size={16} />
-                    </span>
-                    <div>
-                      <h4 className="font-extrabold text-slate-800 text-sm font-heading">{feat.name}</h4>
-                      <p className="text-xs text-slate-500 mt-0.5 leading-relaxed font-light">{feat.desc}</p>
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+                <div className="md:col-span-7 space-y-4">
+                  {d.prepFeatures.list.map((feat, idx) => (
+                    <div key={idx} className="bg-white border border-slate-200/40 p-4 rounded-2xl flex gap-3 shadow-xs hover:shadow-md transition-shadow duration-205">
+                      <span className="p-2 rounded-xl bg-red-50 text-[#cf1430] self-start shrink-0">
+                        <Bookmark size={16} />
+                      </span>
+                      <div>
+                        <h4 className="font-extrabold text-slate-800 text-sm font-heading">{feat.name}</h4>
+                        <p className="text-xs text-slate-500 mt-0.5 leading-relaxed font-light">{feat.desc}</p>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
+
+                <div className="md:col-span-5 relative aspect-[3/4] w-full rounded-2xl overflow-hidden shadow-lg border border-slate-200/60 hidden md:block">
+                  <Image
+                    src="/exam_exams.png"
+                    alt="Exam Preparation Features"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 350px"
+                    className="object-cover transition-transform duration-300 hover:scale-103"
+                  />
+                </div>
               </div>
             </div>
 
             {/* Right: Learning Options */}
-            <div className="lg:col-span-6 space-y-8">
+            <div className="lg:col-span-6 space-y-8 flex flex-col justify-between">
               <div>
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-[#002F6C] font-heading">
                   {d.learningOptions.title}
@@ -523,18 +535,30 @@ export default function ExaminationsPage() {
                 </p>
               </div>
 
-              <div className="space-y-4">
-                {d.learningOptions.list.map((option, idx) => (
-                  <div key={idx} className="bg-white border border-slate-200/40 p-4 rounded-2xl flex gap-3 shadow-xs">
-                    <span className="p-2 rounded-xl bg-blue-50 text-[#002F6C] self-start">
-                      <Shield size={16} />
-                    </span>
-                    <div>
-                      <h4 className="font-extrabold text-slate-800 text-sm font-heading">{option.name}</h4>
-                      <p className="text-xs text-slate-500 mt-0.5 leading-relaxed font-light">{option.desc}</p>
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+                <div className="md:col-span-7 space-y-4">
+                  {d.learningOptions.list.map((option, idx) => (
+                    <div key={idx} className="bg-white border border-slate-200/40 p-4 rounded-2xl flex gap-3 shadow-xs hover:shadow-md transition-shadow duration-205">
+                      <span className="p-2 rounded-xl bg-blue-50 text-[#002F6C] self-start shrink-0">
+                        <Shield size={16} />
+                      </span>
+                      <div>
+                        <h4 className="font-extrabold text-slate-800 text-sm font-heading">{option.name}</h4>
+                        <p className="text-xs text-slate-500 mt-0.5 leading-relaxed font-light">{option.desc}</p>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
+
+                <div className="md:col-span-5 relative aspect-[3/4] w-full rounded-2xl overflow-hidden shadow-lg border border-slate-200/60 hidden md:block">
+                  <Image
+                    src="/learn_hybrid.png"
+                    alt="Flexible Learning Options"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 350px"
+                    className="object-cover transition-transform duration-300 hover:scale-103"
+                  />
+                </div>
               </div>
             </div>
           </div>
