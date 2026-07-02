@@ -16,7 +16,11 @@ import {
   ClipboardCheck,
   Check,
   ArrowRight,
-  ChevronRight
+  ChevronRight,
+  Send,
+  CheckCircle2,
+  AlertCircle,
+  Loader2
 } from "lucide-react";
 
 // Bilingual content definitions
@@ -341,6 +345,52 @@ export default function CoursesPage() {
   const isRtl = lang === "ar";
   const t = content[lang];
   const [activeTab, setActiveTab] = useState("general-english");
+
+  // Inline Registration Form States
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    ageGroup: "",
+    branch: "",
+    course: "",
+    studyTime: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [validationErrors, setValidationErrors] = useState<Record<string, string>>({});
+
+  const handleFormSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const errors: Record<string, string> = {};
+    if (!form.name.trim()) errors.name = isRtl ? "هذا الحقل مطلوب" : "This field is required";
+    if (!form.email.trim()) errors.email = isRtl ? "هذا الحقل مطلوب" : "This field is required";
+    if (!form.phone.trim()) errors.phone = isRtl ? "هذا الحقل مطلوب" : "This field is required";
+    if (!form.ageGroup) errors.ageGroup = isRtl ? "الرجاء اختيار أحد الخيارات" : "Please select an option";
+
+    if (Object.keys(errors).length > 0) {
+      setValidationErrors(errors);
+      return;
+    }
+
+    setIsSubmitting(true);
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setFormSubmitted(true);
+      setForm({
+        name: "",
+        email: "",
+        phone: "",
+        ageGroup: "",
+        branch: "",
+        course: "",
+        studyTime: "",
+        message: "",
+      });
+      setValidationErrors({});
+    }, 1200);
+  };
 
   // Handle intersection observer to highlight side navigation tabs as user scrolls
   useEffect(() => {
@@ -1190,7 +1240,7 @@ export default function CoursesPage() {
                 </p>
               </div>
               <a
-                href="/contact?action=register"
+                href="#register-section"
                 className="inline-flex items-center gap-1.5 text-sm font-bold text-white hover:text-white/80 transition-colors"
               >
                 {t.cta.register}
@@ -1202,6 +1252,231 @@ export default function CoursesPage() {
         </div>
       </section>
 
+      {/* ─── SECTION 11: INLINE STUDENT REGISTRATION FORM ─── */}
+      <section id="register-section" className="py-24 bg-slate-50 border-t border-slate-200 scroll-mt-28">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-[#002f6c] mb-3">
+              {isRtl ? "سجل الآن في دوراتنا" : "Register for a Course Now"}
+            </h2>
+            <p className="text-gray-500 text-sm md:text-base leading-relaxed">
+              {isRtl
+                ? "املأ هذا النموذج لتأكيد تسجيلك في الدورة وسيتصل بك منسق القبول لدينا."
+                : "Fill out this form to register for your preferred language program and start learning."}
+            </p>
+          </div>
+
+          <div className="bg-white p-8 sm:p-10 rounded-3xl border border-slate-200 shadow-sm relative overflow-hidden">
+            <div className="h-1.5 absolute top-0 left-0 right-0 bg-[#002f6c]" />
+
+            {formSubmitted ? (
+              <div className="text-center py-10">
+                <CheckCircle2 size={48} className="text-green-600 mx-auto mb-4" />
+                <h3 className="text-lg font-bold text-[#002f6c] mb-2">
+                  {isRtl ? "تم إرسال طلب التسجيل بنجاح!" : "Registration Submitted Successfully!"}
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-500 leading-relaxed max-w-md mx-auto">
+                  {isRtl
+                    ? "نشكرك على التسجيل في معاهد الهاوس الدولي السعودية. سيقوم فريق القبول لدينا بالاتصال بك خلال ٢٤ ساعة لتأكيد موعد الدورة والرسوم واختبار تحديد المستوى."
+                    : "Thank you for registering at IH Saudi Arabia. Our admissions team will contact you within 24 hours to confirm schedule availability, placement test, and fees."}
+                </p>
+              </div>
+            ) : (
+              <form onSubmit={handleFormSubmit} className="space-y-6">
+                {/* Full Name & Email */}
+                <div className="grid sm:grid-cols-2 gap-5">
+                  <div>
+                    <label className="block text-xs font-bold text-gray-700 uppercase mb-2">
+                      {isRtl ? "الاسم الكامل" : "Full Name"} <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      value={form.name}
+                      onChange={(e) => {
+                        setForm({ ...form, name: e.target.value });
+                        if (validationErrors.name) setValidationErrors({ ...validationErrors, name: "" });
+                      }}
+                      className={`w-full px-4 py-3 rounded-xl border text-sm text-gray-800 bg-slate-50/50 focus:outline-none focus:border-blue-500 transition-all ${
+                        validationErrors.name ? "border-red-500 bg-red-50/10" : "border-slate-200"
+                      }`}
+                    />
+                    {validationErrors.name && (
+                      <p className="text-red-500 text-[10px] mt-1 flex items-center gap-1">
+                        <AlertCircle size={10} /> {validationErrors.name}
+                      </p>
+                    )}
+                  </div>
+                  <div>
+                    <label className="block text-xs font-bold text-gray-700 uppercase mb-2">
+                      {isRtl ? "البريد الإلكتروني" : "Email Address"} <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="email"
+                      required
+                      value={form.email}
+                      onChange={(e) => {
+                        setForm({ ...form, email: e.target.value });
+                        if (validationErrors.email) setValidationErrors({ ...validationErrors, email: "" });
+                      }}
+                      className={`w-full px-4 py-3 rounded-xl border text-sm text-gray-800 bg-slate-50/50 focus:outline-none focus:border-blue-500 transition-all ${
+                        validationErrors.email ? "border-red-500 bg-red-50/10" : "border-slate-200"
+                      }`}
+                    />
+                    {validationErrors.email && (
+                      <p className="text-red-500 text-[10px] mt-1 flex items-center gap-1">
+                        <AlertCircle size={10} /> {validationErrors.email}
+                      </p>
+                    )}
+                  </div>
+                </div>
+
+                {/* Phone & Age Group */}
+                <div className="grid sm:grid-cols-2 gap-5">
+                  <div>
+                    <label className="block text-xs font-bold text-gray-700 uppercase mb-2">
+                      {isRtl ? "رقم الجوال" : "Phone Number"} <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="tel"
+                      required
+                      placeholder="e.g. +966 50 000 0000"
+                      value={form.phone}
+                      onChange={(e) => {
+                        setForm({ ...form, phone: e.target.value });
+                        if (validationErrors.phone) setValidationErrors({ ...validationErrors, phone: "" });
+                      }}
+                      className={`w-full px-4 py-3 rounded-xl border text-sm text-gray-800 bg-slate-50/50 focus:outline-none focus:border-blue-500 transition-all ${
+                        validationErrors.phone ? "border-red-500 bg-red-50/10" : "border-slate-200"
+                      }`}
+                    />
+                    {validationErrors.phone && (
+                      <p className="text-red-500 text-[10px] mt-1 flex items-center gap-1">
+                        <AlertCircle size={10} /> {validationErrors.phone}
+                      </p>
+                    )}
+                  </div>
+                  <div>
+                    <label className="block text-xs font-bold text-gray-700 uppercase mb-2">
+                      {isRtl ? "الفئة العمرية" : "Age Group"} <span className="text-red-500">*</span>
+                    </label>
+                    <select
+                      required
+                      value={form.ageGroup}
+                      onChange={(e) => {
+                        setForm({ ...form, ageGroup: e.target.value });
+                        if (validationErrors.ageGroup) setValidationErrors({ ...validationErrors, ageGroup: "" });
+                      }}
+                      className={`w-full px-4 py-3 rounded-xl border text-sm text-gray-800 bg-slate-50/50 focus:outline-none focus:border-blue-500 appearance-none cursor-pointer ${
+                        validationErrors.ageGroup ? "border-red-500" : "border-slate-200"
+                      }`}
+                    >
+                      <option value="">{isRtl ? "اختر الفئة العمرية" : "Select your age group"}</option>
+                      <option value="adult">{isRtl ? "كبار (١٨ سنة فما فوق)" : "Adult (18+ years)"}</option>
+                      <option value="young">{isRtl ? "صغار / شباب (٥-١٧ سنة)" : "Young Learner (5-17 years)"}</option>
+                    </select>
+                    {validationErrors.ageGroup && (
+                      <p className="text-red-500 text-[10px] mt-1 flex items-center gap-1">
+                        <AlertCircle size={10} /> {validationErrors.ageGroup}
+                      </p>
+                    )}
+                  </div>
+                </div>
+
+                {/* Preferred Branch & Course */}
+                <div className="grid sm:grid-cols-2 gap-5">
+                  <div>
+                    <label className="block text-xs font-bold text-gray-700 uppercase mb-2">
+                      {isRtl ? "الفرع المفضل" : "Preferred Branch"} <span className="text-red-500">*</span>
+                    </label>
+                    <select
+                      required
+                      value={form.branch}
+                      onChange={(e) => setForm({ ...form, branch: e.target.value })}
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-gray-800 bg-slate-50/50 focus:outline-none focus:border-blue-500 appearance-none cursor-pointer"
+                    >
+                      <option value="">{isRtl ? "اختر الفرع المفضل" : "Select preferred branch"}</option>
+                      <option value="dhahran">{isRtl ? "فرع الظهران" : "Dhahran Branch"}</option>
+                      <option value="dammam">{isRtl ? "فرع الدمام" : "Dammam Branch"}</option>
+                      <option value="jeddah">{isRtl ? "فرع جدة" : "Jeddah Branch"}</option>
+                      <option value="online">{isRtl ? "عبر الإنترنت / افتراضي" : "Online / Virtual"}</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label className="block text-xs font-bold text-gray-700 uppercase mb-2">
+                      {isRtl ? "الدورة المفضلة" : "Preferred Course"} <span className="text-red-500">*</span>
+                    </label>
+                    <select
+                      required
+                      value={form.course}
+                      onChange={(e) => setForm({ ...form, course: e.target.value })}
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-gray-800 bg-slate-50/50 focus:outline-none focus:border-blue-500 appearance-none cursor-pointer"
+                    >
+                      <option value="">{isRtl ? "اختر الدورة المفضلة" : "Select preferred course"}</option>
+                      <option value="general">{isRtl ? "اللغة الإنجليزية العامة" : "General English"}</option>
+                      <option value="business">{isRtl ? "اللغة الإنجليزية للأعمال" : "Business English"}</option>
+                      <option value="ielts">{isRtl ? "التحضير لاختبار آيلتس" : "IELTS Preparation"}</option>
+                      <option value="young-learners">{isRtl ? "برامج الصغار والشباب" : "Young Learners Program"}</option>
+                      <option value="arabic">{isRtl ? "تعلم العربية مع IH" : "Learn Arabic with IH"}</option>
+                      <option value="esp">{isRtl ? "إنجليزية لأغراض خاصة (ESP)" : "English for Specific Purposes (ESP)"}</option>
+                    </select>
+                  </div>
+                </div>
+
+                {/* Preferred Study Time */}
+                <div>
+                  <label className="block text-xs font-bold text-gray-700 uppercase mb-2">
+                    {isRtl ? "الوقت المفضل للدراسة" : "Preferred Study Time"} <span className="text-red-500">*</span>
+                  </label>
+                  <select
+                    required
+                    value={form.studyTime}
+                    onChange={(e) => setForm({ ...form, studyTime: e.target.value })}
+                    className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-gray-800 bg-slate-50/50 focus:outline-none focus:border-blue-500 appearance-none cursor-pointer"
+                  >
+                    <option value="">{isRtl ? "اختر فترة الدراسة" : "Select study timing"}</option>
+                    <option value="morning">{isRtl ? "الصباح (٨:٠٠ ص - ١٢:٠٠ م)" : "Morning (8:00 AM - 12:00 PM)"}</option>
+                    <option value="afternoon">{isRtl ? "بعد الظهر (١:٠٠ م - ٥:٠٠ م)" : "Afternoon (1:00 PM - 5:00 PM)"}</option>
+                    <option value="evening">{isRtl ? "المساء (٦:٠٠ م - ١٠:٠٠ م)" : "Evening (6:00 PM - 10:00 PM)"}</option>
+                  </select>
+                </div>
+
+                {/* Message */}
+                <div>
+                  <label className="block text-xs font-bold text-gray-700 uppercase mb-2">
+                    {isRtl ? "الرسالة / متطلبات خاصة" : "Message / Requirements"}
+                  </label>
+                  <textarea
+                    rows={4}
+                    value={form.message}
+                    onChange={(e) => setForm({ ...form, message: e.target.value })}
+                    className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-gray-800 bg-slate-50/50 focus:outline-none focus:border-blue-500 resize-none"
+                  />
+                </div>
+
+                {/* Submit Button */}
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full flex items-center justify-center gap-2 py-4 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-[#002f6c] to-blue-800 hover:to-blue-700 shadow-md hover:shadow-lg disabled:opacity-50 select-none cursor-pointer"
+                >
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="animate-spin" size={16} />
+                      <span>{isRtl ? "جاري الإرسال..." : "Sending..."}</span>
+                    </>
+                  ) : (
+                    <>
+                      <Send size={14} />
+                      <span>{isRtl ? "إرسال طلب التسجيل" : "Submit Registration"}</span>
+                    </>
+                  )}
+                </button>
+              </form>
+            )}
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

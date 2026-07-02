@@ -2,10 +2,11 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
 import ThemeAccent from "@/components/ThemeAccent";
 import { motion } from "framer-motion";
-import { Briefcase, CheckCircle2, ShieldCheck, ClipboardCheck, ArrowRight, Laptop, Users, GraduationCap, Star, Layers, TrendingUp, Settings, Mail, Phone, MapPin } from "lucide-react";
+import { Briefcase, CheckCircle2, ShieldCheck, ClipboardCheck, ArrowRight, Laptop, Users, GraduationCap, Star, Layers, TrendingUp, Settings, Mail, Phone, MapPin, Send, AlertCircle, Loader2 } from "lucide-react";
 
 const content = {
   en: {
@@ -236,10 +237,55 @@ export default function CorporatePage() {
   const { lang, isRTL } = useLanguage();
   const c = content[lang] || content.en;
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [form, setForm] = useState({
+    company: "",
+    contactName: "",
+    email: "",
+    phone: "",
+    industry: "",
+    learnersCount: "",
+    focus: "",
+    deliveryFormat: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [validationErrors, setValidationErrors] = useState<Record<string, string>>({});
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setFormSubmitted(true);
+    const errors: Record<string, string> = {};
+    const commonReq = lang === "ar" ? "هذا الحقل مطلوب" : "This field is required";
+    if (!form.company.trim()) errors.company = commonReq;
+    if (!form.contactName.trim()) errors.contactName = commonReq;
+    if (!form.email.trim()) errors.email = commonReq;
+    if (!form.phone.trim()) errors.phone = commonReq;
+    if (!form.industry) errors.industry = commonReq;
+    if (!form.learnersCount) errors.learnersCount = commonReq;
+    if (!form.focus) errors.focus = commonReq;
+    if (!form.deliveryFormat) errors.deliveryFormat = commonReq;
+
+    if (Object.keys(errors).length > 0) {
+      setValidationErrors(errors);
+      return;
+    }
+
+    setIsSubmitting(true);
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setFormSubmitted(true);
+      setForm({
+        company: "",
+        contactName: "",
+        email: "",
+        phone: "",
+        industry: "",
+        learnersCount: "",
+        focus: "",
+        deliveryFormat: "",
+        message: "",
+      });
+      setValidationErrors({});
+    }, 1200);
   };
 
   return (
@@ -463,48 +509,209 @@ export default function CorporatePage() {
             <p className="text-gray-500 text-xs md:text-sm">{c.sections.proposal.subtitle}</p>
           </div>
 
-          <div className="bg-slate-50 p-8 rounded-3xl border border-slate-150">
+          <div className="bg-white p-8 sm:p-10 rounded-3xl border border-slate-200 shadow-sm relative overflow-hidden text-start">
+            <div className="h-1.5 absolute top-0 left-0 right-0 bg-[#002f6c]" />
+
             {formSubmitted ? (
-              <div className="text-center py-8">
+              <div className="text-center py-10">
                 <CheckCircle2 size={48} className="text-green-600 mx-auto mb-4" />
-                <p className="text-lg font-bold text-gray-800">{c.sections.proposal.success}</p>
+                <h3 className="text-lg font-bold text-[#002f6c] mb-2">
+                  {lang === "ar" ? "تم إرسال طلبك بنجاح!" : "Request Submitted Successfully!"}
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-500 leading-relaxed max-w-md mx-auto">
+                  {lang === "ar"
+                    ? "شكرًا لاهتمامك بالتدريب المؤسسي مع الهاوس الدولي السعودية. سيقوم مستشار الحلول المؤسسية لدينا بالتواصل معك خلال ٢٤ ساعة لترتيب استشارة مجانية وتقديم مقترح تدريبي مخصص لمؤسستك."
+                    : "Thank you for your interest in corporate training. Our solutions consultant will contact you within 24 hours to organize a consultation call and draft a customized training proposal."}
+                </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
+              <form onSubmit={handleFormSubmit} className="space-y-6">
+                {/* Company Name & Industry */}
+                <div className="grid sm:grid-cols-2 gap-5">
                   <div>
-                    <label className="block text-xs font-bold text-gray-700 uppercase mb-2">{c.sections.proposal.form.company}</label>
-                    <input required type="text" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-blue-500 text-sm text-gray-800 bg-white" />
+                    <label className="block text-xs font-bold text-gray-700 uppercase mb-2">
+                      {lang === "ar" ? "اسم الشركة / المؤسسة" : "Company Name"} <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      value={form.company}
+                      onChange={(e) => {
+                        setForm({ ...form, company: e.target.value });
+                        if (validationErrors.company) setValidationErrors({ ...validationErrors, company: "" });
+                      }}
+                      className={`w-full px-4 py-3 rounded-xl border text-sm text-gray-800 bg-slate-50/50 focus:outline-none focus:border-blue-500 transition-all ${
+                        validationErrors.company ? "border-red-500 bg-red-50/10" : "border-slate-200"
+                      }`}
+                    />
                   </div>
                   <div>
-                    <label className="block text-xs font-bold text-gray-700 uppercase mb-2">{c.sections.proposal.form.contactPerson}</label>
-                    <input required type="text" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-blue-500 text-sm text-gray-800 bg-white" />
+                    <label className="block text-xs font-bold text-gray-700 uppercase mb-2">
+                      {lang === "ar" ? "قطاع العمل" : "Industry"} <span className="text-red-500">*</span>
+                    </label>
+                    <select
+                      required
+                      value={form.industry}
+                      onChange={(e) => setForm({ ...form, industry: e.target.value })}
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-gray-800 bg-slate-50/50 focus:outline-none focus:border-blue-500 appearance-none cursor-pointer"
+                    >
+                      <option value="">{lang === "ar" ? "اختر القطاع" : "Select Industry"}</option>
+                      <option value="government">{lang === "ar" ? "قطاع حكومي" : "Government / Public Sector"}</option>
+                      <option value="corporation">{lang === "ar" ? "شركات ومؤسسات خاصة" : "Private Corporate"}</option>
+                      <option value="education">{lang === "ar" ? "تعليم وأكاديمي" : "Education & Academy"}</option>
+                      <option value="healthcare">{lang === "ar" ? "الرعاية الصحية" : "Healthcare / Medical"}</option>
+                      <option value="oil_gas">{lang === "ar" ? "النفط والغاز والطاقة" : "Oil & Gas / Energy"}</option>
+                      <option value="hospitality">{lang === "ar" ? "السياحة والضيافة" : "Hospitality & Tourism"}</option>
+                      <option value="retail">{lang === "ar" ? "التجزئة والخدمات" : "Retail & Services"}</option>
+                    </select>
                   </div>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-6">
+                {/* Contact Person Name & Business Email */}
+                <div className="grid sm:grid-cols-2 gap-5">
                   <div>
-                    <label className="block text-xs font-bold text-gray-700 uppercase mb-2">{c.sections.proposal.form.email}</label>
-                    <input required type="email" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-blue-500 text-sm text-gray-800 bg-white" />
+                    <label className="block text-xs font-bold text-gray-700 uppercase mb-2">
+                      {lang === "ar" ? "اسم مسؤول التواصل" : "Contact Person"} <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      value={form.contactName}
+                      onChange={(e) => {
+                        setForm({ ...form, contactName: e.target.value });
+                        if (validationErrors.contactName) setValidationErrors({ ...validationErrors, contactName: "" });
+                      }}
+                      className={`w-full px-4 py-3 rounded-xl border text-sm text-gray-800 bg-slate-50/50 focus:outline-none focus:border-blue-500 transition-all ${
+                        validationErrors.contactName ? "border-red-500 bg-red-50/10" : "border-slate-200"
+                      }`}
+                    />
                   </div>
                   <div>
-                    <label className="block text-xs font-bold text-gray-700 uppercase mb-2">{c.sections.proposal.form.phone}</label>
-                    <input required type="tel" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-blue-500 text-sm text-gray-800 bg-white" />
+                    <label className="block text-xs font-bold text-gray-700 uppercase mb-2">
+                      {lang === "ar" ? "البريد الإلكتروني للعمل" : "Business Email"} <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="email"
+                      required
+                      value={form.email}
+                      onChange={(e) => {
+                        setForm({ ...form, email: e.target.value });
+                        if (validationErrors.email) setValidationErrors({ ...validationErrors, email: "" });
+                      }}
+                      className={`w-full px-4 py-3 rounded-xl border text-sm text-gray-800 bg-slate-50/50 focus:outline-none focus:border-blue-500 transition-all ${
+                        validationErrors.email ? "border-red-500 bg-red-50/10" : "border-slate-200"
+                      }`}
+                    />
                   </div>
                 </div>
 
+                {/* Phone & Learners Count */}
+                <div className="grid sm:grid-cols-2 gap-5">
+                  <div>
+                    <label className="block text-xs font-bold text-gray-700 uppercase mb-2">
+                      {lang === "ar" ? "رقم الهاتف للاتصال" : "Phone Number"} <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="tel"
+                      required
+                      value={form.phone}
+                      onChange={(e) => {
+                        setForm({ ...form, phone: e.target.value });
+                        if (validationErrors.phone) setValidationErrors({ ...validationErrors, phone: "" });
+                      }}
+                      className={`w-full px-4 py-3 rounded-xl border text-sm text-gray-800 bg-slate-50/50 focus:outline-none focus:border-blue-500 transition-all ${
+                        validationErrors.phone ? "border-red-500 bg-red-50/10" : "border-slate-200"
+                      }`}
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-bold text-gray-700 uppercase mb-2">
+                      {lang === "ar" ? "عدد المتدربين المتوقع" : "Expected Number of Learners"} <span className="text-red-500">*</span>
+                    </label>
+                    <select
+                      required
+                      value={form.learnersCount}
+                      onChange={(e) => setForm({ ...form, learnersCount: e.target.value })}
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-gray-800 bg-slate-50/50 focus:outline-none focus:border-blue-500 appearance-none cursor-pointer"
+                    >
+                      <option value="">{lang === "ar" ? "اختر النطاق" : "Select Learners Range"}</option>
+                      <option value="1_10">1 - 10</option>
+                      <option value="11_50">11 - 50</option>
+                      <option value="51_100">51 - 100</option>
+                      <option value="100_plus">100+</option>
+                    </select>
+                  </div>
+                </div>
+
+                {/* Training Focus & Delivery format */}
+                <div className="grid sm:grid-cols-2 gap-5">
+                  <div>
+                    <label className="block text-xs font-bold text-gray-700 uppercase mb-2">
+                      {lang === "ar" ? "تركيز التدريب المطلوب" : "Training Focus"} <span className="text-red-500">*</span>
+                    </label>
+                    <select
+                      required
+                      value={form.focus}
+                      onChange={(e) => setForm({ ...form, focus: e.target.value })}
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-gray-800 bg-slate-50/50 focus:outline-none focus:border-blue-500 appearance-none cursor-pointer"
+                    >
+                      <option value="">{lang === "ar" ? "اختر نطاق التركيز" : "Select Focus Area"}</option>
+                      <option value="general">{lang === "ar" ? "اللغة الإنجليزية العامة للعمل" : "General Business English"}</option>
+                      <option value="esp">{lang === "ar" ? "إنجليزية فنية متخصصة (ESP)" : "Technical/ESP English"}</option>
+                      <option value="ielts">{lang === "ar" ? "التحضير للاختبارات الدولية" : "International Exam Prep"}</option>
+                      <option value="upskilling">{lang === "ar" ? "مهارات تواصل وخطابة" : "Communication/Soft Skills"}</option>
+                      <option value="other">{lang === "ar" ? "أخرى / مخصص" : "Other / Custom"}</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label className="block text-xs font-bold text-gray-700 uppercase mb-2">
+                      {lang === "ar" ? "نظام التعليم المفضل" : "Delivery Format"} <span className="text-red-500">*</span>
+                    </label>
+                    <select
+                      required
+                      value={form.deliveryFormat}
+                      onChange={(e) => setForm({ ...form, deliveryFormat: e.target.value })}
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-gray-800 bg-slate-50/50 focus:outline-none focus:border-blue-500 appearance-none cursor-pointer"
+                    >
+                      <option value="">{lang === "ar" ? "اختر نظام التدريب" : "Select Delivery Format"}</option>
+                      <option value="in_house">{lang === "ar" ? "حضوري بمقر الشركة" : "On-site (At your company)"}</option>
+                      <option value="at_ih">{lang === "ar" ? "حضوري بمعهد IH" : "At IH Branches"}</option>
+                      <option value="online">{lang === "ar" ? "افتراضي أونلاين بالكامل" : "Virtual / Online Live Classes"}</option>
+                      <option value="hybrid">{lang === "ar" ? "تعليم هجين" : "Hybrid Learning"}</option>
+                    </select>
+                  </div>
+                </div>
+
+                {/* Message */}
                 <div>
-                  <label className="block text-xs font-bold text-gray-700 uppercase mb-2">{c.sections.proposal.form.learners}</label>
-                  <input required type="number" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-blue-500 text-sm text-gray-800 bg-white" />
+                  <label className="block text-xs font-bold text-gray-700 uppercase mb-2">
+                    {lang === "ar" ? "رسالة تفصيلية للمشروع" : "Additional Project Details"}
+                  </label>
+                  <textarea
+                    rows={4}
+                    value={form.message}
+                    onChange={(e) => setForm({ ...form, message: e.target.value })}
+                    className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-gray-800 bg-slate-50/50 focus:outline-none focus:border-blue-500 resize-none"
+                  />
                 </div>
 
-                <div>
-                  <label className="block text-xs font-bold text-gray-700 uppercase mb-2">{c.sections.proposal.form.message}</label>
-                  <textarea rows={4} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-blue-500 text-sm text-gray-800 bg-white resize-none" />
-                </div>
-
-                <button type="submit" className="w-full py-4 bg-gradient-to-r from-[#002f6c] to-[#0050b3] text-white font-bold rounded-xl text-sm hover:shadow-lg transition-all duration-200">
-                  {c.sections.proposal.form.submit}
+                {/* Submit Button */}
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full flex items-center justify-center gap-2 py-4 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-[#002f6c] to-blue-800 hover:to-blue-700 shadow-md hover:shadow-lg disabled:opacity-50 select-none cursor-pointer"
+                >
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="animate-spin" size={16} />
+                      <span>{lang === "ar" ? "جاري الإرسال..." : "Sending..."}</span>
+                    </>
+                  ) : (
+                    <>
+                      <Send size={14} />
+                      <span>{lang === "ar" ? "تقديم طلب المقترح" : "Request Proposal"}</span>
+                    </>
+                  )}
                 </button>
               </form>
             )}

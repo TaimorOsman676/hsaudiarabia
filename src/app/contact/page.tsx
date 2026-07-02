@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { MapPin, Phone, Mail, Send, CheckCircle, Map } from "lucide-react";
+import { MapPin, Phone, Mail, Send, CheckCircle, Map, AlertCircle, Loader2 } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { fadeUp } from "@/utils/animations";
 import ThemeAccent from "@/components/ThemeAccent";
@@ -44,13 +44,55 @@ const branches = [
 ];
 
 export default function ContactPage() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
+  const isRtl = lang === "ar";
   const [submitted, setSubmitted] = useState(false);
+  const [activeForm, setActiveForm] = useState<"contact" | "quotation">("contact");
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
+  const [quoteForm, setQuoteForm] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    category: "",
+    program: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [validationErrors, setValidationErrors] = useState<Record<string, string>>({});
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
+  };
+
+  const handleQuoteSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const errors: Record<string, string> = {};
+    const commonReq = isRtl ? "هذا الحقل مطلوب" : "This field is required";
+    if (!quoteForm.name.trim()) errors.name = commonReq;
+    if (!quoteForm.email.trim()) errors.email = commonReq;
+    if (!quoteForm.phone.trim()) errors.phone = commonReq;
+    if (!quoteForm.category) errors.category = commonReq;
+
+    if (Object.keys(errors).length > 0) {
+      setValidationErrors(errors);
+      return;
+    }
+
+    setIsSubmitting(true);
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setSubmitted(true);
+      setQuoteForm({
+        name: "",
+        email: "",
+        phone: "",
+        category: "",
+        program: "",
+        message: "",
+      });
+      setValidationErrors({});
+    }, 1200);
   };
 
   return (
@@ -230,62 +272,222 @@ export default function ContactPage() {
             </h2>
 
             {submitted ? (
-              <div className="bg-white rounded-3xl p-12 text-center shadow-ih-soft">
-                <CheckCircle size={52} className="mx-auto mb-4" style={{ color: "var(--color-ih-green)" }} />
-                <h3 className="text-xl font-bold mb-2" style={{ color: "var(--color-primary)" }}>
-                  {t("contact.form.title")}
+              <div className="bg-white rounded-3xl p-12 text-center shadow-ih-soft border border-gray-100">
+                <CheckCircle size={52} className="mx-auto mb-4 text-[#00d084]" />
+                <h3 className="text-xl font-bold mb-2 text-[#002f6c]">
+                  {isRtl ? "تم إرسال الرسالة بنجاح!" : "Submitted Successfully!"}
                 </h3>
-                <p className="text-gray-600 text-sm">We will get back to you within 24 hours.</p>
+                <p className="text-gray-500 text-sm leading-relaxed max-w-sm mx-auto">
+                  {activeForm === "quotation"
+                    ? (isRtl 
+                        ? "شكرًا لطلب عرض السعر. سيقوم مسؤول علاقات العملاء والقبول لدينا بدراسة طلبك وموافاتك بالتسعيرة الرسمية خلال ٢٤ ساعة."
+                        : "Thank you for requesting a quote. Our admissions team will review your requirements and provide an official quotation within 24 hours.")
+                    : (isRtl
+                        ? "شكرًا لتواصلك معنا. سنقوم بالرد على استفسارك ومكالمتك في أقرب وقت ممكن خلال ٢٤ ساعة."
+                        : "Thank you for getting in touch. We will review your enquiry and get back to you shortly.")}
+                </p>
               </div>
             ) : (
-              <form
-                onSubmit={handleSubmit}
-                className="bg-white asymmetric-card p-8 shadow-ih-soft space-y-5 border border-gray-100"
-              >
-                {[
-                  { key: "name", type: "text", label: t("contact.form.name") },
-                  { key: "email", type: "email", label: t("contact.form.email") },
-                  { key: "subject", type: "text", label: t("contact.form.subject") },
-                ].map(({ key, type, label }) => (
-                  <div key={key}>
-                    <label className="block text-xs font-bold uppercase tracking-wider mb-2 text-gray-500">
-                      {label}
-                    </label>
-                    <input
-                      id={`contact-${key}`}
-                      type={type}
-                      required
-                      value={form[key as keyof typeof form]}
-                      onChange={(e) => setForm({ ...form, [key]: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-100 transition-all"
-                      style={{ color: "var(--color-charcoal)" }}
-                    />
-                  </div>
-                ))}
-                <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider mb-2 text-gray-500">
-                    {t("contact.form.message")}
-                  </label>
-                  <textarea
-                    id="contact-message"
-                    required
-                    rows={5}
-                    value={form.message}
-                    onChange={(e) => setForm({ ...form, message: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-100 transition-all resize-none"
-                    style={{ color: "var(--color-charcoal)" }}
-                  />
+              <div className="bg-white asymmetric-card p-8 sm:p-10 shadow-ih-soft border border-gray-100">
+                {/* Form Selection Tabs */}
+                <div className="flex border-b border-gray-100 mb-8">
+                  <button
+                    type="button"
+                    onClick={() => setActiveForm("contact")}
+                    className={`flex-1 pb-4 text-sm font-bold border-b-2 text-center transition-all ${
+                      activeForm === "contact"
+                        ? "border-[#002f6c] text-[#002f6c]"
+                        : "border-transparent text-gray-400 hover:text-gray-600"
+                    }`}
+                  >
+                    {isRtl ? "تواصل معنا" : "Contact Us"}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setActiveForm("quotation")}
+                    className={`flex-1 pb-4 text-sm font-bold border-b-2 text-center transition-all ${
+                      activeForm === "quotation"
+                        ? "border-[#002f6c] text-[#002f6c]"
+                        : "border-transparent text-gray-400 hover:text-gray-600"
+                    }`}
+                  >
+                    {isRtl ? "طلب عرض سعر" : "Request Quote"}
+                  </button>
                 </div>
-                <button
-                  type="submit"
-                  id="contact-submit"
-                  className="w-full flex items-center justify-center gap-2 py-4 rounded-2xl font-bold text-base text-white shadow-[0_10px_25px_rgba(0,47,108,0.2)] hover:scale-[1.02] transition-all"
-                  style={{ background: "var(--color-primary)" }}
-                >
-                  <Send size={16} />
-                  {t("contact.form.submit")}
-                </button>
-              </form>
+
+                {activeForm === "contact" ? (
+                  <form onSubmit={handleSubmit} className="space-y-5 text-start">
+                    {[
+                      { key: "name", type: "text", label: t("contact.form.name") },
+                      { key: "email", type: "email", label: t("contact.form.email") },
+                      { key: "subject", type: "text", label: t("contact.form.subject") },
+                    ].map(({ key, type, label }) => (
+                      <div key={key}>
+                        <label className="block text-xs font-bold uppercase tracking-wider mb-2 text-gray-500">
+                          {label}
+                        </label>
+                        <input
+                          id={`contact-${key}`}
+                          type={type}
+                          required
+                          value={form[key as keyof typeof form]}
+                          onChange={(e) => setForm({ ...form, [key]: e.target.value })}
+                          className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-100 transition-all"
+                          style={{ color: "var(--color-charcoal)" }}
+                        />
+                      </div>
+                    ))}
+                    <div>
+                      <label className="block text-xs font-bold uppercase tracking-wider mb-2 text-gray-500">
+                        {t("contact.form.message")}
+                      </label>
+                      <textarea
+                        id="contact-message"
+                        required
+                        rows={5}
+                        value={form.message}
+                        onChange={(e) => setForm({ ...form, message: e.target.value })}
+                        className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-100 transition-all resize-none"
+                        style={{ color: "var(--color-charcoal)" }}
+                      />
+                    </div>
+                    <button
+                      type="submit"
+                      id="contact-submit"
+                      className="w-full flex items-center justify-center gap-2 py-4 rounded-2xl font-bold text-base text-white shadow-[0_10px_25px_rgba(0,47,108,0.2)] hover:scale-[1.02] transition-all cursor-pointer"
+                      style={{ background: "var(--color-primary)" }}
+                    >
+                      <Send size={16} />
+                      {t("contact.form.submit")}
+                    </button>
+                  </form>
+                ) : (
+                  <form onSubmit={handleQuoteSubmit} className="space-y-5 text-start">
+                    {/* Name */}
+                    <div>
+                      <label className="block text-xs font-bold uppercase tracking-wider mb-2 text-gray-500">
+                        {isRtl ? "الاسم الكامل" : "Full Name"} <span className="text-red-500">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        value={quoteForm.name}
+                        onChange={(e) => {
+                          setQuoteForm({ ...quoteForm, name: e.target.value });
+                          if (validationErrors.name) setValidationErrors({ ...validationErrors, name: "" });
+                        }}
+                        className={`w-full px-4 py-3 rounded-xl border text-sm text-gray-800 bg-slate-50/50 focus:outline-none focus:border-blue-500 transition-all ${
+                          validationErrors.name ? "border-red-500 bg-red-50/10" : "border-slate-200"
+                        }`}
+                      />
+                    </div>
+
+                    {/* Email & Phone */}
+                    <div className="grid sm:grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-xs font-bold uppercase tracking-wider mb-2 text-gray-500">
+                          {isRtl ? "البريد الإلكتروني" : "Email Address"} <span className="text-red-500">*</span>
+                        </label>
+                        <input
+                          type="email"
+                          required
+                          value={quoteForm.email}
+                          onChange={(e) => {
+                            setQuoteForm({ ...quoteForm, email: e.target.value });
+                            if (validationErrors.email) setValidationErrors({ ...validationErrors, email: "" });
+                          }}
+                          className={`w-full px-4 py-3 rounded-xl border text-sm text-gray-800 bg-slate-50/50 focus:outline-none focus:border-blue-500 transition-all ${
+                            validationErrors.email ? "border-red-500 bg-red-50/10" : "border-slate-200"
+                          }`}
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-xs font-bold uppercase tracking-wider mb-2 text-gray-500">
+                          {isRtl ? "رقم الهاتف / الجوال" : "Phone Number"} <span className="text-red-500">*</span>
+                        </label>
+                        <input
+                          type="tel"
+                          required
+                          value={quoteForm.phone}
+                          onChange={(e) => {
+                            setQuoteForm({ ...quoteForm, phone: e.target.value });
+                            if (validationErrors.phone) setValidationErrors({ ...validationErrors, phone: "" });
+                          }}
+                          className={`w-full px-4 py-3 rounded-xl border text-sm text-gray-800 bg-slate-50/50 focus:outline-none focus:border-blue-500 transition-all ${
+                            validationErrors.phone ? "border-red-500 bg-red-50/10" : "border-slate-200"
+                          }`}
+                        />
+                      </div>
+                    </div>
+
+                    {/* Inquiry Category & Specific Program */}
+                    <div className="grid sm:grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-xs font-bold uppercase tracking-wider mb-2 text-gray-500">
+                          {isRtl ? "تصنيف الاستفسار" : "Category"} <span className="text-red-500">*</span>
+                        </label>
+                        <select
+                          required
+                          value={quoteForm.category}
+                          onChange={(e) => setQuoteForm({ ...quoteForm, category: e.target.value })}
+                          className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-gray-800 bg-slate-50/50 focus:outline-none focus:border-blue-500 appearance-none cursor-pointer"
+                        >
+                          <option value="">{isRtl ? "اختر التصنيف" : "Select Category"}</option>
+                          <option value="general_course">{isRtl ? "دورات لغة إنجليزية عامة" : "General English Courses"}</option>
+                          <option value="corporate">{isRtl ? "برامج تدريب الشركات" : "Corporate Training"}</option>
+                          <option value="exams">{isRtl ? "الاختبارات الدولية (IELTS, etc)" : "International Examinations"}</option>
+                          <option value="teacher_celta">{isRtl ? "تطوير المعلمين (CELTA)" : "Teacher Training / CELTA"}</option>
+                          <option value="study_abroad">{isRtl ? "الدراسة والابتعاث في الخارج" : "Study Abroad & Travel"}</option>
+                        </select>
+                      </div>
+                      <div>
+                        <label className="block text-xs font-bold uppercase tracking-wider mb-2 text-gray-500">
+                          {isRtl ? "اسم البرنامج / المنهج المحدد" : "Specific Program / Course Name"}
+                        </label>
+                        <input
+                          type="text"
+                          placeholder="e.g. IELTS Evening, CELTA July"
+                          value={quoteForm.program}
+                          onChange={(e) => setQuoteForm({ ...quoteForm, program: e.target.value })}
+                          className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-gray-800 bg-slate-50/50 focus:outline-none focus:border-blue-500"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Message */}
+                    <div>
+                      <label className="block text-xs font-bold uppercase tracking-wider mb-2 text-gray-500">
+                        {isRtl ? "تفاصيل إضافية / متطلبات خاصة" : "Additional Specifications"}
+                      </label>
+                      <textarea
+                        rows={4}
+                        value={quoteForm.message}
+                        onChange={(e) => setQuoteForm({ ...quoteForm, message: e.target.value })}
+                        className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-gray-800 bg-slate-50/50 focus:outline-none focus:border-blue-500 resize-none"
+                      />
+                    </div>
+
+                    {/* Submit Button */}
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="w-full flex items-center justify-center gap-2 py-4 rounded-xl font-bold text-sm text-white bg-[#002f6c] hover:bg-blue-800 disabled:opacity-50 select-none cursor-pointer"
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <Loader2 className="animate-spin" size={16} />
+                          <span>{isRtl ? "جاري الإرسال..." : "Sending..."}</span>
+                        </>
+                      ) : (
+                        <>
+                          <Send size={14} />
+                          <span>{isRtl ? "إرسال طلب التسعيرة" : "Request Quotation"}</span>
+                        </>
+                      )}
+                    </button>
+                  </form>
+                )}
+              </div>
             )}
           </motion.div>
         </div>

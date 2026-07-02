@@ -2,10 +2,11 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
 import ThemeAccent from "@/components/ThemeAccent";
 import { motion } from "framer-motion";
-import { Briefcase, MapPin, Clock, Award, Users, GraduationCap, Heart, CheckCircle2, ChevronRight, Mail, Send, Upload } from "lucide-react";
+import { Briefcase, MapPin, Clock, Award, Users, GraduationCap, Heart, CheckCircle2, ChevronRight, Mail, Send, Upload, AlertCircle, Loader2 } from "lucide-react";
 
 const content = {
   en: {
@@ -202,10 +203,60 @@ export default function CareersPage() {
   const { lang, isRTL } = useLanguage();
   const c = content[lang] || content.en;
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    nationality: "",
+    location: "",
+    qualification: "",
+    experience: "",
+    position: "",
+    cvFile: null as File | null,
+    cvFileName: "",
+    cover: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [validationErrors, setValidationErrors] = useState<Record<string, string>>({});
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setFormSubmitted(true);
+    const errors: Record<string, string> = {};
+    const commonReq = lang === "ar" ? "هذا الحقل مطلوب" : "This field is required";
+    if (!form.name.trim()) errors.name = commonReq;
+    if (!form.email.trim()) errors.email = commonReq;
+    if (!form.phone.trim()) errors.phone = commonReq;
+    if (!form.nationality.trim()) errors.nationality = commonReq;
+    if (!form.location) errors.location = commonReq;
+    if (!form.qualification) errors.qualification = commonReq;
+    if (!form.experience) errors.experience = commonReq;
+    if (!form.position) errors.position = commonReq;
+    if (!form.cvFile) errors.cvFile = commonReq;
+
+    if (Object.keys(errors).length > 0) {
+      setValidationErrors(errors);
+      return;
+    }
+
+    setIsSubmitting(true);
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setFormSubmitted(true);
+      setForm({
+        name: "",
+        email: "",
+        phone: "",
+        nationality: "",
+        location: "",
+        qualification: "",
+        experience: "",
+        position: "",
+        cvFile: null,
+        cvFileName: "",
+        cover: "",
+      });
+      setValidationErrors({});
+    }, 1200);
   };
 
   return (
@@ -391,12 +442,12 @@ export default function CareersPage() {
                     {job.desc}
                   </p>
                 </div>
-                <a
-                  href="#apply"
+                <Link
+                  href="/register?form=teacher"
                   className="w-full text-center px-4 py-2.5 bg-[#002f6c] hover:bg-[#0050b3] text-white font-semibold rounded-xl text-xs transition-colors"
                 >
                   {c.jobs.applyBtn}
-                </a>
+                </Link>
               </motion.div>
             ))}
           </div>
@@ -429,7 +480,7 @@ export default function CareersPage() {
             </div>
 
             {/* Form Card */}
-            <div className="lg:col-span-7 bg-white p-8 rounded-3xl border border-slate-150 shadow-sm relative">
+            <div className="lg:col-span-7 bg-white p-8 sm:p-10 rounded-3xl border border-slate-150 shadow-sm relative">
               <h3 className="text-sm font-bold text-gray-800 mb-6 border-b border-gray-100 pb-4">
                 {c.apply.header}
               </h3>
@@ -437,51 +488,215 @@ export default function CareersPage() {
               {formSubmitted ? (
                 <div className="text-center py-8">
                   <CheckCircle2 size={48} className="text-green-600 mx-auto mb-4" />
-                  <p className="text-sm font-bold text-gray-800 leading-relaxed">{c.apply.success}</p>
+                  <p className="text-sm font-bold text-gray-800 leading-relaxed">
+                    {lang === "ar"
+                      ? "تم تقديم طلبك بنجاح! شكراً لاهتمامك بالانضمام إلى معاهد الهاوس الدولي السعودية. سيقوم الفريق الأكاديمي بمراجعة ملفك والتواصل معك قريباً."
+                      : "Your application has been submitted successfully! Thank you for your interest in IH Saudi Arabia. Our academic team will review your profile and contact you soon."}
+                  </p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form onSubmit={handleFormSubmit} className="space-y-4">
+                  {/* Full Name */}
                   <div>
-                    <label className="block text-[10px] font-bold text-gray-700 uppercase mb-1.5">{c.apply.form.name}</label>
-                    <input required type="text" className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:border-blue-500 text-xs text-gray-800 bg-slate-50/50" />
+                    <label className="block text-[10px] font-bold text-gray-700 uppercase mb-1.5">{c.apply.form.name} *</label>
+                    <input
+                      required
+                      type="text"
+                      value={form.name}
+                      onChange={(e) => {
+                        setForm({ ...form, name: e.target.value });
+                        if (validationErrors.name) setValidationErrors({ ...validationErrors, name: "" });
+                      }}
+                      className={`w-full px-4 py-2.5 rounded-xl border text-xs text-gray-800 bg-slate-50/50 focus:outline-none focus:border-blue-500 ${
+                        validationErrors.name ? "border-red-500" : "border-gray-200"
+                      }`}
+                    />
                   </div>
                   
+                  {/* Email & Phone */}
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-[10px] font-bold text-gray-700 uppercase mb-1.5">{c.apply.form.email}</label>
-                      <input required type="email" className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:border-blue-500 text-xs text-gray-800 bg-slate-50/50" />
+                      <label className="block text-[10px] font-bold text-gray-700 uppercase mb-1.5">{c.apply.form.email} *</label>
+                      <input
+                        required
+                        type="email"
+                        value={form.email}
+                        onChange={(e) => {
+                          setForm({ ...form, email: e.target.value });
+                          if (validationErrors.email) setValidationErrors({ ...validationErrors, email: "" });
+                        }}
+                        className={`w-full px-4 py-2.5 rounded-xl border text-xs text-gray-800 bg-slate-50/50 focus:outline-none focus:border-blue-500 ${
+                          validationErrors.email ? "border-red-500" : "border-gray-200"
+                        }`}
+                      />
                     </div>
                     <div>
-                      <label className="block text-[10px] font-bold text-gray-700 uppercase mb-1.5">{c.apply.form.phone}</label>
-                      <input required type="tel" className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:border-blue-500 text-xs text-gray-800 bg-slate-50/50" />
+                      <label className="block text-[10px] font-bold text-gray-700 uppercase mb-1.5">{c.apply.form.phone} *</label>
+                      <input
+                        required
+                        type="tel"
+                        value={form.phone}
+                        onChange={(e) => {
+                          setForm({ ...form, phone: e.target.value });
+                          if (validationErrors.phone) setValidationErrors({ ...validationErrors, phone: "" });
+                        }}
+                        className={`w-full px-4 py-2.5 rounded-xl border text-xs text-gray-800 bg-slate-50/50 focus:outline-none focus:border-blue-500 ${
+                          validationErrors.phone ? "border-red-500" : "border-gray-200"
+                        }`}
+                      />
                     </div>
                   </div>
 
+                  {/* Nationality & Current Location */}
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-[10px] font-bold text-gray-700 uppercase mb-1.5">{lang === "ar" ? "الجنسية" : "Nationality"} *</label>
+                      <input
+                        required
+                        type="text"
+                        value={form.nationality}
+                        onChange={(e) => {
+                          setForm({ ...form, nationality: e.target.value });
+                          if (validationErrors.nationality) setValidationErrors({ ...validationErrors, nationality: "" });
+                        }}
+                        className={`w-full px-4 py-2.5 rounded-xl border text-xs text-gray-800 bg-slate-50/50 focus:outline-none focus:border-blue-500 ${
+                          validationErrors.nationality ? "border-red-500" : "border-gray-200"
+                        }`}
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-[10px] font-bold text-gray-700 uppercase mb-1.5">{lang === "ar" ? "مكان الإقامة الحالي" : "Current Location"} *</label>
+                      <select
+                        required
+                        value={form.location}
+                        onChange={(e) => setForm({ ...form, location: e.target.value })}
+                        className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:border-blue-500 text-xs text-gray-800 bg-slate-50/50 appearance-none cursor-pointer"
+                      >
+                        <option value="">{lang === "ar" ? "اختر الموقع" : "Select Location"}</option>
+                        <option value="ksa">{lang === "ar" ? "داخل المملكة العربية السعودية" : "Inside Saudi Arabia (KSA)"}</option>
+                        <option value="abroad">{lang === "ar" ? "خارج المملكة العربية السعودية" : "Outside Saudi Arabia"}</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  {/* Highest Qualification & Teaching Experience */}
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-[10px] font-bold text-gray-700 uppercase mb-1.5">{lang === "ar" ? "أعلى مؤهل علمي" : "Highest Qualification"} *</label>
+                      <select
+                        required
+                        value={form.qualification}
+                        onChange={(e) => setForm({ ...form, qualification: e.target.value })}
+                        className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:border-blue-500 text-xs text-gray-800 bg-slate-50/50 appearance-none cursor-pointer"
+                      >
+                        <option value="">{lang === "ar" ? "اختر المؤهل" : "Select Qualification"}</option>
+                        <option value="celta">CELTA</option>
+                        <option value="delta">DELTA</option>
+                        <option value="ma_tesol">MA TESOL / Linguistics</option>
+                        <option value="ba_english">BA English / Education</option>
+                        <option value="tefl_120">TEFL Certificate (120+ hours)</option>
+                        <option value="other">Other</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label className="block text-[10px] font-bold text-gray-700 uppercase mb-1.5">{lang === "ar" ? "سنوات الخبرة" : "Years of Experience"} *</label>
+                      <select
+                        required
+                        value={form.experience}
+                        onChange={(e) => setForm({ ...form, experience: e.target.value })}
+                        className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:border-blue-500 text-xs text-gray-800 bg-slate-50/50 appearance-none cursor-pointer"
+                      >
+                        <option value="">{lang === "ar" ? "اختر سنوات الخبرة" : "Select Experience"}</option>
+                        <option value="less_than_1">{lang === "ar" ? "أقل من سنة" : "Less than 1 year"}</option>
+                        <option value="1_to_3">{lang === "ar" ? "سنة إلى ٣ سنوات" : "1 to 3 years"}</option>
+                        <option value="3_to_5">{lang === "ar" ? "٣ إلى ٥ سنوات" : "3 to 5 years"}</option>
+                        <option value="5_plus">{lang === "ar" ? "أكثر من ٥ سنوات" : "5+ years"}</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  {/* Target Position */}
                   <div>
-                    <label className="block text-[10px] font-bold text-gray-700 uppercase mb-1.5">{c.apply.form.position}</label>
-                    <select className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:border-blue-500 text-xs text-gray-800 bg-slate-50/50">
-                      {c.apply.list.map((item, idx) => (
-                        <option key={idx} value={item}>{item}</option>
-                      ))}
+                    <label className="block text-[10px] font-bold text-gray-700 uppercase mb-1.5">{c.apply.form.position} *</label>
+                    <select
+                      required
+                      value={form.position}
+                      onChange={(e) => setForm({ ...form, position: e.target.value })}
+                      className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:border-blue-500 text-xs text-gray-800 bg-slate-50/50 appearance-none cursor-pointer"
+                    >
+                      <option value="">{lang === "ar" ? "اختر المسمى الوظيفي" : "Select Target Position"}</option>
+                      <option value="English Teacher">{lang === "ar" ? "معلم لغة إنجليزية" : "English Language Instructor"}</option>
+                      <option value="Corporate ESP Trainer">{lang === "ar" ? "مدرب لغة إنجليزية للشركات" : "Corporate ESP Trainer"}</option>
+                      <option value="CELTA Trainer">{lang === "ar" ? "مدرب دورات سيلتا معتمد" : "CELTA Teacher Trainer"}</option>
+                      <option value="Academic Leader">{lang === "ar" ? "منسق / موجه أكاديمي" : "Academic Coordinator"}</option>
+                      <option value="Advisor">{lang === "ar" ? "مستشار طلابي / تسجيل" : "Student Advisor / Registrar"}</option>
                     </select>
                   </div>
 
+                  {/* CV File Selector */}
                   <div>
-                    <label className="block text-[10px] font-bold text-gray-700 uppercase mb-1.5">{c.apply.form.cv}</label>
-                    <div className="border border-dashed border-gray-200 rounded-xl p-4 text-center cursor-pointer hover:bg-slate-50 transition-colors flex flex-col items-center justify-center gap-1 bg-slate-50/20">
-                      <Upload size={18} className="text-gray-400" />
-                      <span className="text-[10px] text-gray-500 font-semibold">{lang === "ar" ? "اضغط لرفع الملف (PDF, Word)" : "Click to upload CV (PDF, Word)"}</span>
+                    <label className="block text-[10px] font-bold text-gray-700 uppercase mb-1.5">{c.apply.form.cv} *</label>
+                    <div className="relative border border-dashed border-gray-200 rounded-xl p-4 text-center cursor-pointer hover:bg-slate-50 transition-colors flex flex-col items-center justify-center gap-1 bg-slate-50/20 group">
+                      <input
+                        type="file"
+                        accept=".pdf,.doc,.docx"
+                        required={!form.cvFile}
+                        onChange={(e) => {
+                          if (e.target.files && e.target.files.length > 0) {
+                            const file = e.target.files[0];
+                            setForm({ ...form, cvFile: file, cvFileName: file.name });
+                            if (validationErrors.cvFile) setValidationErrors({ ...validationErrors, cvFile: "" });
+                          }
+                        }}
+                        className="absolute inset-0 opacity-0 cursor-pointer w-full h-full z-10"
+                      />
+                      <Upload size={18} className="text-gray-400 group-hover:text-[#002f6c]" />
+                      <span className="text-[10px] text-gray-500 font-semibold">
+                        {form.cvFileName ? (
+                          <span className="text-green-600 flex items-center gap-1">
+                            <CheckCircle2 size={12} />
+                            {form.cvFileName}
+                          </span>
+                        ) : (
+                          lang === "ar" ? "اضغط لرفع الملف (PDF, Word)" : "Click to upload CV (PDF, Word)"
+                        )}
+                      </span>
                     </div>
+                    {validationErrors.cvFile && (
+                      <p className="text-red-500 text-[9px] mt-1 flex items-center gap-1">
+                        <AlertCircle size={10} /> {validationErrors.cvFile}
+                      </p>
+                    )}
                   </div>
 
+                  {/* Message Cover Letter */}
                   <div>
                     <label className="block text-[10px] font-bold text-gray-700 uppercase mb-1.5">{c.apply.form.msg}</label>
-                    <textarea rows={3} className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:border-blue-500 text-xs text-gray-800 bg-slate-50/50 resize-none" />
+                    <textarea
+                      rows={3}
+                      value={form.cover}
+                      onChange={(e) => setForm({ ...form, cover: e.target.value })}
+                      className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:border-blue-500 text-xs text-gray-800 bg-slate-50/50 resize-none"
+                    />
                   </div>
 
-                  <button type="submit" className="w-full py-3 bg-[#002f6c] hover:bg-[#0050b3] text-white font-bold rounded-xl text-xs hover:shadow-md transition-all flex items-center justify-center gap-2">
-                    <Send size={14} />
-                    {c.apply.form.submit}
+                  {/* Submit Button */}
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full py-3 bg-[#002f6c] hover:bg-[#0050b3] text-white font-bold rounded-xl text-xs hover:shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="animate-spin" size={12} />
+                        <span>{lang === "ar" ? "جاري الإرسال..." : "Sending..."}</span>
+                      </>
+                    ) : (
+                      <>
+                        <Send size={12} />
+                        <span>{c.apply.form.submit}</span>
+                      </>
+                    )}
                   </button>
                 </form>
               )}

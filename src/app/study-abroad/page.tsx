@@ -1,12 +1,12 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
 import ThemeAccent from "@/components/ThemeAccent";
 import { motion } from "framer-motion";
-import { Plane, Compass, Globe, Award, Users, BookOpen, Clock, Heart, CheckCircle2, ChevronRight, Phone, MessageSquare } from "lucide-react";
+import { Plane, Compass, Globe, Award, Users, BookOpen, Clock, Heart, CheckCircle2, ChevronRight, Phone, MessageSquare, Send, AlertCircle, Loader2 } from "lucide-react";
 
 const content = {
   en: {
@@ -204,6 +204,58 @@ const content = {
 export default function StudyAbroadPage() {
   const { lang, isRTL } = useLanguage();
   const c = content[lang] || content.en;
+
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    destination: "",
+    programType: "",
+    duration: "",
+    startDate: "",
+    accommodation: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [validationErrors, setValidationErrors] = useState<Record<string, string>>({});
+
+  const handleFormSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const errors: Record<string, string> = {};
+    const commonReq = lang === "ar" ? "هذا الحقل مطلوب" : "This field is required";
+    if (!form.name.trim()) errors.name = commonReq;
+    if (!form.email.trim()) errors.email = commonReq;
+    if (!form.phone.trim()) errors.phone = commonReq;
+    if (!form.destination) errors.destination = commonReq;
+    if (!form.programType) errors.programType = commonReq;
+    if (!form.duration) errors.duration = commonReq;
+    if (!form.startDate) errors.startDate = commonReq;
+    if (!form.accommodation) errors.accommodation = commonReq;
+
+    if (Object.keys(errors).length > 0) {
+      setValidationErrors(errors);
+      return;
+    }
+
+    setIsSubmitting(true);
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setFormSubmitted(true);
+      setForm({
+        name: "",
+        email: "",
+        phone: "",
+        destination: "",
+        programType: "",
+        duration: "",
+        startDate: "",
+        accommodation: "",
+        message: "",
+      });
+      setValidationErrors({});
+    }, 1200);
+  };
 
   return (
     <div className="pt-24 min-h-screen bg-slate-50">
@@ -488,13 +540,13 @@ export default function StudyAbroadPage() {
                 {c.cta.notice}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link
-                  href="/contact"
+                <a
+                  href="#abroad-enquiry-section"
                   className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-red-600 hover:bg-red-700 text-white font-bold rounded-2xl text-sm transition-all"
                 >
                   <MessageSquare size={16} />
                   {c.cta.btn}
-                </Link>
+                </a>
                 <a
                   href="tel:+966920000364"
                   className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white border border-slate-200 hover:bg-slate-100 text-gray-800 font-bold rounded-2xl text-sm transition-all"
@@ -504,6 +556,230 @@ export default function StudyAbroadPage() {
                 </a>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── SECTION 9: INLINE STUDY ABROAD ENQUIRY FORM ─── */}
+      <section id="abroad-enquiry-section" className="py-24 bg-slate-50 border-t border-slate-200 scroll-mt-28">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-[#002f6c] mb-3">
+              {lang === "ar" ? "استفسر عن الدراسة في الخارج" : "Enquire About Studying Abroad"}
+            </h2>
+            <p className="text-gray-500 text-sm leading-relaxed">
+              {lang === "ar"
+                ? "املأ استمارة الاستفسار هذه وسيتواصل معك مستشار البعثات والدراسة الدولية في أقرب وقت."
+                : "Fill out this form to connect with our Study Abroad consultant and plan your global learning journey."}
+            </p>
+          </div>
+
+          <div className="bg-white p-8 sm:p-10 rounded-3xl border border-slate-200 shadow-sm relative overflow-hidden">
+            <div className="h-1.5 absolute top-0 left-0 right-0 bg-[#002f6c]" />
+
+            {formSubmitted ? (
+              <div className="text-center py-10">
+                <CheckCircle2 size={48} className="text-green-600 mx-auto mb-4" />
+                <h3 className="text-lg font-bold text-[#002f6c] mb-2">
+                  {lang === "ar" ? "تم إرسال استفسارك بنجاح!" : "Enquiry Submitted Successfully!"}
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-500 leading-relaxed max-w-md mx-auto">
+                  {lang === "ar"
+                    ? "شكراً لتواصلك معنا بخصوص الدراسة في الخارج مع الهاوس الدولي. سيقوم مستشار الدراسة الدولية لدينا بالتواصل معك خلال ٢٤ ساعة لمناقشة خيارات القبول والسفر والإقامة."
+                    : "Thank you for contacting us about studying abroad. Our international study consultant will contact you within 24 hours to discuss admission pathways, visas, and destinations."}
+                </p>
+              </div>
+            ) : (
+              <form onSubmit={handleFormSubmit} className="space-y-6">
+                {/* Full Name & Email */}
+                <div className="grid sm:grid-cols-2 gap-5">
+                  <div>
+                    <label className="block text-xs font-bold text-gray-700 uppercase mb-2">
+                      {lang === "ar" ? "الاسم الكامل" : "Full Name"} <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      value={form.name}
+                      onChange={(e) => {
+                        setForm({ ...form, name: e.target.value });
+                        if (validationErrors.name) setValidationErrors({ ...validationErrors, name: "" });
+                      }}
+                      className={`w-full px-4 py-3 rounded-xl border text-sm text-gray-800 bg-slate-50/50 focus:outline-none focus:border-blue-500 transition-all ${
+                        validationErrors.name ? "border-red-500" : "border-slate-200"
+                      }`}
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-bold text-gray-700 uppercase mb-2">
+                      {lang === "ar" ? "البريد الإلكتروني" : "Email Address"} <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="email"
+                      required
+                      value={form.email}
+                      onChange={(e) => {
+                        setForm({ ...form, email: e.target.value });
+                        if (validationErrors.email) setValidationErrors({ ...validationErrors, email: "" });
+                      }}
+                      className={`w-full px-4 py-3 rounded-xl border text-sm text-gray-800 bg-slate-50/50 focus:outline-none focus:border-blue-500 transition-all ${
+                        validationErrors.email ? "border-red-500" : "border-slate-200"
+                      }`}
+                    />
+                  </div>
+                </div>
+
+                {/* Phone & Destination */}
+                <div className="grid sm:grid-cols-2 gap-5">
+                  <div>
+                    <label className="block text-xs font-bold text-gray-700 uppercase mb-2">
+                      {lang === "ar" ? "رقم الجوال" : "Phone Number"} <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="tel"
+                      required
+                      value={form.phone}
+                      onChange={(e) => {
+                        setForm({ ...form, phone: e.target.value });
+                        if (validationErrors.phone) setValidationErrors({ ...validationErrors, phone: "" });
+                      }}
+                      className={`w-full px-4 py-3 rounded-xl border text-sm text-gray-800 bg-slate-50/50 focus:outline-none focus:border-blue-500 transition-all ${
+                        validationErrors.phone ? "border-red-500" : "border-slate-200"
+                      }`}
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-bold text-gray-700 uppercase mb-2">
+                      {lang === "ar" ? "الوجهة المفضلة" : "Preferred Destination"} <span className="text-red-500">*</span>
+                    </label>
+                    <select
+                      required
+                      value={form.destination}
+                      onChange={(e) => setForm({ ...form, destination: e.target.value })}
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-gray-800 bg-slate-50/50 focus:outline-none focus:border-blue-500 appearance-none cursor-pointer"
+                    >
+                      <option value="">{lang === "ar" ? "اختر الوجهة" : "Select Destination"}</option>
+                      <option value="UK">{lang === "ar" ? "المملكة المتحدة" : "United Kingdom"}</option>
+                      <option value="US">{lang === "ar" ? "الولايات المتحدة الأمريكية" : "United States"}</option>
+                      <option value="Canada">{lang === "ar" ? "كندا" : "Canada"}</option>
+                      <option value="Australia">{lang === "ar" ? "أستراليا" : "Australia"}</option>
+                      <option value="France">{lang === "ar" ? "فرنسا" : "France"}</option>
+                      <option value="Spain">{lang === "ar" ? "إسبانيا" : "Spain"}</option>
+                      <option value="Germany">{lang === "ar" ? "ألمانيا" : "Germany"}</option>
+                      <option value="Italy">{lang === "ar" ? "إيطاليا" : "Italy"}</option>
+                      <option value="South Africa">{lang === "ar" ? "جنوب أفريقيا" : "South Africa"}</option>
+                      <option value="UAE">{lang === "ar" ? "الإمارات العربية المتحدة" : "United Arab Emirates"}</option>
+                    </select>
+                  </div>
+                </div>
+
+                {/* Program Type & Intended Duration */}
+                <div className="grid sm:grid-cols-2 gap-5">
+                  <div>
+                    <label className="block text-xs font-bold text-gray-700 uppercase mb-2">
+                      {lang === "ar" ? "نوع البرنامج الدراسي" : "Program Type"} <span className="text-red-500">*</span>
+                    </label>
+                    <select
+                      required
+                      value={form.programType}
+                      onChange={(e) => setForm({ ...form, programType: e.target.value })}
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-gray-800 bg-slate-50/50 focus:outline-none focus:border-blue-500 appearance-none cursor-pointer"
+                    >
+                      <option value="">{lang === "ar" ? "اختر نوع البرنامج" : "Select Program Type"}</option>
+                      <option value="general">{lang === "ar" ? "برامج اللغة العامة" : "General English Programs"}</option>
+                      <option value="intensive">{lang === "ar" ? "دورات لغة مكثفة" : "Intensive Language Courses"}</option>
+                      <option value="summer">{lang === "ar" ? "مخيم صيفي للشباب" : "Summer Youth Programs"}</option>
+                      <option value="university">{lang === "ar" ? "تأهيل وقبول جامعي" : "University Foundation Prep"}</option>
+                      <option value="exams">{lang === "ar" ? "تحضير للاختبارات الدولية" : "International Exam Prep"}</option>
+                      <option value="teacher_training">{lang === "ar" ? "تطوير المعلمين (CELTA)" : "Teacher Development (CELTA)"}</option>
+                      <option value="exchange">{lang === "ar" ? "تبادل ثقافي" : "Cultural Exchange"}</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label className="block text-xs font-bold text-gray-700 uppercase mb-2">
+                      {lang === "ar" ? "المدة المقترحة" : "Intended Duration"} <span className="text-red-500">*</span>
+                    </label>
+                    <select
+                      required
+                      value={form.duration}
+                      onChange={(e) => setForm({ ...form, duration: e.target.value })}
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-gray-800 bg-slate-50/50 focus:outline-none focus:border-blue-500 appearance-none cursor-pointer"
+                    >
+                      <option value="">{lang === "ar" ? "اختر مدة الدراسة" : "Select Duration"}</option>
+                      <option value="2_4_weeks">{lang === "ar" ? "من ٢ إلى ٤ أسابيع" : "2 to 4 Weeks"}</option>
+                      <option value="1_3_months">{lang === "ar" ? "من شهر إلى ٣ أشهر" : "1 to 3 Months"}</option>
+                      <option value="3_6_months">{lang === "ar" ? "من ٣ إلى ٦ أشهر" : "3 to 6 Months"}</option>
+                      <option value="6_months_plus">{lang === "ar" ? "٦ أشهر فأكثر" : "6+ Months"}</option>
+                    </select>
+                  </div>
+                </div>
+
+                {/* Start Date & Accommodation */}
+                <div className="grid sm:grid-cols-2 gap-5">
+                  <div>
+                    <label className="block text-xs font-bold text-gray-700 uppercase mb-2">
+                      {lang === "ar" ? "تاريخ البدء المتوقع" : "Target Start Date"} <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="date"
+                      required
+                      value={form.startDate}
+                      onChange={(e) => setForm({ ...form, startDate: e.target.value })}
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-gray-800 bg-slate-50/50 focus:outline-none focus:border-blue-500"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-bold text-gray-700 uppercase mb-2">
+                      {lang === "ar" ? "خيار السكن المفضل" : "Accommodation Preference"} <span className="text-red-500">*</span>
+                    </label>
+                    <select
+                      required
+                      value={form.accommodation}
+                      onChange={(e) => setForm({ ...form, accommodation: e.target.value })}
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-gray-800 bg-slate-50/50 focus:outline-none focus:border-blue-500 appearance-none cursor-pointer"
+                    >
+                      <option value="">{lang === "ar" ? "اختر خيار السكن" : "Select Accommodation"}</option>
+                      <option value="homestay">{lang === "ar" ? "سكن مع عائلة مضيفة" : "Homestay (Living with family)"}</option>
+                      <option value="residence">{lang === "ar" ? "سكن طلابي / مهجع جماعي" : "Student Residence / Dorms"}</option>
+                      <option value="apartment">{lang === "ar" ? "شقة سكنية خاصة" : "Private Apartment"}</option>
+                      <option value="none">{lang === "ar" ? "غير مطلوب" : "Not Required (Self-arranged)"}</option>
+                    </select>
+                  </div>
+                </div>
+
+                {/* Message */}
+                <div>
+                  <label className="block text-xs font-bold text-gray-700 uppercase mb-2">
+                    {lang === "ar" ? "الرسالة / متطلبات خاصة" : "Message / Requirements"}
+                  </label>
+                  <textarea
+                    rows={4}
+                    value={form.message}
+                    onChange={(e) => setForm({ ...form, message: e.target.value })}
+                    className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-gray-800 bg-slate-50/50 focus:outline-none focus:border-blue-500 resize-none"
+                  />
+                </div>
+
+                {/* Submit Button */}
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full flex items-center justify-center gap-2 py-4 rounded-xl font-bold text-sm text-white bg-[#cf1430] hover:bg-red-700 shadow-md hover:shadow-lg disabled:opacity-50 select-none cursor-pointer"
+                >
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="animate-spin" size={16} />
+                      <span>{lang === "ar" ? "جاري الإرسال..." : "Sending..."}</span>
+                    </>
+                  ) : (
+                    <>
+                      <Send size={14} />
+                      <span>{lang === "ar" ? "إرسال الاستفسار" : "Submit Enquiry"}</span>
+                    </>
+                  )}
+                </button>
+              </form>
+            )}
           </div>
         </div>
       </section>
